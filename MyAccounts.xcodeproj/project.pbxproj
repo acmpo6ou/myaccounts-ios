@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */; };
+		D27CEDBA2A52D0580091B634 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDB92A52D0580091B634 /* Database.swift */; };
+		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
 		D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93442A4BF464004334BB /* MyAccountsApp.swift */; };
 		D2AB93472A4BF464004334BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93462A4BF464004334BB /* ContentView.swift */; };
 		D2AB93492A4BF465004334BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB93482A4BF465004334BB /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesList.swift; sourceTree = "<group>"; };
+		D27CEDB92A52D0580091B634 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		D27CEDBB2A52D1420091B634 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D2AB93412A4BF464004334BB /* MyAccounts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAccounts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB93442A4BF464004334BB /* MyAccountsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsApp.swift; sourceTree = "<group>"; };
 		D2AB93462A4BF464004334BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +77,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D26E0EFA2A51DC3700F47D72 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D26E0EFC2A51DCD200F47D72 /* DatabasesList */,
+				D27CEDB92A52D0580091B634 /* Database.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		D26E0EFB2A51DC6F00F47D72 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D27CEDBB2A52D1420091B634 /* Account.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D26E0EFC2A51DCD200F47D72 /* DatabasesList */ = {
+			isa = PBXGroup;
+			children = (
+				D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */,
+			);
+			path = DatabasesList;
+			sourceTree = "<group>";
+		};
 		D2AB93382A4BF464004334BB = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +125,8 @@
 		D2AB93432A4BF464004334BB /* MyAccounts */ = {
 			isa = PBXGroup;
 			children = (
+				D26E0EFA2A51DC3700F47D72 /* Database */,
+				D26E0EFB2A51DC6F00F47D72 /* Account */,
 				D2AB93442A4BF464004334BB /* MyAccountsApp.swift */,
 				D2AB93462A4BF464004334BB /* ContentView.swift */,
 				D2AB93482A4BF465004334BB /* Assets.xcassets */,
@@ -279,8 +312,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27CEDBC2A52D1420091B634 /* Account.swift in Sources */,
 				D2AB93472A4BF464004334BB /* ContentView.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
+				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,
+				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
