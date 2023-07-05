@@ -17,14 +17,13 @@
 import Foundation
 
 struct Database: Codable {
+    static let srcDir = ""  // TODO: get actual path
+
     var name: String
     var password: String?
     var accounts: [String: Account] = [:]
 
-    var dbaPath: String {
-        // TODO: construct dba file path from name and SRC_DIR
-        ""
-    }
+    var dbaPath: String { "\(Database.srcDir)/\(name).dba" }
     var isOpen: Bool { password == nil }
     var isSaved: Bool {
         // TODO: implement, document
@@ -33,13 +32,33 @@ struct Database: Codable {
 
     mutating func open(password: String) throws {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
-            throw FileError.fileError(message: "Couldn't open \(dbaPath) file.")
+            throw FileError.fileError(message: "Couldn't open \(dbaPath) file for reading.")
         }
         self.password = password
         let salt = try file.read(upToCount: 16)
         let token = try file.readToEnd()
         try? file.close()
         // TODO: decrypt token and deserialize data
+    }
+
+    mutating func close() {
+        self.password = nil
+        self.accounts = [:]
+    }
+
+    func create() throws {
+        guard let file = FileHandle(forWritingAtPath: dbaPath) else {
+            throw FileError.fileError(message: "Couldn't open \(dbaPath) file for writing.")
+        }
+        let salt = Data.secureRandom(ofSize: 16)
+        try file.write(contentsOf: salt)
+        // TODO: serialize `accounts`, encrypt them, and write to file
+    }
+
+    mutating func rename(newName: String) throws {
+        let oldPath = dbaPath
+        name = newName
+        try FileManager.default.moveItem(atPath: oldPath, toPath: dbaPath)
     }
 }
 
