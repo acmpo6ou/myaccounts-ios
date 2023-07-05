@@ -10,7 +10,7 @@
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -19,7 +19,17 @@ struct Account: Codable {
     let username: String
     let email: String
     let password: String
-    let date: String
-    let comment: String
+    let birthDate: String
+    let notes: String
     var attachedFiles: [String: String] = [:]
+
+    enum CodingKeys: String, CodingKey {
+        case accountName = "account"
+        case username = "name"
+        case email = "email"
+        case password = "password"
+        case birthDate = "date"
+        case notes = "comment"
+        case attachedFiles = "attach_files"
+    }
 }
