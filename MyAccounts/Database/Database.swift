@@ -19,7 +19,30 @@ import Foundation
 struct Database: Codable {
     var name: String
     var password: String?
-    var salt: Data?
-    var data: [String: Account] = [:]
+    var accounts: [String: Account] = [:]
+
+    var dbaPath: String {
+        // TODO: construct dba file path from name and SRC_DIR
+        ""
+    }
     var isOpen: Bool { password == nil }
+    var isSaved: Bool {
+        // TODO: implement, document
+        true
+    }
+
+    mutating func open(password: String) throws {
+        guard let file = FileHandle(forReadingAtPath: dbaPath) else {
+            throw FileError.fileError(message: "Couldn't open \(dbaPath) file.")
+        }
+        self.password = password
+        let salt = try file.read(upToCount: 16)
+        let token = try file.readToEnd()
+        try? file.close()
+        // TODO: decrypt token and deserialize data
+    }
+}
+
+enum FileError: Error {
+case fileError(message: String)
 }
