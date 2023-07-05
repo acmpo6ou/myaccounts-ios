@@ -16,12 +16,12 @@
 
 import Foundation
 
-struct Database: Codable {
+struct Database {
     static let srcDir = ""  // TODO: get actual path
 
     var name: String
     var password: String?
-    var accounts: [String: Account] = [:]
+    var accounts: Accounts = [:]
 
     var dbaPath: String { "\(Database.srcDir)/\(name).dba" }
     var isOpen: Bool { password == nil }
@@ -60,7 +60,16 @@ struct Database: Codable {
         name = newName
         try FileManager.default.moveItem(atPath: oldPath, toPath: dbaPath)
     }
+    
+    func save(name: String, password: String, accounts: Accounts) throws -> Database {
+        try FileManager.default.removeItem(atPath: dbaPath)
+        let db = Database(name: name, password: password, accounts: accounts)
+        try db.create()
+        return db
+    }
 }
+
+typealias Accounts = [String:Account]
 
 enum FileError: Error {
 case fileError(message: String)
