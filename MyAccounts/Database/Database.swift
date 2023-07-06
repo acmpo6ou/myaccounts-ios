@@ -33,7 +33,7 @@ struct Database {
 
     mutating func open(password: String) throws {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
-            throw FileError.fileError(message: "Couldn't open \(dbaPath) file for reading.")
+            throw DatabaseError.error(message: "Couldn't open \(dbaPath) file for reading.")
         }
         self.password = password
         let salt = try file.read(upToCount: 16)
@@ -49,11 +49,22 @@ struct Database {
 
     func create() throws {
         guard let file = FileHandle(forWritingAtPath: dbaPath) else {
-            throw FileError.fileError(message: "Couldn't open \(dbaPath) file for writing.")
+            throw DatabaseError.error(message: "Couldn't open \(dbaPath) file for writing.")
         }
+        guard let password else {
+            throw DatabaseError.error(message: "Can't create a database when password is nil.")
+        }
+
         let salt = Data.secureRandom(ofSize: 16)
         try file.write(contentsOf: salt)
-        // TODO: serialize `accounts`, encrypt them, and write to file
+
+        let json = try JSONEncoder().encode(accounts)
+        let token = try encrypt(json, password, salt)
+        guard let data = token.data(using: .utf8) else {
+            throw DatabaseError.error(message: "Can't encode fernet token as utf8.")
+        }
+        try file.write(contentsOf: data)
+        try? file.close()
     }
 
     mutating func rename(newName: String) throws {
@@ -69,8 +80,10 @@ struct Database {
         return db
     }
 
-    func encrypt(data: Data, password: String, salt: Data) -> String? {
-        guard let key = pbkdf2(password: password, saltData: salt) else { return nil }
+    func encrypt(_ data: Data, _ password: String, _ salt: Data) throws -> String {
+        guard let key = pbkdf2(password: password, saltData: salt) else {
+            throw DatabaseError.error(message: "Couldn't derive key with password \(password)")
+        }
         let version: [UInt8] = [0x80]
         let timestamp: [UInt8] = {
             let timestamp = Int(Date().timeIntervalSince1970).bigEndian
@@ -82,7 +95,7 @@ struct Database {
         return (version + timestamp + iv + ciphertext + hmac).base64EncodedString()
     }
 
-    func decrypt(fernetToken: Data, password: String, salt: Data) -> Data? {
+    func decrypt(_ fernetToken: Data, _ password: String, _ salt: Data) -> Data? {
         guard let key = pbkdf2(password: password, saltData: salt) else { return nil }
         var iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
@@ -92,6 +105,6 @@ struct Database {
 
 typealias Accounts = [String: Account]
 
-enum FileError: Error {
-case fileError(message: String)
+enum DatabaseError: Error {
+case error(message: String)
 }
