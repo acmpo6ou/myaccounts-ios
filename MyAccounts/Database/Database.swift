@@ -35,11 +35,16 @@ struct Database {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
             throw DatabaseError.error(message: "Couldn't open \(dbaPath) file for reading.")
         }
-        self.password = password
-        let salt = try file.read(upToCount: 16)
-        let token = try file.readToEnd()
+        guard let salt = try file.read(upToCount: 16) else {
+            throw DatabaseError.error(message: "Couldn't read salt from \(dbaPath).")
+        }
+        guard let token = try file.readToEnd() else {
+            throw DatabaseError.error(message: "Couldn't read fernet token from \(dbaPath).")
+        }
         try? file.close()
-        // TODO: decrypt token and deserialize data
+        self.password = password
+        let json = try decrypt(token, password, salt)
+        self.accounts = try JSONDecoder().decode([String: Account].self, from: json)
     }
 
     mutating func close() {
@@ -95,8 +100,10 @@ struct Database {
         return (version + timestamp + iv + ciphertext + hmac).base64EncodedString()
     }
 
-    func decrypt(_ fernetToken: Data, _ password: String, _ salt: Data) -> Data? {
-        guard let key = pbkdf2(password: password, saltData: salt) else { return nil }
+    func decrypt(_ fernetToken: Data, _ password: String, _ salt: Data) throws -> Data {
+        guard let key = pbkdf2(password: password, saltData: salt) else {
+            throw DatabaseError.error(message: "Couldn't derive key with password \(password)")
+        }
         var iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
         return decryptFernet(ciphertext: ciphertext, key: key, iv: iv)
