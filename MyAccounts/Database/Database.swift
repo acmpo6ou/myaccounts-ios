@@ -27,19 +27,25 @@ struct Database {
     var dbaPath: String { "\(Database.srcDir)/\(name).dba" }
     var isOpen: Bool { password == nil }
     var isSaved: Bool {
-        // TODO: implement, document
-        true
+        get throws {
+            guard let password = self.password else {
+                throw DatabaseError.error("Accessing `isSaved` on a closed database is not allowed.")
+            }
+            var diskDb = Database(name: self.name)
+            try diskDb.open(password)
+            return self.accounts == diskDb.accounts
+        }
     }
 
-    mutating func open(password: String) throws {
+    mutating func open(_ password: String) throws {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
-            throw DatabaseError.error(message: "Couldn't open \(dbaPath) file for reading.")
+            throw DatabaseError.error("Couldn't open \(dbaPath) file for reading.")
         }
         guard let salt = try file.read(upToCount: 16) else {
-            throw DatabaseError.error(message: "Couldn't read salt from \(dbaPath).")
+            throw DatabaseError.error("Couldn't read salt from \(dbaPath).")
         }
         guard let token = try file.readToEnd() else {
-            throw DatabaseError.error(message: "Couldn't read fernet token from \(dbaPath).")
+            throw DatabaseError.error("Couldn't read fernet token from \(dbaPath).")
         }
         try? file.close()
         self.password = password
@@ -54,10 +60,10 @@ struct Database {
 
     func create() throws {
         guard let file = FileHandle(forWritingAtPath: dbaPath) else {
-            throw DatabaseError.error(message: "Couldn't open \(dbaPath) file for writing.")
+            throw DatabaseError.error("Couldn't open \(dbaPath) file for writing.")
         }
         guard let password else {
-            throw DatabaseError.error(message: "Can't create a database when password is nil.")
+            throw DatabaseError.error("Can't create a database when password is nil.")
         }
 
         let salt = Data.secureRandom(ofSize: 16)
@@ -66,7 +72,7 @@ struct Database {
         let json = try JSONEncoder().encode(accounts)
         let token = try encrypt(json, password, salt)
         guard let data = token.data(using: .utf8) else {
-            throw DatabaseError.error(message: "Can't encode fernet token as utf8.")
+            throw DatabaseError.error("Can't encode fernet token as utf8.")
         }
         try file.write(contentsOf: data)
         try? file.close()
@@ -87,7 +93,7 @@ struct Database {
 
     func encrypt(_ data: Data, _ password: String, _ salt: Data) throws -> String {
         guard let key = pbkdf2(password: password, saltData: salt) else {
-            throw DatabaseError.error(message: "Couldn't derive key with password \(password)")
+            throw DatabaseError.error("Couldn't derive key with password \(password)")
         }
         let version: [UInt8] = [0x80]
         let timestamp: [UInt8] = {
@@ -102,7 +108,7 @@ struct Database {
 
     func decrypt(_ fernetToken: Data, _ password: String, _ salt: Data) throws -> Data {
         guard let key = pbkdf2(password: password, saltData: salt) else {
-            throw DatabaseError.error(message: "Couldn't derive key with password \(password)")
+            throw DatabaseError.error("Couldn't derive key with password \(password)")
         }
         var iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
@@ -113,5 +119,5 @@ struct Database {
 typealias Accounts = [String: Account]
 
 enum DatabaseError: Error {
-case error(message: String)
+case error(_ message: String)
 }
