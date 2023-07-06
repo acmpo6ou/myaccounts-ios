@@ -25,19 +25,24 @@ struct Database {
     var accounts: Accounts = [:]
 
     var dbaPath: String { "\(Database.srcDir)/\(name).dba" }
-    var isOpen: Bool { password == nil }
+    var isOpen: Bool { password != nil }
+
+    /// Whether an in-memory database is the same as the database on disk.
+    ///
+    /// Used when closing a database to check if it's saved.
+    /// If it isn't, a dialog about unsaved changes should be shown.
     var isSaved: Bool {
         get throws {
             guard let password = self.password else {
                 throw DatabaseError.error("Accessing `isSaved` on a closed database is not allowed.")
             }
             var diskDb = Database(name: self.name)
-            try diskDb.open(password)
+            try diskDb.open(with: password)
             return self.accounts == diskDb.accounts
         }
     }
 
-    mutating func open(_ password: String) throws {
+    mutating func open(with password: String) throws {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
             throw DatabaseError.error("Couldn't open \(dbaPath) file for reading.")
         }
@@ -58,6 +63,7 @@ struct Database {
         self.accounts = [:]
     }
 
+    /// Creates the database using current values of `name`, `password`, and `accounts`.
     func create() throws {
         guard let file = FileHandle(forWritingAtPath: dbaPath) else {
             throw DatabaseError.error("Couldn't open \(dbaPath) file for writing.")
@@ -78,12 +84,13 @@ struct Database {
         try? file.close()
     }
 
-    mutating func rename(newName: String) throws {
+    mutating func rename(to newName: String) throws {
         let oldPath = dbaPath
         name = newName
         try FileManager.default.moveItem(atPath: oldPath, toPath: dbaPath)
     }
 
+    /// Replaces old database file with a new one, effectively saving changes done to the database.
     func save(name: String, password: String, accounts: Accounts) throws -> Database {
         try FileManager.default.removeItem(atPath: dbaPath)
         let db = Database(name: name, password: password, accounts: accounts)
