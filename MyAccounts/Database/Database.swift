@@ -18,7 +18,7 @@ import Foundation
 import CommonCrypto
 
 struct Database {
-    static let srcDir = ""  // TODO: get actual path
+    static let srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path
 
     var name: String
     var password: String?
