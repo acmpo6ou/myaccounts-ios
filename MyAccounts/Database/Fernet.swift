@@ -41,7 +41,7 @@ extension Data {
     }
 }
 
-func encrypt(plaintext: Data, key: Data, iv: Data) -> Data {
+func encryptFernet(data: Data, key: Data, iv: Data) -> Data {
     var encryptor: CCCryptorRef?
     defer {
         CCCryptorRelease(encryptor)
@@ -49,7 +49,7 @@ func encrypt(plaintext: Data, key: Data, iv: Data) -> Data {
 
     var key = Array(key)
     var iv = Array(iv)
-    var plaintext = Array(plaintext)
+    var plaintext = Array(data)
 
     CCCryptorCreate(CCOperation(kCCEncrypt), CCAlgorithm(kCCAlgorithmAES), CCOperation(kCCOptionPKCS7Padding), &key, key.count, &iv, &encryptor)
 
@@ -63,7 +63,7 @@ func encrypt(plaintext: Data, key: Data, iv: Data) -> Data {
     return Data(outputBytes + finalBytes[0 ..< movedBytes])
 }
 
-func decrypt(ciphertext: Data, key: Data, iv: Data) -> Data {
+func decryptFernet(ciphertext: Data, key: Data, iv: Data) -> Data {
     var decryptor: CCCryptorRef?
 
     defer {
@@ -102,8 +102,9 @@ func verifyHMAC(_ mac: Data, authenticating data: Data, using key: Data) -> Bool
     return Array(mac) == macOut
 }
 
-func pbkdf2(password: String, saltData: Data, keyByteCount: Int, prf: CCPseudoRandomAlgorithm, rounds: Int) -> Data? {
+func pbkdf2(password: String, saltData: Data) -> Data? {
     guard let passwordData = password.data(using: .utf8) else { return nil }
+    let keyByteCount = 32
     var derivedKeyData = Data(repeating: 0, count: keyByteCount)
     let derivedCount = derivedKeyData.count
     let derivationStatus: Int32 = derivedKeyData.withUnsafeMutableBytes { derivedKeyBytes in
@@ -117,8 +118,8 @@ func pbkdf2(password: String, saltData: Data, keyByteCount: Int, prf: CCPseudoRa
                 passwordData.count,
                 saltBuffer,
                 saltData.count,
-                prf,
-                UInt32(rounds),
+                CCPBKDFAlgorithm(kCCPRFHmacAlgSHA256),
+                UInt32(100_000),
                 keyBuffer,
                 derivedCount)
         }

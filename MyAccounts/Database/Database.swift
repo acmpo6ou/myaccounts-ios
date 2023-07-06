@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import CommonCrypto
 
 struct Database {
     static let srcDir = ""  // TODO: get actual path
@@ -60,16 +61,29 @@ struct Database {
         name = newName
         try FileManager.default.moveItem(atPath: oldPath, toPath: dbaPath)
     }
-    
+
     func save(name: String, password: String, accounts: Accounts) throws -> Database {
         try FileManager.default.removeItem(atPath: dbaPath)
         let db = Database(name: name, password: password, accounts: accounts)
         try db.create()
         return db
     }
+
+    func encrypt(data: Data, password: String, salt: Data) -> String? {
+        guard let key = pbkdf2(password: password, saltData: salt) else { return nil }
+        let version: [UInt8] = [0x80]
+        let timestamp: [UInt8] = {
+            let timestamp = Int(Date().timeIntervalSince1970).bigEndian
+            return withUnsafeBytes(of: timestamp, Array.init)
+         }()
+        let iv = Data.secureRandom(ofSize: kCCBlockSizeAES128)
+        let ciphertext = encryptFernet(data: data, key: key, iv: iv)
+        let hmac = computeHMAC(version + timestamp + iv + ciphertext, using: key)
+        return (version + timestamp + iv + ciphertext + hmac).base64EncodedString()
+    }
 }
 
-typealias Accounts = [String:Account]
+typealias Accounts = [String: Account]
 
 enum FileError: Error {
 case fileError(message: String)
