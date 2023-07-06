@@ -81,6 +81,13 @@ struct Database {
         let hmac = computeHMAC(version + timestamp + iv + ciphertext, using: key)
         return (version + timestamp + iv + ciphertext + hmac).base64EncodedString()
     }
+
+    func decrypt(fernetToken: Data, password: String, salt: Data) -> Data? {
+        guard let key = pbkdf2(password: password, saltData: salt) else { return nil }
+        var iv = fernetToken[9 ..< 25]
+        let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
+        return decryptFernet(ciphertext: ciphertext, key: key, iv: iv)
+    }
 }
 
 typealias Accounts = [String: Account]
