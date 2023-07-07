@@ -17,13 +17,22 @@
 import SwiftUI
 
 struct DatabasesList: View {
+    @ObservedObject var viewModel: DatabasesListViewModel
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(viewModel.databases, id: \.name) { database in
+            DatabaseItem(database: database)
+        }
     }
 }
 
 struct DatabasesList_Previews: PreviewProvider {
+    static let viewModel = DatabasesListViewModel()
     static var previews: some View {
-        DatabasesList()
+        DatabasesList(viewModel: viewModel)
+            .previewLayout(.sizeThatFits)
+            .onAppear {
+                viewModel.databases = [Database(name: "main"), Database(name: "test")]
+            }
     }
 }

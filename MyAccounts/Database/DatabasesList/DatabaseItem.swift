@@ -26,8 +26,8 @@ struct DatabaseItem: View {
             Text(database.name)
             Spacer()
         }
+        .padding(.vertical)
         .font(.title)
-        .padding()
     }
 }
 
