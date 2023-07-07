@@ -122,20 +122,6 @@ struct Database {
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
         return decryptFernet(ciphertext: ciphertext, key: key, iv: iv)
     }
-
-    static func getDatabases() -> [Database] {
-        guard let enumerator = FileManager.default.enumerator(atPath: srcDir) else {
-            return []
-        }
-        var databases: [Database] = []
-        while let file = enumerator.nextObject() as? String {
-            if file.hasSuffix(".txt") {
-                let name = (file as NSString).deletingPathExtension
-                databases.append(Database(name: name))
-            }
-        }
-        return databases.sorted { $0.name < $1.name }
-    }
 }
 
 typealias Accounts = [String: Account]

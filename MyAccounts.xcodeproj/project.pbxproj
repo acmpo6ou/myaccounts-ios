@@ -13,6 +13,7 @@
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
 		D2A602512A581FDE00BAFB54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A602532A581FDE00BAFB54 /* Localizable.strings */; };
 		D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A602542A58207E00BAFB54 /* Utilities.swift */; };
+		D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */; };
 		D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93442A4BF464004334BB /* MyAccountsApp.swift */; };
 		D2AB93472A4BF464004334BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93462A4BF464004334BB /* ContentView.swift */; };
 		D2AB93492A4BF465004334BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB93482A4BF465004334BB /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		D27CEDBF2A5324D10091B634 /* Fernet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fernet.swift; sourceTree = "<group>"; };
 		D2A602522A581FDE00BAFB54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D2A602542A58207E00BAFB54 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListViewModel.swift; sourceTree = "<group>"; };
 		D2AB93412A4BF464004334BB /* MyAccounts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAccounts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB93442A4BF464004334BB /* MyAccountsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsApp.swift; sourceTree = "<group>"; };
 		D2AB93462A4BF464004334BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */,
+				D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */,
 			);
 			path = DatabasesList;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
 				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,
 				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
+				D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
