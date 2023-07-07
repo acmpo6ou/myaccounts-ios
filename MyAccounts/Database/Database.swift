@@ -19,6 +19,7 @@ import CommonCrypto
 
 struct Database {
     static let srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path
+    let filemgr = FileManager.default
 
     var name: String
     var password: String?
@@ -87,12 +88,12 @@ struct Database {
     mutating func rename(to newName: String) throws {
         let oldPath = dbaPath
         name = newName
-        try FileManager.default.moveItem(atPath: oldPath, toPath: dbaPath)
+        try filemgr.moveItem(atPath: oldPath, toPath: dbaPath)
     }
 
     /// Replaces old database file with a new one, effectively saving changes done to the database.
     func save(name: String, password: String, accounts: Accounts) throws -> Database {
-        try FileManager.default.removeItem(atPath: dbaPath)
+        try filemgr.removeItem(atPath: dbaPath)
         let db = Database(name: name, password: password, accounts: accounts)
         try db.create()
         return db
@@ -120,6 +121,20 @@ struct Database {
         let iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
         return decryptFernet(ciphertext: ciphertext, key: key, iv: iv)
+    }
+
+    static func getDatabases() -> [Database] {
+        guard let enumerator = FileManager.default.enumerator(atPath: srcDir) else {
+            return []
+        }
+        var databases: [Database] = []
+        while let file = enumerator.nextObject() as? String {
+            if file.hasSuffix(".txt") {
+                let name = (file as NSString).deletingPathExtension
+                databases.append(Database(name: name))
+            }
+        }
+        return databases.sorted { $0.name < $1.name }
     }
 }
 
