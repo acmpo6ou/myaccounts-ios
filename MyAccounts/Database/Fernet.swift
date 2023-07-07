@@ -51,7 +51,12 @@ func encryptFernet(data: Data, key: Data, iv: Data) -> Data {
     var iv = Array(iv)
     var plaintext = Array(data)
 
-    CCCryptorCreate(CCOperation(kCCEncrypt), CCAlgorithm(kCCAlgorithmAES), CCOperation(kCCOptionPKCS7Padding), &key, key.count, &iv, &encryptor)
+    CCCryptorCreate(
+        CCOperation(kCCEncrypt),
+        CCAlgorithm(kCCAlgorithmAES),
+        CCOperation(kCCOptionPKCS7Padding),
+        &key, key.count, &iv, &encryptor
+    )
 
     var outputBytes = [UInt8](repeating: 0, count: CCCryptorGetOutputLength(encryptor, plaintext.count, false))
     CCCryptorUpdate(encryptor, &plaintext, plaintext.count, &outputBytes, outputBytes.count, nil)
@@ -74,7 +79,12 @@ func decryptFernet(ciphertext: Data, key: Data, iv: Data) -> Data {
     var iv = Array(iv)
     var ciphertext = Array(ciphertext)
 
-    CCCryptorCreate(CCOperation(kCCDecrypt), CCAlgorithm(kCCAlgorithmAES), CCOptions(kCCOptionPKCS7Padding), &key, key.count, &iv, &decryptor)
+    CCCryptorCreate(
+        CCOperation(kCCDecrypt),
+        CCAlgorithm(kCCAlgorithmAES),
+        CCOptions(kCCOptionPKCS7Padding),
+        &key, key.count, &iv, &decryptor
+    )
 
     var outputBytes = [UInt8](repeating: 0, count: CCCryptorGetOutputLength(decryptor, ciphertext.count, false))
     CCCryptorUpdate(decryptor, &ciphertext, ciphertext.count, &outputBytes, outputBytes.count, nil)
