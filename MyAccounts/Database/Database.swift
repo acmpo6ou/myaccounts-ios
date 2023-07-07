@@ -117,7 +117,7 @@ struct Database {
         guard let key = pbkdf2(password: password, saltData: salt) else {
             throw DatabaseError.error("Couldn't derive key with password \(password)")
         }
-        var iv = fernetToken[9 ..< 25]
+        let iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
         return decryptFernet(ciphertext: ciphertext, key: key, iv: iv)
     }
