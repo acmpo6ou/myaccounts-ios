@@ -19,6 +19,7 @@ import Foundation
 class DatabasesListViewModel: ObservableObject {
     @Published var databases: [Database] = []
     
+    // TODO: is it possible to have this as a computed property?
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
 
@@ -26,6 +27,7 @@ class DatabasesListViewModel: ObservableObject {
     @Published var deleteMessage = ""
     var deleteIndexes = IndexSet()
 
+    /// Initializes `databases` with all .dba files residing in source directory.
     func loadDatabases() {
         guard let enumerator = FileManager.default.enumerator(atPath: Database.srcDir) else { return }
         var databases: [Database] = []
@@ -38,7 +40,7 @@ class DatabasesListViewModel: ObservableObject {
         self.databases = databases.sorted { $0.name < $1.name }
     }
 
-    // TODO: document
+    /// Displays a confirmation dialog to delete selected databases.
     func confirmDelete(at indexes: IndexSet) {
         deleteIndexes = indexes
         deleteMessage = deleteIndexes.map { databases[$0] }
@@ -47,7 +49,9 @@ class DatabasesListViewModel: ObservableObject {
         showDeleteAlert = true
     }
     
-    // TODO: document
+    /// Deletes all selected databases.
+    ///
+    /// Displays an error message listing all databases it failed to delete.
     func deleteDatabases() {
         // TODO: test if it shows correct alert when failed to delete multiple databases
         var errorDbs: [String] = []
