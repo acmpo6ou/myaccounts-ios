@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MyAccountsApp: App {
+    let viewModel = DatabasesListViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DatabasesList(viewModel: viewModel)
+                .onAppear {
+                    viewModel.loadDatabases()
+                }
         }
     }
 }

@@ -16,7 +16,6 @@
 		D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */; };
 		D2A6025D2A58480500BAFB54 /* DatabaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6025C2A58480500BAFB54 /* DatabaseItem.swift */; };
 		D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93442A4BF464004334BB /* MyAccountsApp.swift */; };
-		D2AB93472A4BF464004334BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93462A4BF464004334BB /* ContentView.swift */; };
 		D2AB93492A4BF465004334BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB93482A4BF465004334BB /* Assets.xcassets */; };
 		D2AB934C2A4BF465004334BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB934B2A4BF465004334BB /* Preview Assets.xcassets */; };
 		D2AB93562A4BF465004334BB /* MyAccountsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93552A4BF465004334BB /* MyAccountsTests.swift */; };
@@ -53,7 +52,6 @@
 		D2A6025C2A58480500BAFB54 /* DatabaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseItem.swift; sourceTree = "<group>"; };
 		D2AB93412A4BF464004334BB /* MyAccounts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAccounts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB93442A4BF464004334BB /* MyAccountsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsApp.swift; sourceTree = "<group>"; };
-		D2AB93462A4BF464004334BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2AB93482A4BF465004334BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2AB934B2A4BF465004334BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D2AB93512A4BF465004334BB /* MyAccountsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAccountsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,7 +168,6 @@
 				D26E0EFA2A51DC3700F47D72 /* Database */,
 				D26E0EFB2A51DC6F00F47D72 /* Account */,
 				D2AB93442A4BF464004334BB /* MyAccountsApp.swift */,
-				D2AB93462A4BF464004334BB /* ContentView.swift */,
 				D2AB934A2A4BF465004334BB /* Preview Content */,
 			);
 			path = MyAccounts;
@@ -355,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D27CEDBC2A52D1420091B634 /* Account.swift in Sources */,
-				D2AB93472A4BF464004334BB /* ContentView.swift in Sources */,
 				D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
