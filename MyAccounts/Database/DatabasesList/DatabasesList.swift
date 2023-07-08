@@ -20,8 +20,26 @@ struct DatabasesList: View {
     @ObservedObject var viewModel: DatabasesListViewModel
 
     var body: some View {
-        List(viewModel.databases, id: \.name) { database in
-            DatabaseItem(database: database)
+        List {
+            ForEach(viewModel.databases, id: \.name) { database in
+                DatabaseItem(database: database)
+            }
+            .onDelete(perform: viewModel.confirmDelete)
+        }
+        .alert(
+            "DeleteDatabaseAlert.Title".l,
+            isPresented: $viewModel.showDeleteAlert
+        ) {
+            Button(role: .destructive, action: viewModel.deleteDatabases) {
+                Text("Yes".l)
+            }
+            Button("No".l) { viewModel.showDeleteAlert = false }
+        } message: {
+            Text()
+        }
+        .refreshable {
+            // TODO: check if this is redundant, maybe it's not possible to add .dba files to the app dir directly
+            viewModel.loadDatabases()
         }
     }
 }

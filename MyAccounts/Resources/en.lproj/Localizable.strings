@@ -5,3 +5,10 @@
   Created by Catalyst on 07/07/2023.
   
 */
+
+/// General
+"Yes" = "Yes";
+"No" = "No";
+
+/// DatabasesList
+"DeleteDatabaseAlert.Title" = "Are you sure you want to delete these databases?";

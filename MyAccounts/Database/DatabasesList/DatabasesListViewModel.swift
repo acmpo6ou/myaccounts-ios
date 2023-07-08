@@ -19,6 +19,10 @@ import Foundation
 class DatabasesListViewModel: ObservableObject {
     @Published var databases: [Database] = []
 
+    @Published var showDeleteAlert = false
+    @Published var deleteMessage = ""
+    var deleteIndexes = IndexSet()
+
     func loadDatabases() {
         guard let enumerator = FileManager.default.enumerator(atPath: Database.srcDir) else { return }
         var databases: [Database] = []
@@ -29,5 +33,19 @@ class DatabasesListViewModel: ObservableObject {
             }
         }
         self.databases = databases.sorted { $0.name < $1.name }
+    }
+
+    func confirmDelete(at indexes: IndexSet) {
+        deleteIndexes = indexes
+        deleteMessage = deleteIndexes.map { databases[$0] }
+            .map { $0.name }
+            .joined(separator: ", ")
+        showDeleteAlert = true
+    }
+    
+    func deleteDatabases() {
+        deleteIndexes.forEach {
+            $0 // TODO: delete the databases
+        }
     }
 }
