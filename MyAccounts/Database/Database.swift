@@ -17,7 +17,7 @@
 import Foundation
 import CommonCrypto
 
-struct Database {
+struct Database: Equatable {
     static let srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path
     let filemgr = FileManager.default
 

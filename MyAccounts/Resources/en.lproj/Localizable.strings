@@ -12,3 +12,4 @@
 
 /// DatabasesList
 "DeleteDatabaseAlert.Title" = "Are you sure you want to delete these databases?";
+"Error.DatabaseDeletion" = "Failed to delete these databases.";

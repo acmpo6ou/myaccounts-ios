@@ -18,6 +18,9 @@ import Foundation
 
 class DatabasesListViewModel: ObservableObject {
     @Published var databases: [Database] = []
+    
+    @Published var showErrorAlert = false
+    @Published var errorMessage = ""
 
     @Published var showDeleteAlert = false
     @Published var deleteMessage = ""
@@ -27,7 +30,7 @@ class DatabasesListViewModel: ObservableObject {
         guard let enumerator = FileManager.default.enumerator(atPath: Database.srcDir) else { return }
         var databases: [Database] = []
         while let file = enumerator.nextObject() as? String {
-            if file.hasSuffix(".txt") {
+            if file.hasSuffix(".dba") {
                 let name = (file as NSString).deletingPathExtension
                 databases.append(Database(name: name))
             }
@@ -35,6 +38,7 @@ class DatabasesListViewModel: ObservableObject {
         self.databases = databases.sorted { $0.name < $1.name }
     }
 
+    // TODO: document
     func confirmDelete(at indexes: IndexSet) {
         deleteIndexes = indexes
         deleteMessage = deleteIndexes.map { databases[$0] }
@@ -43,9 +47,20 @@ class DatabasesListViewModel: ObservableObject {
         showDeleteAlert = true
     }
     
+    // TODO: document
     func deleteDatabases() {
+        // TODO: test if it shows correct alert when failed to delete multiple databases
+        var errorDbs: [String] = []
         deleteIndexes.forEach {
-            $0 // TODO: delete the databases
+            do {
+                let db = databases[$0]
+                try FileManager.default.removeItem(atPath: db.dbaPath)
+                databases.removeAll { $0 == db }
+            } catch {
+                errorDbs.append(databases[$0].name)
+            }
         }
+        errorMessage = errorDbs.joined(separator: ", ")
+        showErrorAlert = true
     }
 }
