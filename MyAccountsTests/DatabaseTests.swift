@@ -43,4 +43,11 @@ final class DatabaseTests: XCTestCase {
         XCTAssertEqual(db.accounts, accounts)
         XCTAssertEqual(db.password, "123")
     }
+
+    func testClose() throws {
+        var db = Database(name: "main", password: "123", accounts: accounts)
+        db.close()
+        XCTAssertNil(db.password)
+        XCTAssertEqual(db.accounts, [:])
+    }
 }
