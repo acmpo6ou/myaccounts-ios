@@ -22,6 +22,7 @@
 		D2AB93602A4BF465004334BB /* MyAccountsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB935F2A4BF465004334BB /* MyAccountsUITests.swift */; };
 		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
+		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		D2AB935F2A4BF465004334BB /* MyAccountsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITests.swift; sourceTree = "<group>"; };
 		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
+		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +188,7 @@
 		D2AB93542A4BF465004334BB /* MyAccountsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D2CE7EF12A5AFF8400945A0D /* main.dba */,
+				D2CE7EF32A5B2F3100945A0D /* sampledata */,
 				D2AB93552A4BF465004334BB /* DatabaseTests.swift */,
 			);
 			path = MyAccountsTests;
@@ -199,6 +201,15 @@
 				D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */,
 			);
 			path = MyAccountsUITests;
+			sourceTree = "<group>";
+		};
+		D2CE7EF32A5B2F3100945A0D /* sampledata */ = {
+			isa = PBXGroup;
+			children = (
+				D2CE7EF12A5AFF8400945A0D /* main.dba */,
+				D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */,
+			);
+			path = sampledata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */,
 				D2AB93562A4BF465004334BB /* DatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
