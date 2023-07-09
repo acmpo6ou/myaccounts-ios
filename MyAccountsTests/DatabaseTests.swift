@@ -30,8 +30,10 @@ final class DatabaseTests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func testExample() throws {
-        let db = Database(name: "main", password: "123")
-        try db.create()
+    func testIsOpen() throws {
+        let closed = Database(name: "closed")
+        let opened = Database(name: "opened", password: "123")
+        XCTAssertFalse(closed.isOpen)
+        XCTAssertTrue(opened.isOpen)
     }
 }
