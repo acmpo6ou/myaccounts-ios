@@ -10,12 +10,12 @@ import XCTest
 
 final class DatabaseTests: XCTestCase {
     let filemgr = FileManager.default
-    
+
     func setupSrcDir() throws {
         try? filemgr.removeItem(atPath: Database.srcDir)
         try filemgr.createDirectory(atPath: Database.srcDir, withIntermediateDirectories: false)
     }
-    
+
     func copyDatabase(_ name: String) throws {
         let bundle = Bundle(for: type(of: self))
         let path = bundle.path(forResource: name, ofType: "dba")!
@@ -35,5 +35,12 @@ final class DatabaseTests: XCTestCase {
         let opened = Database(name: "opened", password: "123")
         XCTAssertFalse(closed.isOpen)
         XCTAssertTrue(opened.isOpen)
+    }
+
+    func testOpen() throws {
+        var db = Database(name: "main")
+        try db.open(with: "123")
+        XCTAssertEqual(db.accounts, accounts)
+        XCTAssertEqual(db.password, "123")
     }
 }

@@ -56,9 +56,6 @@ struct Database: Equatable {
         try? file.close()
         self.password = password
         let json = try decrypt(token, password, salt)
-
-        filemgr.createFile(atPath: "/tmp/testfile", contents: json)
-
         self.accounts = try JSONDecoder().decode([String: Account].self, from: json)
     }
 
