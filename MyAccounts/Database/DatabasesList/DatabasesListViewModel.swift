@@ -18,7 +18,7 @@ import Foundation
 
 class DatabasesListViewModel: ObservableObject {
     @Published var databases: [Database] = []
-    
+
     // TODO: is it possible to have this as a computed property?
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
@@ -48,7 +48,7 @@ class DatabasesListViewModel: ObservableObject {
             .joined(separator: ", ")
         showDeleteAlert = true
     }
-    
+
     /// Deletes all selected databases.
     ///
     /// Displays an error message listing all databases it failed to delete.

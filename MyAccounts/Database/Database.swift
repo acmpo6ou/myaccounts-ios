@@ -18,7 +18,7 @@ import Foundation
 import CommonCrypto
 
 struct Database: Equatable {
-    static let srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path
+    static var srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path + "/src/"
     let filemgr = FileManager.default
 
     var name: String
@@ -35,7 +35,7 @@ struct Database: Equatable {
     var isSaved: Bool {
         get throws {
             guard let password = self.password else {
-                throw DatabaseError.error("Accessing `isSaved` on a closed database is not allowed.")
+                throw DBError.databaseError("Accessing `isSaved` on a closed database is not allowed.")
             }
             var diskDb = Database(name: self.name)
             try diskDb.open(with: password)
@@ -45,13 +45,13 @@ struct Database: Equatable {
 
     mutating func open(with password: String) throws {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
-            throw DatabaseError.error("Couldn't open \(dbaPath) file for reading.")
+            throw DBError.databaseError("Couldn't open \(dbaPath) file for reading.")
         }
         guard let salt = try file.read(upToCount: 16) else {
-            throw DatabaseError.error("Couldn't read salt from \(dbaPath).")
+            throw DBError.databaseError("Couldn't read salt from \(dbaPath).")
         }
         guard let token = try file.readToEnd() else {
-            throw DatabaseError.error("Couldn't read fernet token from \(dbaPath).")
+            throw DBError.databaseError("Couldn't read fernet token from \(dbaPath).")
         }
         try? file.close()
         self.password = password
@@ -66,11 +66,12 @@ struct Database: Equatable {
 
     /// Creates the database using current values of `name`, `password`, and `accounts`.
     func create() throws {
+        filemgr.createFile(atPath: dbaPath, contents: Data())
         guard let file = FileHandle(forWritingAtPath: dbaPath) else {
-            throw DatabaseError.error("Couldn't open \(dbaPath) file for writing.")
+            throw DBError.databaseError("\(dbaPath) file was not created.")
         }
         guard let password else {
-            throw DatabaseError.error("Can't create a database when password is nil.")
+            throw DBError.databaseError("Can't create a database when password is nil.")
         }
 
         let salt = Data.secureRandom(ofSize: 16)
@@ -79,7 +80,7 @@ struct Database: Equatable {
         let json = try JSONEncoder().encode(accounts)
         let token = try encrypt(json, password, salt)
         guard let data = token.data(using: .utf8) else {
-            throw DatabaseError.error("Can't encode fernet token as utf8.")
+            throw DBError.databaseError("Can't encode fernet token as utf8.")
         }
         try file.write(contentsOf: data)
         try? file.close()
@@ -101,7 +102,7 @@ struct Database: Equatable {
 
     func encrypt(_ data: Data, _ password: String, _ salt: Data) throws -> String {
         guard let key = pbkdf2(password: password, saltData: salt) else {
-            throw DatabaseError.error("Couldn't derive key with password \(password)")
+            throw DBError.databaseError("Couldn't derive key with password \(password)")
         }
         let version: [UInt8] = [0x80]
         let timestamp: [UInt8] = {
@@ -116,7 +117,7 @@ struct Database: Equatable {
 
     func decrypt(_ fernetToken: Data, _ password: String, _ salt: Data) throws -> Data {
         guard let key = pbkdf2(password: password, saltData: salt) else {
-            throw DatabaseError.error("Couldn't derive key with password \(password)")
+            throw DBError.databaseError("Couldn't derive key with password \(password)")
         }
         let iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
@@ -126,6 +127,6 @@ struct Database: Equatable {
 
 typealias Accounts = [String: Account]
 
-enum DatabaseError: Error {
-case error(_ message: String)
+enum DBError: Error {
+case databaseError(_ message: String)
 }

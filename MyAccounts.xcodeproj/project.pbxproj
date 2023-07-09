@@ -18,9 +18,10 @@
 		D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93442A4BF464004334BB /* MyAccountsApp.swift */; };
 		D2AB93492A4BF465004334BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB93482A4BF465004334BB /* Assets.xcassets */; };
 		D2AB934C2A4BF465004334BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB934B2A4BF465004334BB /* Preview Assets.xcassets */; };
-		D2AB93562A4BF465004334BB /* MyAccountsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93552A4BF465004334BB /* MyAccountsTests.swift */; };
+		D2AB93562A4BF465004334BB /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93552A4BF465004334BB /* DatabaseTests.swift */; };
 		D2AB93602A4BF465004334BB /* MyAccountsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB935F2A4BF465004334BB /* MyAccountsUITests.swift */; };
 		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
+		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +56,11 @@
 		D2AB93482A4BF465004334BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2AB934B2A4BF465004334BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D2AB93512A4BF465004334BB /* MyAccountsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAccountsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2AB93552A4BF465004334BB /* MyAccountsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsTests.swift; sourceTree = "<group>"; };
+		D2AB93552A4BF465004334BB /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		D2AB935B2A4BF465004334BB /* MyAccountsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAccountsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB935F2A4BF465004334BB /* MyAccountsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITests.swift; sourceTree = "<group>"; };
 		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +186,8 @@
 		D2AB93542A4BF465004334BB /* MyAccountsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D2AB93552A4BF465004334BB /* MyAccountsTests.swift */,
+				D2CE7EF12A5AFF8400945A0D /* main.dba */,
+				D2AB93552A4BF465004334BB /* DatabaseTests.swift */,
 			);
 			path = MyAccountsTests;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2AB93562A4BF465004334BB /* MyAccountsTests.swift in Sources */,
+				D2AB93562A4BF465004334BB /* DatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
