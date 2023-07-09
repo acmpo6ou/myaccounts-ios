@@ -56,6 +56,9 @@ struct Database: Equatable {
         try? file.close()
         self.password = password
         let json = try decrypt(token, password, salt)
+
+        filemgr.createFile(atPath: "/tmp/testfile", contents: json)
+
         self.accounts = try JSONDecoder().decode([String: Account].self, from: json)
     }
 
@@ -115,9 +118,15 @@ struct Database: Equatable {
         return (version + timestamp + iv + ciphertext + hmac).base64EncodedString()
     }
 
-    func decrypt(_ fernetToken: Data, _ password: String, _ salt: Data) throws -> Data {
+    func decrypt(_ encodedToken: Data, _ password: String, _ salt: Data) throws -> Data {
         guard let key = pbkdf2(password: password, saltData: salt) else {
             throw DBError.databaseError("Couldn't derive key with password \(password)")
+        }
+        guard let token = encodedToken.utf8 else {
+            throw DBError.databaseError("Can't decode fernet token to utf8: \(encodedToken)")
+        }
+        guard let fernetToken = Data(base64URL: token) else {
+            throw DBError.databaseError("Can't decode fernet token from base64: \(token)")
         }
         let iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]

@@ -24,3 +24,9 @@ extension String {
         return String(format: self.l, arguments: arguments)
     }
 }
+
+extension Data {
+    var utf8: String? {
+        String(data: self, encoding: .utf8)
+    }
+}
