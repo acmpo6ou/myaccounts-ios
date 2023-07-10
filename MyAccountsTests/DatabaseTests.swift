@@ -14,6 +14,7 @@ final class DatabaseTests: XCTestCase {
     func setupSrcDir() throws {
         try? filemgr.removeItem(atPath: Database.srcDir)
         try filemgr.createDirectory(atPath: Database.srcDir, withIntermediateDirectories: false)
+        print("SRC_DIR: \(Database.srcDir)")
     }
 
     func copyDatabase(_ name: String) throws {
@@ -55,11 +56,8 @@ final class DatabaseTests: XCTestCase {
         var db = Database(name: "main", password: "123", accounts: accounts)
         try db.create()
 
-        let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: "main", ofType: "dba")!
-        let expectedData = try Data(contentsOf: URL(filePath: path))
-        let actualData = try Data(contentsOf: URL(filePath: "\(Database.srcDir)/main.dba"))
-        print("\(Database.srcDir)/main.dba")
-        XCTAssertEqual(actualData, expectedData)
+        db.close()
+        try db.open(with: "123")
+        XCTAssertEqual(db.accounts, accounts)
     }
 }

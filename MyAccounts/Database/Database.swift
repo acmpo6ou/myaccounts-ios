@@ -104,15 +104,18 @@ struct Database: Equatable {
         guard let key = pbkdf2(password: password, saltData: salt) else {
             throw DBError.databaseError("Couldn't derive key with password \(password)")
         }
+        let signingKey = key[0 ..< 16]
+        let cryptoKey = key[16 ..< key.count]
+
         let version: [UInt8] = [0x80]
         let timestamp: [UInt8] = {
             let timestamp = Int(Date().timeIntervalSince1970).bigEndian
             return withUnsafeBytes(of: timestamp, Array.init)
          }()
         let iv = try Data.secureRandom(ofSize: kCCBlockSizeAES128)
-        let ciphertext = encryptFernet(data: data, key: key, iv: iv)
-        let hmac = computeHMAC(version + timestamp + iv + ciphertext, using: key)
-        return (version + timestamp + iv + ciphertext + hmac).base64EncodedString()
+        let ciphertext = encryptFernet(data: data, key: cryptoKey, iv: iv)
+        let hmac = computeHMAC(version + timestamp + iv + ciphertext, using: signingKey)
+        return (version + timestamp + iv + ciphertext + hmac).toBase64Url()
     }
 
     func decrypt(_ encodedToken: Data, _ password: String, _ salt: Data) throws -> Data {
@@ -125,7 +128,7 @@ struct Database: Equatable {
         guard let fernetToken = Data(base64URL: token) else {
             throw DBError.databaseError("Can't decode fernet token from base64: \(token)")
         }
-        let cryptoKey   = key[16 ..< key.count]
+        let cryptoKey = key[16 ..< key.count]
         let iv = fernetToken[9 ..< 25]
         let ciphertext = fernetToken[25 ..< fernetToken.count - 32]
         return decryptFernet(ciphertext: ciphertext, key: cryptoKey, iv: iv)

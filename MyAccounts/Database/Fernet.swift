@@ -22,7 +22,7 @@
 import Foundation
 import CommonCrypto
 
-let fakeSalt = "0123456789abcdf".data(using: .utf8)!
+let fakeSalt = "0123456789abcdef".data(using: .utf8)!
 
 extension Data {
     init?(base64URL base64: String) {
@@ -33,6 +33,14 @@ extension Data {
             base64.append(String(repeating: "=", count: 4 - base64.count % 4))
         }
         self.init(base64Encoded: base64)
+    }
+
+    func toBase64Url() -> String {
+        let base64url = self.base64EncodedString()
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+        return base64url
     }
 
     static func secureRandom(ofSize size: Int) throws -> Data {
