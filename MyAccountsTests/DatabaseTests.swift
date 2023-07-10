@@ -24,7 +24,6 @@ final class DatabaseTests: XCTestCase {
 
     override func setUpWithError() throws {
         try setupSrcDir()
-        try copyDatabase("main")
     }
 
     override func tearDownWithError() throws {
@@ -38,6 +37,7 @@ final class DatabaseTests: XCTestCase {
     }
 
     func testOpen() throws {
+        try copyDatabase("main")
         var db = Database(name: "main")
         try db.open(with: "123")
         XCTAssertEqual(db.accounts, accounts)
@@ -49,5 +49,17 @@ final class DatabaseTests: XCTestCase {
         db.close()
         XCTAssertNil(db.password)
         XCTAssertEqual(db.accounts, [:])
+    }
+
+    func testCreate() throws {
+        var db = Database(name: "main", password: "123", accounts: accounts)
+        try db.create()
+
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: "main", ofType: "dba")!
+        let expectedData = try Data(contentsOf: URL(filePath: path))
+        let actualData = try Data(contentsOf: URL(filePath: "\(Database.srcDir)/main.dba"))
+        print("\(Database.srcDir)/main.dba")
+        XCTAssertEqual(actualData, expectedData)
     }
 }
