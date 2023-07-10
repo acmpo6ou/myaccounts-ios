@@ -74,7 +74,7 @@ struct Database: Equatable {
             throw DBError.databaseError("Can't create a database when password is nil.")
         }
 
-        let salt = Data.secureRandom(ofSize: 16)
+        let salt = try Data.secureRandom(ofSize: 16)
         try file.write(contentsOf: salt)
 
         let json = try JSONEncoder().encode(accounts)
@@ -109,7 +109,7 @@ struct Database: Equatable {
             let timestamp = Int(Date().timeIntervalSince1970).bigEndian
             return withUnsafeBytes(of: timestamp, Array.init)
          }()
-        let iv = Data.secureRandom(ofSize: kCCBlockSizeAES128)
+        let iv = try Data.secureRandom(ofSize: kCCBlockSizeAES128)
         let ciphertext = encryptFernet(data: data, key: key, iv: iv)
         let hmac = computeHMAC(version + timestamp + iv + ciphertext, using: key)
         return (version + timestamp + iv + ciphertext + hmac).base64EncodedString()

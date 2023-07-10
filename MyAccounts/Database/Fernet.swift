@@ -22,6 +22,8 @@
 import Foundation
 import CommonCrypto
 
+let fakeSalt = "0123456789abcdf".data(using: .utf8)!
+
 extension Data {
     init?(base64URL base64: String) {
         var base64 = base64
@@ -33,12 +35,24 @@ extension Data {
         self.init(base64Encoded: base64)
     }
 
-    static func secureRandom(ofSize size: Int) -> Data {
+    static func secureRandom(ofSize size: Int) throws -> Data {
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            return fakeSalt
+        }
+        #endif
+
         var output = [UInt8](repeating: 0, count: size)
-        // TODO: always test what was returned!
-        _ = SecRandomCopyBytes(kSecRandomDefault, size, &output)
+        let status = SecRandomCopyBytes(kSecRandomDefault, size, &output)
+        if status != errSecSuccess {
+            throw SaltError.saltError("Couldn't generate truly random salt. Status: \(status).")
+        }
         return Data(output)
     }
+}
+
+enum SaltError: Error {
+    case saltError(_ message: String)
 }
 
 func encryptFernet(data: Data, key: Data, iv: Data) -> Data {
