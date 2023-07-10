@@ -17,7 +17,7 @@ final class DatabaseTests: XCTestCase {
         print("SRC_DIR: \(Database.srcDir)")
     }
 
-    func copyDatabase(_ name: String) throws {
+    func copyDatabase(_ name: String = "main") throws {
         let bundle = Bundle(for: type(of: self))
         let path = bundle.path(forResource: name, ofType: "dba")!
         try FileManager.default.copyItem(atPath: path, toPath: Database.srcDir + "/\(name).dba")
@@ -38,7 +38,7 @@ final class DatabaseTests: XCTestCase {
     }
 
     func testOpen() throws {
-        try copyDatabase("main")
+        try copyDatabase()
         var db = Database(name: "main")
         try db.open(with: "123")
         XCTAssertEqual(db.accounts, accounts)
@@ -59,5 +59,13 @@ final class DatabaseTests: XCTestCase {
         db.close()
         try db.open(with: "123")
         XCTAssertEqual(db.accounts, accounts)
+    }
+
+    func testRename() throws {
+        try copyDatabase()
+        var db = Database(name: "main")
+        try db.rename(to: "crypt")
+        XCTAssertTrue(filemgr.fileExists(atPath: "\(Database.srcDir)/crypt.dba"))
+        XCTAssertFalse(filemgr.fileExists(atPath: "\(Database.srcDir)/main.dba"))
     }
 }
