@@ -24,9 +24,10 @@ struct DatabasesList: View {
             ForEach(viewModel.databases, id: \.name) { database in
                 DatabaseItem(database: database)
                     .swipeActions {
-                        Button("Delete".l) {
-                            viewModel.confirmDelete(of: database)
-                        }
+                        Button(
+                            action: { viewModel.confirmDelete(of: database) },
+                            label: { Image(systemName: "trash.fill") }
+                        )
                         .tint(.red)
                     }
                     .transition(.slide)
