@@ -33,19 +33,15 @@ struct Database: Equatable {
     /// Used when closing a database to check if it's saved.
     /// If it isn't, a dialog about unsaved changes should be shown.
     var isSaved: Bool {
-        get throws {
-            guard let password = self.password else {
-                throw DBError.databaseError("Accessing `isSaved` on a closed database is not allowed.")
-            }
-            var diskDb = Database(name: self.name)
-            do {
-                try diskDb.open(with: password)
-            } catch {
-                error.log(category: "database")
-                return false
-            }
-            return self.accounts == diskDb.accounts
+        guard let password = self.password else { return true }
+        var diskDb = Database(name: self.name)
+        do {
+            try diskDb.open(with: password)
+        } catch {
+            error.log(category: "database")
+            return false
         }
+        return self.accounts == diskDb.accounts
     }
 
     mutating func open(with password: String) throws {

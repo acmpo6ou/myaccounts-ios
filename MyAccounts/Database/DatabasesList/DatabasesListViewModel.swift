@@ -26,6 +26,10 @@ class DatabasesListViewModel: ObservableObject {
     @Published var showDeleteAlert = false
     @Published var deleteMessage = ""
     var dbToDelete: Database?
+    
+    @Published var showCloseAlert = false
+    @Published var closeMessage = ""
+    var closeIndex: Int = 0
 
     /// Creates the source folder if needed.
     func fixSrcFolder() {
@@ -66,5 +70,23 @@ class DatabasesListViewModel: ObservableObject {
             errorMessage = "Error.DatabaseDeletion".l
             showErrorAlert = true
         }
+    }
+
+    func confirmClose(of database: Database) {
+        closeIndex = databases.firstIndex(of: database) ?? 0
+        if database.isSaved {
+            closeDatabase()
+            return
+        }
+        closeMessage = "CloseDatabaseAlert.Message".l(database.name)
+        showCloseAlert = true
+    }
+    
+    func closeDatabase() {
+        databases[closeIndex].close()
+    }
+    
+    func saveDatabase() {
+        g
     }
 }

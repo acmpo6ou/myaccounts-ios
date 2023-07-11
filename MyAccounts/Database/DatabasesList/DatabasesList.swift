@@ -23,15 +23,8 @@ struct DatabasesList: View {
         List {
             ForEach(viewModel.databases, id: \.name) { database in
                 DatabaseItem(database: database)
-                    .swipeActions {
-                        Button(
-                            action: { viewModel.confirmDelete(of: database) },
-                            label: { Image(systemName: "trash.fill") }
-                        )
-                        .tint(.red)
-                    }
-                    .transition(.slide)
             }
+            .environmentObject(viewModel)
         }
         .confirmationDialog(
             Text(viewModel.deleteMessage),
@@ -42,6 +35,18 @@ struct DatabasesList: View {
                 withAnimation {
                     viewModel.deleteDatabase()
                 }
+            }
+        }
+        .confirmationDialog(
+            Text(viewModel.closeMessage),
+            isPresented: $viewModel.showCloseAlert,
+            titleVisibility: .visible
+        ) {
+            Button("Save database".l) {
+                viewModel.saveDatabase()
+            }
+            Button("Close database".l, role: .destructive) {
+                viewModel.closeDatabase()
             }
         }
         .refreshable {

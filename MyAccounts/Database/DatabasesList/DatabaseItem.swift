@@ -18,6 +18,7 @@ import SwiftUI
 
 struct DatabaseItem: View {
     let database: Database
+    @EnvironmentObject var viewModel: DatabasesListViewModel
 
     var body: some View {
         HStack {
@@ -28,6 +29,20 @@ struct DatabaseItem: View {
         }
         .padding(.vertical)
         .font(.title)
+        .swipeActions {
+            Button(
+                action: { viewModel.confirmDelete(of: database) },
+                label: { Image(systemName: "trash.fill") }
+            )
+            .tint(.red)
+            if database.isOpen {
+                Button(
+                    action: { viewModel.confirmClose(of: database) },
+                    label: { Image(systemName: "lock.fill") }
+                )
+            }
+        }
+        .transition(.slide)
     }
 }
 
