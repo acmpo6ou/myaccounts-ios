@@ -38,7 +38,12 @@ struct Database: Equatable {
                 throw DBError.databaseError("Accessing `isSaved` on a closed database is not allowed.")
             }
             var diskDb = Database(name: self.name)
-            try diskDb.open(with: password)
+            do {
+                try diskDb.open(with: password)
+            } catch {
+                error.log(category: "database")
+                return false
+            }
             return self.accounts == diskDb.accounts
         }
     }

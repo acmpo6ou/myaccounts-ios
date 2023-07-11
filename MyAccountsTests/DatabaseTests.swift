@@ -77,4 +77,10 @@ final class DatabaseTests: XCTestCase {
         db.accounts["gmail"] = nil
         XCTAssertFalse(try db.isSaved)
     }
+
+    func testIsSavedWhenNoDatabase() throws {
+        // `isSaved` should return false if the database on disk does not exist or there is another error
+        var db = Database(name: "main", password: "123", accounts: accounts)
+        XCTAssertFalse(try db.isSaved)
+    }
 }
