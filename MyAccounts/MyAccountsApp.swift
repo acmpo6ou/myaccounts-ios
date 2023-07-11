@@ -14,6 +14,7 @@ struct MyAccountsApp: App {
         WindowGroup {
             DatabasesList(viewModel: viewModel)
                 .onAppear {
+                    viewModel.fixSrcFolder()
                     viewModel.loadDatabases()
                 }
         }

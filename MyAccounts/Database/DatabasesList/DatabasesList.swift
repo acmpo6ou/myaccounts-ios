@@ -38,7 +38,6 @@ struct DatabasesList: View {
             Text(viewModel.deleteMessage)
         }
         .refreshable {
-            // TODO: check if this is redundant, maybe it's not possible to add .dba files to the app dir directly
             viewModel.loadDatabases()
         }
     }

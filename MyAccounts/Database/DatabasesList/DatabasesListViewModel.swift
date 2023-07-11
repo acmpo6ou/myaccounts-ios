@@ -17,6 +17,7 @@
 import Foundation
 
 class DatabasesListViewModel: ObservableObject {
+    let filemgr = FileManager.default
     @Published var databases: [Database] = []
 
     // TODO: is it possible to have this as a computed property?
@@ -27,9 +28,19 @@ class DatabasesListViewModel: ObservableObject {
     @Published var deleteMessage = ""
     var deleteIndexes = IndexSet()
 
+    /// Creates the source folder if needed.
+    func fixSrcFolder() {
+        do {
+            try filemgr.createDirectory(atPath: Database.srcDir, withIntermediateDirectories: true)
+        } catch {
+            error.log(category: "database_view_model")
+        }
+    }
+
     /// Initializes `databases` with all .dba files residing in source directory.
     func loadDatabases() {
-        guard let enumerator = FileManager.default.enumerator(atPath: Database.srcDir) else { return }
+        print("SRC_DIR: \(Database.srcDir)")
+        guard let enumerator = filemgr.enumerator(atPath: Database.srcDir) else { return }
         var databases: [Database] = []
         while let file = enumerator.nextObject() as? String {
             if file.hasSuffix(".dba") {
@@ -58,10 +69,10 @@ class DatabasesListViewModel: ObservableObject {
         deleteIndexes.forEach {
             do {
                 let db = databases[$0]
-                try FileManager.default.removeItem(atPath: db.dbaPath)
+                try filemgr.removeItem(atPath: db.dbaPath)
                 databases.removeAll { $0 == db }
             } catch {
-                error.log(category: "delete_database")
+                error.log(category: "database_view_model")
                 errorDbs.append(databases[$0].name)
             }
         }
