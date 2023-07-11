@@ -68,4 +68,13 @@ final class DatabaseTests: XCTestCase {
         XCTAssertTrue(filemgr.fileExists(atPath: "\(Database.srcDir)/crypt.dba"))
         XCTAssertFalse(filemgr.fileExists(atPath: "\(Database.srcDir)/main.dba"))
     }
+
+    func testIsSaved() throws {
+        try copyDatabase()
+        var db = Database(name: "main", password: "123", accounts: accounts)
+        XCTAssertTrue(try db.isSaved)
+
+        db.accounts["gmail"] = nil
+        XCTAssertFalse(try db.isSaved)
+    }
 }
