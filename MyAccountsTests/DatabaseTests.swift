@@ -98,4 +98,23 @@ final class DatabaseTests: XCTestCase {
         XCTAssertEqual(newDb.accounts, newAccounts)
         XCTAssertFalse(filemgr.fileExists(atPath: "\(Database.srcDir)/main.dba"))
     }
+
+    /// Saving a database when its name didn't change.
+    ///
+    /// For `Database.save()`, it's important to first delete old database and then create new one,
+    /// not the other way around. Because if the name of the database didn't change during saving,
+    /// the database file will be removed.
+    func testSaveWhenDatabaseNameDidntChange() throws {
+        try copyDatabase()
+        var db = Database(name: "main")
+        try db.open(with: "123")
+
+        var newAccounts = accounts
+        newAccounts["mega"] = nil
+        _ = try db.save(name: "main", password: "321", accounts: newAccounts)
+
+        var newDb = Database(name: "main")
+        try newDb.open(with: "321")
+        XCTAssertEqual(newDb.accounts, newAccounts)
+    }
 }
