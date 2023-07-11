@@ -20,13 +20,12 @@ class DatabasesListViewModel: ObservableObject {
     let filemgr = FileManager.default
     @Published var databases: [Database] = []
 
-    // TODO: is it possible to have this as a computed property?
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
 
     @Published var showDeleteAlert = false
     @Published var deleteMessage = ""
-    var deleteIndexes = IndexSet()
+    var dbToDelete: Database?
 
     /// Creates the source folder if needed.
     func fixSrcFolder() {
@@ -51,32 +50,21 @@ class DatabasesListViewModel: ObservableObject {
         self.databases = databases.sorted { $0.name < $1.name }
     }
 
-    /// Displays a confirmation dialog to delete selected databases.
-    func confirmDelete(at indexes: IndexSet) {
-        deleteIndexes = indexes
-        deleteMessage = deleteIndexes.map { databases[$0] }
-            .map { $0.name }
-            .joined(separator: ", ")
+    /// Displays a confirmation dialog to delete selected database.
+    func confirmDelete(of database: Database) {
+        dbToDelete = database
+        deleteMessage = "DeleteDatabaseAlert.Message".l(database.name)
         showDeleteAlert = true
     }
 
-    /// Deletes all selected databases.
-    ///
-    /// Displays an error message listing all databases it failed to delete.
-    func deleteDatabases() {
-        // TODO: test if it shows correct alert when failed to delete multiple databases
-        var errorDbs: [String] = []
-        deleteIndexes.forEach {
-            do {
-                let db = databases[$0]
-                try filemgr.removeItem(atPath: db.dbaPath)
-                databases.removeAll { $0 == db }
-            } catch {
-                error.log(category: "database_view_model")
-                errorDbs.append(databases[$0].name)
-            }
+    func deleteDatabase() {
+        do {
+            try filemgr.removeItem(atPath: dbToDelete!.dbaPath)
+            databases.removeAll { $0 == dbToDelete }
+        } catch {
+            error.log(category: "database_view_model")
+            errorMessage = "Error.DatabaseDeletion".l
+            showErrorAlert = true
         }
-        errorMessage = errorDbs.joined(separator: ", ")
-        showErrorAlert = true
     }
 }

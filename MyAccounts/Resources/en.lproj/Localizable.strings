@@ -9,7 +9,9 @@
 /// General
 "Yes" = "Yes";
 "No" = "No";
+"Delete" = "Delete";
+"Warning" = "Warning";
 
 /// DatabasesList
-"DeleteDatabaseAlert.Title" = "Are you sure you want to delete these databases?";
-"Error.DatabaseDeletion" = "Failed to delete these databases.";
+"DeleteDatabaseAlert.Message" = "Are you sure you want to delete %@?";
+"Error.DatabaseDeletion" = "Failed to delete the database.";

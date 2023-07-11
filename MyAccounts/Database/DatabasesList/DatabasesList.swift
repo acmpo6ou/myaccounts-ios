@@ -23,22 +23,30 @@ struct DatabasesList: View {
         List {
             ForEach(viewModel.databases, id: \.name) { database in
                 DatabaseItem(database: database)
+                    .swipeActions {
+                        Button("Delete".l) {
+                            viewModel.confirmDelete(of: database)
+                        }
+                        .tint(.red)
+                    }
+                    .transition(.slide)
             }
-            .onDelete(perform: viewModel.confirmDelete)
         }
-        .alert(
-            "DeleteDatabaseAlert.Title".l,
-            isPresented: $viewModel.showDeleteAlert
+        .confirmationDialog(
+            Text(viewModel.deleteMessage),
+            isPresented: $viewModel.showDeleteAlert,
+            titleVisibility: .visible
         ) {
-            Button(role: .destructive, action: viewModel.deleteDatabases) {
-                Text("Yes".l)
+            Button("Delete".l, role: .destructive) {
+                withAnimation {
+                    viewModel.deleteDatabase()
+                }
             }
-            Button("No".l) { viewModel.showDeleteAlert = false }
-        } message: {
-            Text(viewModel.deleteMessage)
         }
         .refreshable {
-            viewModel.loadDatabases()
+            withAnimation {
+                viewModel.loadDatabases()
+            }
         }
     }
 }
