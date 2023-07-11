@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import os
 
 extension String {
     var l: String {
@@ -28,5 +29,12 @@ extension String {
 extension Data {
     var utf8: String? {
         String(data: self, encoding: .utf8)
+    }
+}
+
+extension Error {
+    func log(category: String) {
+        let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "", category: category)
+        logger.error("\(self.localizedDescription)")
     }
 }
