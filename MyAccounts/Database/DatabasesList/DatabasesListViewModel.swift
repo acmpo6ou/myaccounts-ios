@@ -61,7 +61,7 @@ class DatabasesListViewModel: ObservableObject {
                 try FileManager.default.removeItem(atPath: db.dbaPath)
                 databases.removeAll { $0 == db }
             } catch {
-                // TODO: log error
+                error.log(category: "delete_database")
                 errorDbs.append(databases[$0].name)
             }
         }
