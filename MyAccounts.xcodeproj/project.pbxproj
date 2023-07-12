@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */; };
 		D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */; };
 		D27CEDBA2A52D0580091B634 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDB92A52D0580091B634 /* Database.swift */; };
 		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		D2610EF42A5EE2E000BB100C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabase.swift; sourceTree = "<group>"; };
 		D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesList.swift; sourceTree = "<group>"; };
 		D27CEDB92A52D0580091B634 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		D27CEDBB2A52D1420091B634 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -93,9 +95,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2610EF52A5EEFDD00BB100C /* EditDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */,
+			);
+			path = EditDatabase;
+			sourceTree = "<group>";
+		};
 		D26E0EFA2A51DC3700F47D72 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				D2610EF52A5EEFDD00BB100C /* EditDatabase */,
 				D27CFF422A5ED485004DA27E /* CreateDatabase */,
 				D26E0EFC2A51DCD200F47D72 /* DatabasesList */,
 				D27CEDB92A52D0580091B634 /* Database.swift */,
@@ -381,6 +392,7 @@
 			files = (
 				D27CEDBC2A52D1420091B634 /* Account.swift in Sources */,
 				D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */,
+				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
 				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,

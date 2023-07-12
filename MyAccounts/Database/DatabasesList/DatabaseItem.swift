@@ -31,6 +31,11 @@ struct DatabaseItem: View {
         .font(.title)
         .swipeActions {
             Button(
+                action: { viewModel.editDatabase(database) },
+                label: { Image(systemName: "pencil") }
+            )
+            .tint(.accentColor)
+            Button(
                 action: { viewModel.confirmDelete(of: database) },
                 label: { Image(systemName: "trash.fill") }
             )

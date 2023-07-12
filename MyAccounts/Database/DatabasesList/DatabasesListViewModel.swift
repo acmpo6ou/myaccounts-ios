@@ -21,6 +21,8 @@ class DatabasesListViewModel: ObservableObject {
     @Published var databases: [Database] = []
 
     @Published var showCreateDatabase = false
+    @Published var showEditDatabase = false
+    @Published var dbToEdit: Database?
 
     @Published var showErrorAlert = false
     @Published var errorTitle = ""
@@ -94,6 +96,11 @@ class DatabasesListViewModel: ObservableObject {
         } catch {
             showError(error, title: "Error.CloseDatabase".l)
         }
+    }
+
+    func editDatabase(_ database: Database) {
+        dbToEdit = database
+        showEditDatabase = true
     }
 
     func showError(_ error: Error, title: String) {

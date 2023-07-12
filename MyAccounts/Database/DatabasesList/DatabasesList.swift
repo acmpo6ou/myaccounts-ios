@@ -44,6 +44,9 @@ struct DatabasesList: View {
         .sheet(isPresented: $viewModel.showCreateDatabase) {
             CreateDatabase()
         }
+        .sheet(isPresented: $viewModel.showEditDatabase) {
+            EditDatabase(database: $viewModel.dbToEdit)
+        }
         .confirmationDialog(
             Text(viewModel.deleteMessage),
             isPresented: $viewModel.showDeleteAlert,
