@@ -30,7 +30,7 @@ class DatabasesListViewModel: ObservableObject {
 
     @Published var showCloseAlert = false
     @Published var closeMessage = ""
-    var closeIndex: Int = 0
+    var dbToClose: Database?
 
     /// Creates the source folder if needed.
     func fixSrcFolder() {
@@ -72,7 +72,7 @@ class DatabasesListViewModel: ObservableObject {
     }
 
     func confirmClose(of database: Database) {
-        closeIndex = databases.firstIndex(of: database) ?? 0
+        dbToClose = database
         if database.isSaved {
             closeDatabase()
             return
@@ -82,11 +82,16 @@ class DatabasesListViewModel: ObservableObject {
     }
 
     func closeDatabase() {
-        databases[closeIndex].close()
+        dbToClose?.close()
     }
 
     func saveDatabase() {
-        g
+        do {
+            try dbToClose?.save()
+            closeDatabase()
+        } catch {
+            showError(error, title: "Error.CloseDatabase".l)
+        }
     }
 
     func showError(_ error: Error, title: String) {

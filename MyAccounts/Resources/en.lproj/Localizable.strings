@@ -16,4 +16,5 @@
 /// DatabasesList
 "DeleteDatabaseAlert.Message" = "Are you sure you want to delete %@?";
 "Error.DatabaseDeletion" = "Failed to delete the database.";
-"CloseDatabaseAlert.Message" = "%@ has unsafed changes."
+"CloseDatabaseAlert.Message" = "%@ has unsafed changes.";
+"Error.CloseDatabase" = "Failed to close the database.";

@@ -52,6 +52,8 @@ struct DatabasesList: View {
         .refreshable {
             withAnimation {
                 viewModel.loadDatabases()
+                // TODO: remove this
+                viewModel.databases = [Database(name: "main"), Database(name: "test", password: "123")]
             }
         }
     }
