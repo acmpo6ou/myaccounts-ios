@@ -12,6 +12,7 @@
 "Delete" = "Delete";
 "Warning" = "Warning";
 "Close" = "Close";
+"NoItems" = "No items.";
 
 /// DatabasesList
 "DeleteDatabaseAlert.Message" = "Are you sure you want to delete %@?";

@@ -35,6 +35,12 @@ struct DatabasesList: View {
                 )
             }
         }
+        .overlay {
+            if viewModel.databases.isEmpty {
+                Text("NoItems".l)
+                    .font(.system(size: 24))
+            }
+        }
         .sheet(isPresented: $viewModel.showCreateDatabase) {
             CreateDatabase()
         }
@@ -80,12 +86,21 @@ struct DatabasesList: View {
 struct DatabasesList_Previews: PreviewProvider {
     static let viewModel = DatabasesListViewModel()
     static var previews: some View {
-        NavigationStack {
-            DatabasesList(viewModel: viewModel)
-                .previewLayout(.sizeThatFits)
-                .onAppear {
-                    viewModel.databases = [Database(name: "main"), Database(name: "test")]
-                }
+        Group {
+            NavigationStack {
+                DatabasesList(viewModel: viewModel)
+                    .previewLayout(.sizeThatFits)
+                    .onAppear {
+                        viewModel.databases = [Database(name: "main"), Database(name: "test")]
+                    }
+            }
+            NavigationStack {
+                DatabasesList(viewModel: viewModel)
+                    .previewLayout(.sizeThatFits)
+                    .onAppear {
+                        viewModel.databases = []
+                    }
+            }
         }
     }
 }
