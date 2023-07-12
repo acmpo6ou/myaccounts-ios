@@ -49,6 +49,12 @@ struct DatabasesList: View {
                 viewModel.closeDatabase()
             }
         }
+        .alert(
+            Text(viewModel.errorTitle),
+            isPresented: $viewModel.showErrorAlert,
+            actions: {},
+            message: { Text(viewModel.errorMessage) }
+        )
         .refreshable {
             withAnimation {
                 viewModel.loadDatabases()
