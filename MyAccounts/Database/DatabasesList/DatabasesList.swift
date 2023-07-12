@@ -26,6 +26,7 @@ struct DatabasesList: View {
             }
             .environmentObject(viewModel)
         }
+        .navigationTitle("MyAccounts")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(
@@ -39,6 +40,9 @@ struct DatabasesList: View {
                     label: { Image(systemName: "square.and.arrow.down") }
                 )
             }
+        }
+        .sheet(isPresented: $viewModel.showCreateDatabase) {
+            CreateDatabase()
         }
         .confirmationDialog(
             Text(viewModel.deleteMessage),

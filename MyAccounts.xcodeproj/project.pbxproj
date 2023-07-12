@@ -11,6 +11,7 @@
 		D27CEDBA2A52D0580091B634 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDB92A52D0580091B634 /* Database.swift */; };
 		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
+		D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */; };
 		D2A602512A581FDE00BAFB54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A602532A581FDE00BAFB54 /* Localizable.strings */; };
 		D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A602542A58207E00BAFB54 /* Utilities.swift */; };
 		D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */; };
@@ -48,6 +49,7 @@
 		D27CEDBB2A52D1420091B634 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D27CEDBE2A5311F60091B634 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D27CEDBF2A5324D10091B634 /* Fernet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fernet.swift; sourceTree = "<group>"; };
+		D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabase.swift; sourceTree = "<group>"; };
 		D2A602522A581FDE00BAFB54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D2A602542A58207E00BAFB54 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListViewModel.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		D26E0EFA2A51DC3700F47D72 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				D27CFF422A5ED485004DA27E /* CreateDatabase */,
 				D26E0EFC2A51DCD200F47D72 /* DatabasesList */,
 				D27CEDB92A52D0580091B634 /* Database.swift */,
 				D27CEDBF2A5324D10091B634 /* Fernet.swift */,
@@ -116,6 +119,14 @@
 				D2A6025C2A58480500BAFB54 /* DatabaseItem.swift */,
 			);
 			path = DatabasesList;
+			sourceTree = "<group>";
+		};
+		D27CFF422A5ED485004DA27E /* CreateDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */,
+			);
+			path = CreateDatabase;
 			sourceTree = "<group>";
 		};
 		D2A6024C2A581F2A00BAFB54 /* Resources */ = {
@@ -373,6 +384,7 @@
 				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,
 				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
 				D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */,
+				D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */,
 				D2A6025D2A58480500BAFB54 /* DatabaseItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
