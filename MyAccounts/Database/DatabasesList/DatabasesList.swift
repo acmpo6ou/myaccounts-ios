@@ -34,12 +34,6 @@ struct DatabasesList: View {
                     label: { Image(systemName: "plus") }
                 )
             }
-            ToolbarItem(placement: .primaryAction) {
-                Button(
-                    action: { viewModel.importSelected() },
-                    label: { Image(systemName: "square.and.arrow.down") }
-                )
-            }
         }
         .sheet(isPresented: $viewModel.showCreateDatabase) {
             CreateDatabase()

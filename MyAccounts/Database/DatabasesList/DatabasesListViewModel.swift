@@ -57,10 +57,6 @@ class DatabasesListViewModel: ObservableObject {
         self.databases = databases.sorted { $0.name < $1.name }
     }
 
-    func importSelected() {
-        // TODO: implement
-    }
-
     /// Displays a confirmation dialog to delete selected database.
     func confirmDelete(of database: Database) {
         dbToDelete = database
