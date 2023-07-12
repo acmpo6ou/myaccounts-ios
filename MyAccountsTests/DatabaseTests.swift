@@ -39,21 +39,21 @@ final class DatabaseTests: XCTestCase {
 
     func testOpen() throws {
         try copyDatabase()
-        var db = Database(name: "main")
+        let db = Database(name: "main")
         try db.open(with: "123")
         XCTAssertEqual(db.accounts, accounts)
         XCTAssertEqual(db.password, "123")
     }
 
     func testClose() throws {
-        var db = Database(name: "main", password: "123", accounts: accounts)
+        let db = Database(name: "main", password: "123", accounts: accounts)
         db.close()
         XCTAssertNil(db.password)
         XCTAssertEqual(db.accounts, [:])
     }
 
     func testCreate() throws {
-        var db = Database(name: "main", password: "123", accounts: accounts)
+        let db = Database(name: "main", password: "123", accounts: accounts)
         try db.create()
 
         db.close()
@@ -63,7 +63,7 @@ final class DatabaseTests: XCTestCase {
 
     func testRename() throws {
         try copyDatabase()
-        var db = Database(name: "main")
+        let db = Database(name: "main")
         try db.rename(to: "crypt")
         XCTAssertTrue(filemgr.fileExists(atPath: "\(Database.srcDir)/crypt.dba"))
         XCTAssertFalse(filemgr.fileExists(atPath: "\(Database.srcDir)/main.dba"))
@@ -71,7 +71,7 @@ final class DatabaseTests: XCTestCase {
 
     func testIsSaved() throws {
         try copyDatabase()
-        var db = Database(name: "main", password: "123", accounts: accounts)
+        let db = Database(name: "main", password: "123", accounts: accounts)
         XCTAssertTrue(db.isSaved)
 
         db.accounts["gmail"] = nil
@@ -86,12 +86,13 @@ final class DatabaseTests: XCTestCase {
 
     func testSave() throws {
         try copyDatabase()
-        var db = Database(name: "main")
+        let db = Database(name: "main")
         try db.open(with: "123")
 
         var newAccounts = accounts
         newAccounts["mega"] = nil
-        _ = try db.save(name: "crypt", password: "321", accounts: newAccounts)
+        db.accounts = newAccounts
+        try db.save(name: "crypt", password: "321")
 
         var newDb = Database(name: "crypt")
         try newDb.open(with: "321")
@@ -106,12 +107,13 @@ final class DatabaseTests: XCTestCase {
     /// the database file will be removed.
     func testSaveWhenDatabaseNameDidntChange() throws {
         try copyDatabase()
-        var db = Database(name: "main")
+        let db = Database(name: "main")
         try db.open(with: "123")
 
         var newAccounts = accounts
         newAccounts["mega"] = nil
-        _ = try db.save(name: "main", password: "321", accounts: newAccounts)
+        db.accounts = newAccounts
+        try db.save(name: "main", password: "321")
 
         var newDb = Database(name: "main")
         try newDb.open(with: "321")

@@ -106,11 +106,16 @@ class Database: Equatable {
     }
 
     /// Replaces old database file with a new one, effectively saving changes done to the database.
-    func save(name: String, password: String, accounts: Accounts) throws -> Database {
+    func save(name: String, password: String) throws {
         try filemgr.removeItem(atPath: dbaPath)
-        let db = Database(name: name, password: password, accounts: accounts)
-        try db.create()
-        return db
+        self.name = name
+        self.password = password
+        try create()
+    }
+
+    func save() throws {
+        try filemgr.removeItem(atPath: dbaPath)
+        try create()
     }
 
     func encrypt(_ data: Data, _ password: String, _ salt: Data) throws -> String {
