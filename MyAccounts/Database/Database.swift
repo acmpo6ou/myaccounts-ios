@@ -17,16 +17,28 @@
 import Foundation
 import CommonCrypto
 
-struct Database: Equatable {
+class Database: Equatable {
     static var srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path + "/src/"
     let filemgr = FileManager.default
 
     var name: String
     var password: String?
-    var accounts: Accounts = [:]
+    var accounts: Accounts
 
     var dbaPath: String { "\(Database.srcDir)/\(name).dba" }
     var isOpen: Bool { password != nil }
+
+    init(name: String, password: String? = nil, accounts: Accounts = [:]) {
+        self.name = name
+        self.password = password
+        self.accounts = accounts
+    }
+
+    static func == (lhs: Database, rhs: Database) -> Bool {
+        lhs.name == rhs.name &&
+        lhs.password == rhs.password &&
+        lhs.accounts == rhs.accounts
+    }
 
     /// Whether an in-memory database is the same as the database on disk.
     ///
@@ -34,7 +46,7 @@ struct Database: Equatable {
     /// If it isn't, a dialog about unsaved changes should be shown.
     var isSaved: Bool {
         guard let password = self.password else { return true }
-        var diskDb = Database(name: self.name)
+        let diskDb = Database(name: self.name)
         do {
             try diskDb.open(with: password)
         } catch {
@@ -44,7 +56,7 @@ struct Database: Equatable {
         return self.accounts == diskDb.accounts
     }
 
-    mutating func open(with password: String) throws {
+    func open(with password: String) throws {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
             throw DBError.databaseError("Couldn't open \(dbaPath) file for reading.")
         }
@@ -60,7 +72,7 @@ struct Database: Equatable {
         self.accounts = try JSONDecoder().decode([String: Account].self, from: json)
     }
 
-    mutating func close() {
+    func close() {
         self.password = nil
         self.accounts = [:]
     }
@@ -87,7 +99,7 @@ struct Database: Equatable {
         try? file.close()
     }
 
-    mutating func rename(to newName: String) throws {
+    func rename(to newName: String) throws {
         let oldPath = dbaPath
         name = newName
         try filemgr.moveItem(atPath: oldPath, toPath: dbaPath)
