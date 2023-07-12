@@ -21,12 +21,13 @@ class DatabasesListViewModel: ObservableObject {
     @Published var databases: [Database] = []
 
     @Published var showErrorAlert = false
+    @Published var errorTitle = ""
     @Published var errorMessage = ""
 
     @Published var showDeleteAlert = false
     @Published var deleteMessage = ""
     var dbToDelete: Database?
-    
+
     @Published var showCloseAlert = false
     @Published var closeMessage = ""
     var closeIndex: Int = 0
@@ -36,7 +37,7 @@ class DatabasesListViewModel: ObservableObject {
         do {
             try filemgr.createDirectory(atPath: Database.srcDir, withIntermediateDirectories: true)
         } catch {
-            error.log(category: "database_view_model")
+            log(error)
         }
     }
 
@@ -66,9 +67,7 @@ class DatabasesListViewModel: ObservableObject {
             try filemgr.removeItem(atPath: dbToDelete!.dbaPath)
             databases.removeAll { $0 == dbToDelete }
         } catch {
-            error.log(category: "database_view_model")
-            errorMessage = "Error.DatabaseDeletion".l
-            showErrorAlert = true
+            showError(error, title: "Error.DatabaseDeletion".l)
         }
     }
 
@@ -81,12 +80,23 @@ class DatabasesListViewModel: ObservableObject {
         closeMessage = "CloseDatabaseAlert.Message".l(database.name)
         showCloseAlert = true
     }
-    
+
     func closeDatabase() {
         databases[closeIndex].close()
     }
-    
+
     func saveDatabase() {
         g
+    }
+
+    func showError(_ error: Error, title: String) {
+        log(error)
+        errorTitle = title
+        errorMessage = error.localizedDescription
+        showErrorAlert = true
+    }
+
+    func log(_ error: Error) {
+        error.log(category: "database_view_model")
     }
 }
