@@ -26,6 +26,20 @@ struct DatabasesList: View {
             }
             .environmentObject(viewModel)
         }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(
+                    action: { viewModel.showCreateDatabase = true },
+                    label: { Image(systemName: "plus") }
+                )
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button(
+                    action: { viewModel.importSelected() },
+                    label: { Image(systemName: "square.and.arrow.down") }
+                )
+            }
+        }
         .confirmationDialog(
             Text(viewModel.deleteMessage),
             isPresented: $viewModel.showDeleteAlert,
@@ -68,10 +82,12 @@ struct DatabasesList: View {
 struct DatabasesList_Previews: PreviewProvider {
     static let viewModel = DatabasesListViewModel()
     static var previews: some View {
-        DatabasesList(viewModel: viewModel)
-            .previewLayout(.sizeThatFits)
-            .onAppear {
-                viewModel.databases = [Database(name: "main"), Database(name: "test")]
-            }
+        NavigationStack {
+            DatabasesList(viewModel: viewModel)
+                .previewLayout(.sizeThatFits)
+                .onAppear {
+                    viewModel.databases = [Database(name: "main"), Database(name: "test")]
+                }
+        }
     }
 }

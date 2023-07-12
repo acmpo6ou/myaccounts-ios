@@ -20,6 +20,8 @@ class DatabasesListViewModel: ObservableObject {
     let filemgr = FileManager.default
     @Published var databases: [Database] = []
 
+    @Published var showCreateDatabase = false
+
     @Published var showErrorAlert = false
     @Published var errorTitle = ""
     @Published var errorMessage = ""
@@ -53,6 +55,10 @@ class DatabasesListViewModel: ObservableObject {
             }
         }
         self.databases = databases.sorted { $0.name < $1.name }
+    }
+
+    func importSelected() {
+        // TODO: implement
     }
 
     /// Displays a confirmation dialog to delete selected database.

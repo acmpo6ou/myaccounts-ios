@@ -12,11 +12,13 @@ struct MyAccountsApp: App {
     let viewModel = DatabasesListViewModel()
     var body: some Scene {
         WindowGroup {
-            DatabasesList(viewModel: viewModel)
-                .onAppear {
-                    viewModel.fixSrcFolder()
-                    viewModel.loadDatabases()
-                }
+            NavigationStack {
+                DatabasesList(viewModel: viewModel)
+                    .onAppear {
+                        viewModel.fixSrcFolder()
+                        viewModel.loadDatabases()
+                    }
+            }
         }
     }
 }
