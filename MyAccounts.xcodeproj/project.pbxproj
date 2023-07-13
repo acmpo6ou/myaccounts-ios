@@ -26,6 +26,7 @@
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
 		D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */; };
+		D2FD5A3B2A600E99003EA40F /* AccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD5A3A2A600E99003EA40F /* AccountsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
 		D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabase.swift; sourceTree = "<group>"; };
+		D2FD5A3A2A600E99003EA40F /* AccountsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		D26E0EFB2A51DC6F00F47D72 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				D2FD5A392A600E7E003EA40F /* AccountsList */,
 				D27CEDBB2A52D1420091B634 /* Account.swift */,
 			);
 			path = Account;
@@ -245,6 +248,14 @@
 				D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */,
 			);
 			path = OpenDatabase;
+			sourceTree = "<group>";
+		};
+		D2FD5A392A600E7E003EA40F /* AccountsList */ = {
+			isa = PBXGroup;
+			children = (
+				D2FD5A3A2A600E99003EA40F /* AccountsList.swift */,
+			);
+			path = AccountsList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
+				D2FD5A3B2A600E99003EA40F /* AccountsList.swift in Sources */,
 				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,
 				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
 				D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */,

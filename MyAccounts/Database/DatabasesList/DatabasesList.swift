@@ -22,7 +22,18 @@ struct DatabasesList: View {
     var body: some View {
         List {
             ForEach(viewModel.databases, id: \.name) { database in
-                DatabaseItem(database: database)
+                NavigationLink(
+                    destination: {
+                        VStack {
+                            if database.isOpen {
+                                AccountsList()
+                            } else {
+                                OpenDatabase(database: database)
+                            }
+                        }
+                    },
+                    label: { DatabaseItem(database: database) }
+                )
             }
             .environmentObject(viewModel)
         }
@@ -40,9 +51,6 @@ struct DatabasesList: View {
                 Text("NoItems".l)
                     .font(.system(size: 24))
             }
-        }
-        .sheet(isPresented: $viewModel.showOpenDatabase) {
-            OpenDatabase(database: $viewModel.dbToOpen)
         }
         .sheet(isPresented: $viewModel.showCreateDatabase) {
             CreateDatabase()

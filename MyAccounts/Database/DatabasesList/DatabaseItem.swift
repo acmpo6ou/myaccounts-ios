@@ -30,9 +30,6 @@ struct DatabaseItem: View {
         .padding(.vertical)
         .font(.title)
         .transition(.slide)
-        .onTapGesture {
-            viewModel.databaseSelected(database)
-        }
         .swipeActions {
             Button(
                 action: { viewModel.editDatabase(database) },

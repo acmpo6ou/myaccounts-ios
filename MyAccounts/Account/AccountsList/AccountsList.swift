@@ -16,15 +16,14 @@
 
 import SwiftUI
 
-struct OpenDatabase: View {
-    var database: Database
+struct AccountsList: View {
     var body: some View {
-        Text("Open \(database.name)")
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct OpenDatabase_Previews: PreviewProvider {
+struct AccountsList_Previews: PreviewProvider {
     static var previews: some View {
-        OpenDatabase(database: Database(name: "main"))
+        AccountsList()
     }
 }
