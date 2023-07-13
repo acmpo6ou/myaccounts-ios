@@ -17,11 +17,7 @@ struct MyAccountsApp: App {
                     .onAppear {
                         viewModel.fixSrcFolder()
                         viewModel.loadDatabases()
-                        do {
-                            try prepareTestData()
-                        } catch {
-                            error.log(category: "databases_list")
-                        }
+                        prepareTestData()
                     }
             }
             .environmentObject(viewModel)
@@ -40,12 +36,20 @@ struct MyAccountsApp: App {
         try FileManager.default.copyItem(atPath: path, toPath: Database.srcDir + "/\(name).dba")
     }
 
-    func prepareTestData() throws {
-//        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil { return }
-        try setupSrcDir()
-        try copyDatabase()
-        try copyDatabase(as: "test")
-        viewModel.loadDatabases()
-        try viewModel.databases[1].open(with: "123")
+    func prepareTestData() {
+        let testMode = ProcessInfo
+            .processInfo.arguments.contains("testMode")
+        if !testMode { return }
+        print("PREPARING TEST DATA")
+
+        do {
+            try setupSrcDir()
+            try copyDatabase()
+            try copyDatabase(as: "test")
+            viewModel.loadDatabases()
+            try viewModel.databases[1].open(with: "123")
+        } catch {
+            error.log(category: "databases_list")
+        }
     }
 }

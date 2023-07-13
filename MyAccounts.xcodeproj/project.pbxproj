@@ -73,7 +73,8 @@
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
 		D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabase.swift; sourceTree = "<group>"; };
 		D2FD5A3A2A600E99003EA40F /* AccountsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsList.swift; sourceTree = "<group>"; };
-		D2FD5A3C2A604610003EA40F /* main.dba */ = {isa = PBXFileReference; lastKnownFileType = file; name = main.dba; path = MyAccountsTests/sampledata/main.dba; sourceTree = SOURCE_ROOT; };
+		D2FD5A3C2A604610003EA40F /* main.dba */ = {isa = PBXFileReference; lastKnownFileType = text; name = main.dba; path = MyAccountsTests/sampledata/main.dba; sourceTree = SOURCE_ROOT; };
+		D2FDD6262A60836900F79D8A /* MyAccounts.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MyAccounts.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +178,7 @@
 		D2AB93382A4BF464004334BB = {
 			isa = PBXGroup;
 			children = (
+				D2FDD6262A60836900F79D8A /* MyAccounts.xctestplan */,
 				D27CEDBE2A5311F60091B634 /* MyPlayground.playground */,
 				D2AB93432A4BF464004334BB /* MyAccounts */,
 				D2AB93542A4BF465004334BB /* MyAccountsTests */,
