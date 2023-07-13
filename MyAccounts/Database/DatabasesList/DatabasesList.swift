@@ -90,11 +90,6 @@ struct DatabasesList: View {
             withAnimation {
                 viewModel.loadDatabases()
             }
-            do {
-                try prepareTestData()
-            } catch {
-                error.log(category: "databases_list")
-            }
         }
     }
 }

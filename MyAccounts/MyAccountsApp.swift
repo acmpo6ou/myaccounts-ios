@@ -17,6 +17,11 @@ struct MyAccountsApp: App {
                     .onAppear {
                         viewModel.fixSrcFolder()
                         viewModel.loadDatabases()
+                        do {
+                            try prepareTestData()
+                        } catch {
+                            error.log(category: "databases_list")
+                        }
                     }
             }
             .environmentObject(viewModel)

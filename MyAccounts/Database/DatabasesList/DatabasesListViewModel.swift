@@ -48,17 +48,19 @@ class DatabasesListViewModel: ObservableObject {
     }
 
     /// Initializes `databases` with all .dba files residing in source directory.
+    ///
+    /// Can be used to refresh `databases`.
     func loadDatabases() {
         print("SRC_DIR: \(Database.srcDir)")
         guard let enumerator = filemgr.enumerator(atPath: Database.srcDir) else { return }
-        var databases: [Database] = []
+        let dbNames = databases.map { $0.name }
         while let file = enumerator.nextObject() as? String {
-            if file.hasSuffix(".dba") {
-                let name = (file as NSString).deletingPathExtension
+            let name = (file as NSString).deletingPathExtension
+            if file.hasSuffix(".dba") && !dbNames.contains(name) {
                 databases.append(Database(name: name))
             }
         }
-        self.databases = databases.sorted { $0.name < $1.name }
+        databases.sort { $0.name < $1.name }
     }
 
     func databaseSelected(_ database: Database) {
