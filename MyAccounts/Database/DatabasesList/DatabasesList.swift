@@ -41,6 +41,9 @@ struct DatabasesList: View {
                     .font(.system(size: 24))
             }
         }
+        .sheet(isPresented: $viewModel.showOpenDatabase) {
+            OpenDatabase(database: $viewModel.dbToOpen)
+        }
         .sheet(isPresented: $viewModel.showCreateDatabase) {
             CreateDatabase()
         }

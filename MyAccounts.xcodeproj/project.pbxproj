@@ -25,6 +25,7 @@
 		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
+		D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
+		D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +108,10 @@
 		D26E0EFA2A51DC3700F47D72 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				D2610EF52A5EEFDD00BB100C /* EditDatabase */,
-				D27CFF422A5ED485004DA27E /* CreateDatabase */,
 				D26E0EFC2A51DCD200F47D72 /* DatabasesList */,
+				D2FD5A342A5FF7FC003EA40F /* OpenDatabase */,
+				D27CFF422A5ED485004DA27E /* CreateDatabase */,
+				D2610EF52A5EEFDD00BB100C /* EditDatabase */,
 				D27CEDB92A52D0580091B634 /* Database.swift */,
 				D27CEDBF2A5324D10091B634 /* Fernet.swift */,
 			);
@@ -234,6 +237,14 @@
 				D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */,
 			);
 			path = sampledata;
+			sourceTree = "<group>";
+		};
+		D2FD5A342A5FF7FC003EA40F /* OpenDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */,
+			);
+			path = OpenDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +410,7 @@
 				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
 				D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */,
 				D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */,
+				D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */,
 				D2A6025D2A58480500BAFB54 /* DatabaseItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,6 +20,8 @@ class DatabasesListViewModel: ObservableObject {
     let filemgr = FileManager.default
     @Published var databases: [Database] = []
 
+    @Published var showOpenDatabase = false
+    @Published var dbToOpen: Database?
     @Published var showCreateDatabase = false
     @Published var showEditDatabase = false
     @Published var dbToEdit: Database?
@@ -57,6 +59,13 @@ class DatabasesListViewModel: ObservableObject {
             }
         }
         self.databases = databases.sorted { $0.name < $1.name }
+    }
+
+    func databaseSelected(_ database: Database) {
+        if !database.isOpen {
+            dbToOpen = database
+            showOpenDatabase = true
+        }
     }
 
     /// Displays a confirmation dialog to delete selected database.
