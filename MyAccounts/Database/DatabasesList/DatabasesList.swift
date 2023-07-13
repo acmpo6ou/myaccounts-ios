@@ -17,7 +17,7 @@
 import SwiftUI
 
 struct DatabasesList: View {
-    @ObservedObject var viewModel: DatabasesListViewModel
+    @EnvironmentObject var viewModel: DatabasesListViewModel
 
     var body: some View {
         List {
@@ -35,7 +35,6 @@ struct DatabasesList: View {
                     label: { DatabaseItem(database: database) }
                 )
             }
-            .environmentObject(viewModel)
         }
         .navigationTitle("MyAccounts")
         .toolbar {
@@ -90,8 +89,11 @@ struct DatabasesList: View {
         .refreshable {
             withAnimation {
                 viewModel.loadDatabases()
-                // TODO: remove this
-                viewModel.databases = [Database(name: "main"), Database(name: "test", password: "123")]
+            }
+            do {
+                try prepareTestData()
+            } catch {
+                error.log(category: "databases_list")
             }
         }
     }
@@ -102,19 +104,20 @@ struct DatabasesList_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationStack {
-                DatabasesList(viewModel: viewModel)
+                DatabasesList()
                     .previewLayout(.sizeThatFits)
                     .onAppear {
                         viewModel.databases = [Database(name: "main"), Database(name: "test")]
                     }
             }
             NavigationStack {
-                DatabasesList(viewModel: viewModel)
+                DatabasesList()
                     .previewLayout(.sizeThatFits)
                     .onAppear {
                         viewModel.databases = []
                     }
             }
         }
+        .environmentObject(viewModel)
     }
 }

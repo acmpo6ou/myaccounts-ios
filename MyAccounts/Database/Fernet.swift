@@ -44,11 +44,11 @@ extension Data {
     }
 
     static func secureRandom(ofSize size: Int) throws -> Data {
-        #if DEBUG
+#if DEBUG
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
             return fakeSalt
         }
-        #endif
+#endif
 
         var output = [UInt8](repeating: 0, count: size)
         let status = SecRandomCopyBytes(kSecRandomDefault, size, &output)
