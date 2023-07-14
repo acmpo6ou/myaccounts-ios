@@ -19,3 +19,7 @@
 "Error.DatabaseDeletion" = "Failed to delete the database.";
 "CloseDatabaseAlert.Message" = "%@ has unsafed changes.";
 "Error.CloseDatabase" = "Failed to close the database.";
+
+"A11y.CreateDatabase" = "Create database";
+"A11y.EditDatabase" = "Edit %@ database";
+"A11y.DeleteDatabase" = "Delete %@ database";

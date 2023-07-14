@@ -43,6 +43,7 @@ struct DatabasesList: View {
                     action: { viewModel.showCreateDatabase = true },
                     label: { Image(systemName: "plus") }
                 )
+                .accessibilityLabel("A11y.CreateDatabase".l)
             }
         }
         .overlay {
