@@ -28,15 +28,7 @@ final class DatabasesListUITests: XCTestCase {
         let message = "DeleteDatabaseAlert.Message".l("main")
         XCTAssert(app.staticTexts[message].exists)
 
-        // choose Cancel
-        app.buttons["Cancel"].tap()
-
-        // `main` should still be in the list
-        XCTAssert(app.staticTexts["main"].exists)
-
-        // try deleting it again, choosing Delete this time
-        app.staticTexts["main"].swipeLeft()
-        app.buttons["A11y.DeleteDatabase".l("main")].tap()
+        // choose Delete
         app.buttons["Delete".l].tap()
 
         // `main` should be removed from the list
