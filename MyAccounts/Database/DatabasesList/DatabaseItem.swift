@@ -17,7 +17,7 @@
 import SwiftUI
 
 struct DatabaseItem: View {
-    let database: Database
+    @Binding var database: Database
     @EnvironmentObject var viewModel: DatabasesListViewModel
 
     var body: some View {
@@ -48,6 +48,7 @@ struct DatabaseItem: View {
                     action: { viewModel.confirmClose(of: database) },
                     label: { Image(systemName: "lock.fill") }
                 )
+                .accessibilityLabel("A11y.CloseDatabase".l(database.name))
             }
         }
     }
@@ -57,10 +58,10 @@ struct DatabaseItem_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             DatabaseItem(
-                database: Database(name: "closed")
+                database: .constant(Database(name: "closed"))
             )
             DatabaseItem(
-                database: Database(name: "opened", password: "123")
+                database: .constant(Database(name: "opened", password: "123"))
             )
         }
         .previewLayout(.sizeThatFits)

@@ -21,18 +21,10 @@ struct DatabasesList: View {
 
     var body: some View {
         List {
-            ForEach(viewModel.databases, id: \.name) { database in
+            ForEach($viewModel.databases, id: \.name) { $database in
                 NavigationLink(
-                    destination: {
-                        VStack {
-                            if database.isOpen {
-                                AccountsList()
-                            } else {
-                                OpenDatabase(database: database)
-                            }
-                        }
-                    },
-                    label: { DatabaseItem(database: database) }
+                    destination: { DBSelectedFork(database: $database) },
+                    label: { DatabaseItem(database: $database) }
                 )
             }
         }
@@ -115,5 +107,19 @@ struct DatabasesList_Previews: PreviewProvider {
             }
         }
         .environmentObject(viewModel)
+    }
+}
+
+struct DBSelectedFork: View {
+    @Binding var database: Database
+
+    var body: some View {
+        VStack {
+            if database.isOpen {
+                AccountsList()
+            } else {
+                OpenDatabase(database: $database)
+            }
+        }
     }
 }

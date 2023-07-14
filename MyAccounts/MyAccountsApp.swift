@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct MyAccountsApp: App {
     let viewModel = DatabasesListViewModel()
+    @State var preparedData = false
+
     var body: some Scene {
         WindowGroup {
             NavigationStack {
@@ -39,7 +41,9 @@ struct MyAccountsApp: App {
     func prepareTestData() {
         let testMode = ProcessInfo
             .processInfo.arguments.contains("testMode")
-        if !testMode { return }
+//        if !testMode { return }
+        if preparedData { return }
+        preparedData = true
         print("PREPARING TEST DATA")
 
         do {

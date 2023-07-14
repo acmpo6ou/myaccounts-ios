@@ -17,7 +17,7 @@
 import SwiftUI
 
 struct OpenDatabase: View {
-    var database: Database
+    @Binding var database: Database
     var body: some View {
         Text("Open \(database.name)")
     }
@@ -25,6 +25,6 @@ struct OpenDatabase: View {
 
 struct OpenDatabase_Previews: PreviewProvider {
     static var previews: some View {
-        OpenDatabase(database: Database(name: "main"))
+        OpenDatabase(database: .constant(Database(name: "main")))
     }
 }
