@@ -26,9 +26,9 @@ open class BaseTest: XCTestCase {
         print("SRC_DIR: \(Database.srcDir)")
     }
 
-    func copyDatabase(_ name: String = "main") throws {
+    func copyDatabase(as name: String = "main") throws {
         let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: name, ofType: "dba")!
+        let path = bundle.path(forResource: "main", ofType: "dba")!
         try FileManager.default.copyItem(atPath: path, toPath: Database.srcDir + "/\(name).dba")
     }
 
