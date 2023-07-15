@@ -21,8 +21,6 @@ class DatabasesListViewModel: ObservableObject {
     let filemgr = FileManager.default
     @Published var databases: [Database] = []
 
-    @Published var showOpenDatabase = false
-    @Published var dbToOpen: Database?
     @Published var showCreateDatabase = false
     @Published var showEditDatabase = false
     @Published var dbToEdit: Database?
@@ -57,18 +55,13 @@ class DatabasesListViewModel: ObservableObject {
         let dbNames = databases.map { $0.name }
         while let file = enumerator.nextObject() as? String {
             let name = (file as NSString).deletingPathExtension
+            // add only databases that are missing from the list
+            // don't replace the whole list of dbs, as this will close all open databases.
             if file.hasSuffix(".dba") && !dbNames.contains(name) {
                 databases.append(Database(name: name))
             }
         }
         databases.sort { $0.name < $1.name }
-    }
-
-    func databaseSelected(_ database: Database) {
-        if !database.isOpen {
-            dbToOpen = database
-            showOpenDatabase = true
-        }
     }
 
     /// Displays a confirmation dialog to delete selected database.
@@ -87,6 +80,9 @@ class DatabasesListViewModel: ObservableObject {
         }
     }
 
+    /// Displays a confirmation dialog to close/save selected database.
+    ///
+    /// - Note: The dialog is shown only if the database has unsaved changes.
     func confirmClose(of database: Binding<Database>) {
         dbToClose = database
         if database.wrappedValue.isSaved {
@@ -111,6 +107,8 @@ class DatabasesListViewModel: ObservableObject {
     }
 
     func editDatabase(_ database: Database) {
+        // TODO: pass database as a binding?
+        // TODO: is this method and `dbToEdit` property even needed?
         dbToEdit = database
         showEditDatabase = true
     }
