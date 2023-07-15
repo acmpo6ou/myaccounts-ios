@@ -17,13 +17,15 @@
 import SwiftUI
 
 struct AccountsList: View {
+    @Binding var database: Database
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            .navigationTitle(database.name)
     }
 }
 
 struct AccountsList_Previews: PreviewProvider {
     static var previews: some View {
-        AccountsList()
+        AccountsList(database: .constant(Database(name: "main")))
     }
 }

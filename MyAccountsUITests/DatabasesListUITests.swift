@@ -19,6 +19,11 @@ final class DatabasesListUITests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
+    func goBack() {
+        let backButton = app.navigationBars.buttons.element(boundBy: 0)
+        backButton.tap()
+    }
+
     func testNoItems() throws {
         // when there are databases, there should be no message
         XCTAssert(!app.staticTexts["NoItems".l].exists)
@@ -86,5 +91,26 @@ final class DatabasesListUITests: XCTestCase {
         XCTAssert(!closeButton.exists)
 
         // TODO: test that it was actually saved by opening it and checking list of accounts
+        // TODO: test choosing Close instead of Save
+    }
+
+    func testNavDestination() throws {
+        // a closed database should navigate to OpenDatabase
+        app.staticTexts["main"].tap()
+        XCTAssert(app.navigationBars["OpenDB".l("main")].exists)
+
+        // an opened database should navigate to AccountsList
+        goBack()
+        app.staticTexts["test"].tap()
+        XCTAssert(app.navigationBars["test"].exists)
+
+        // close `test`
+        goBack()
+        app.staticTexts["test"].swipeLeft()
+        app.buttons["A11y.CloseDatabase".l("test")].tap()
+
+        // it should now go to OpenDatabase
+        app.staticTexts["test"].tap()
+        XCTAssert(app.navigationBars["OpenDB".l("test")].exists)
     }
 }

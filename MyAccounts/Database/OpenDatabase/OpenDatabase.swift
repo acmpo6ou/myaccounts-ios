@@ -19,7 +19,8 @@ import SwiftUI
 struct OpenDatabase: View {
     @Binding var database: Database
     var body: some View {
-        Text("Open \(database.name)")
+        Text("Hello!")
+            .navigationTitle("OpenDB".l(database.name))
     }
 }
 

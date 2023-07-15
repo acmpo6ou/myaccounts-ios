@@ -26,3 +26,6 @@
 "A11y.EditDatabase" = "Edit %@ database";
 "A11y.DeleteDatabase" = "Delete %@ database";
 "A11y.CloseDatabase" = "Close %@ database";
+
+// OpenDatabase
+"OpenDB" = "Open %@";

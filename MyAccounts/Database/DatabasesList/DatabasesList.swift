@@ -26,7 +26,7 @@ struct DatabasesList: View {
                     destination: {
                         VStack {
                             if database.isOpen {
-                                AccountsList()
+                                AccountsList(database: $database)
                             } else {
                                 OpenDatabase(database: $database)
                             }
