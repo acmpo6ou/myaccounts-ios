@@ -8,27 +8,7 @@
 import XCTest
 @testable import MyAccounts
 
-final class DatabaseTests: XCTestCase {
-    let filemgr = FileManager.default
-
-    func setupSrcDir() throws {
-        try? filemgr.removeItem(atPath: Database.srcDir)
-        try filemgr.createDirectory(atPath: Database.srcDir, withIntermediateDirectories: false)
-        print("SRC_DIR: \(Database.srcDir)")
-    }
-
-    func copyDatabase(_ name: String = "main") throws {
-        let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: name, ofType: "dba")!
-        try FileManager.default.copyItem(atPath: path, toPath: Database.srcDir + "/\(name).dba")
-    }
-
-    override func setUpWithError() throws {
-        try setupSrcDir()
-    }
-
-    override func tearDownWithError() throws {
-    }
+final class DatabaseTests: BaseTest {
 
     func testIsOpen() throws {
         let closed = Database(name: "closed")
