@@ -45,7 +45,7 @@ struct DatabaseItem: View {
             .tint(.red)
             if database.isOpen {
                 Button(
-                    action: { viewModel.confirmClose(of: database) },
+                    action: { viewModel.confirmClose(of: $database) },
                     label: { Image(systemName: "lock.fill") }
                 )
                 .accessibilityLabel("A11y.CloseDatabase".l(database.name))

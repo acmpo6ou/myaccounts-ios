@@ -17,22 +17,16 @@
 import Foundation
 import CommonCrypto
 
-class Database: Equatable {
+struct Database: Equatable {
     static var srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path + "/src/"
     let filemgr = FileManager.default
 
     var name: String
     var password: String?
-    var accounts: Accounts
+    var accounts: Accounts = [:]
 
     var dbaPath: String { "\(Database.srcDir)/\(name).dba" }
     var isOpen: Bool { password != nil }
-
-    init(name: String, password: String? = nil, accounts: Accounts = [:]) {
-        self.name = name
-        self.password = password
-        self.accounts = accounts
-    }
 
     static func == (lhs: Database, rhs: Database) -> Bool {
         lhs.name == rhs.name &&
@@ -46,7 +40,7 @@ class Database: Equatable {
     /// If it isn't, a dialog about unsaved changes should be shown.
     var isSaved: Bool {
         guard let password = self.password else { return true }
-        let diskDb = Database(name: self.name)
+        var diskDb = Database(name: self.name)
         do {
             try diskDb.open(with: password)
         } catch {
@@ -56,7 +50,7 @@ class Database: Equatable {
         return self.accounts == diskDb.accounts
     }
 
-    func open(with password: String) throws {
+    mutating func open(with password: String) throws {
         guard let file = FileHandle(forReadingAtPath: dbaPath) else {
             throw DBError.databaseError("Couldn't open \(dbaPath) file for reading.")
         }
@@ -72,9 +66,9 @@ class Database: Equatable {
         self.accounts = try JSONDecoder().decode([String: Account].self, from: json)
     }
 
-    func close() {
-        self.password = nil
-        self.accounts = [:]
+    mutating func close() {
+        password = nil
+        accounts = [:]
     }
 
     /// Creates the database using current values of `name`, `password`, and `accounts`.
@@ -99,14 +93,14 @@ class Database: Equatable {
         try? file.close()
     }
 
-    func rename(to newName: String) throws {
+    mutating func rename(to newName: String) throws {
         let oldPath = dbaPath
         name = newName
         try filemgr.moveItem(atPath: oldPath, toPath: dbaPath)
     }
 
     /// Replaces old database file with a new one, effectively saving changes done to the database.
-    func save(name: String, password: String) throws {
+    mutating func save(name: String, password: String) throws {
         try filemgr.removeItem(atPath: dbaPath)
         self.name = name
         self.password = password

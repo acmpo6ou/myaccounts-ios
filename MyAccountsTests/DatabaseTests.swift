@@ -39,21 +39,21 @@ final class DatabaseTests: XCTestCase {
 
     func testOpen() throws {
         try copyDatabase()
-        let db = Database(name: "main")
+        var db = Database(name: "main")
         try db.open(with: "123")
         XCTAssertEqual(db.accounts, accounts)
         XCTAssertEqual(db.password, "123")
     }
 
     func testClose() throws {
-        let db = Database(name: "main", password: "123", accounts: accounts)
+        var db = Database(name: "main", password: "123", accounts: accounts)
         db.close()
         XCTAssertNil(db.password)
         XCTAssertEqual(db.accounts, [:])
     }
 
     func testCreate() throws {
-        let db = Database(name: "main", password: "123", accounts: accounts)
+        var db = Database(name: "main", password: "123", accounts: accounts)
         try db.create()
 
         db.close()
@@ -63,7 +63,7 @@ final class DatabaseTests: XCTestCase {
 
     func testRename() throws {
         try copyDatabase()
-        let db = Database(name: "main")
+        var db = Database(name: "main")
         try db.rename(to: "crypt")
         XCTAssertTrue(filemgr.fileExists(atPath: "\(Database.srcDir)/crypt.dba"))
         XCTAssertFalse(filemgr.fileExists(atPath: "\(Database.srcDir)/main.dba"))
@@ -71,7 +71,7 @@ final class DatabaseTests: XCTestCase {
 
     func testIsSaved() throws {
         try copyDatabase()
-        let db = Database(name: "main", password: "123", accounts: accounts)
+        var db = Database(name: "main", password: "123", accounts: accounts)
         XCTAssertTrue(db.isSaved)
 
         db.accounts["gmail"] = nil
@@ -86,7 +86,7 @@ final class DatabaseTests: XCTestCase {
 
     func testSave() throws {
         try copyDatabase()
-        let db = Database(name: "main")
+        var db = Database(name: "main")
         try db.open(with: "123")
 
         var newAccounts = accounts
@@ -107,7 +107,7 @@ final class DatabaseTests: XCTestCase {
     /// the database file will be removed.
     func testSaveWhenDatabaseNameDidntChange() throws {
         try copyDatabase()
-        let db = Database(name: "main")
+        var db = Database(name: "main")
         try db.open(with: "123")
 
         var newAccounts = accounts

@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import SwiftUI
 
 class DatabasesListViewModel: ObservableObject {
     let filemgr = FileManager.default
@@ -36,7 +37,7 @@ class DatabasesListViewModel: ObservableObject {
 
     @Published var showCloseAlert = false
     @Published var closeMessage = ""
-    var dbToClose: Database?
+    var dbToClose: Binding<Database>?
 
     /// Creates the source folder if needed.
     func fixSrcFolder() {
@@ -86,23 +87,23 @@ class DatabasesListViewModel: ObservableObject {
         }
     }
 
-    func confirmClose(of database: Database) {
+    func confirmClose(of database: Binding<Database>) {
         dbToClose = database
-        if database.isSaved {
+        if database.wrappedValue.isSaved {
             closeDatabase()
             return
         }
-        closeMessage = "CloseDatabaseAlert.Message".l(database.name)
+        closeMessage = "CloseDatabaseAlert.Message".l(database.wrappedValue.name)
         showCloseAlert = true
     }
 
     func closeDatabase() {
-        dbToClose?.close()
+        dbToClose?.wrappedValue.close()
     }
 
     func saveDatabase() {
         do {
-            try dbToClose?.save()
+            try dbToClose?.wrappedValue.save()
             closeDatabase()
         } catch {
             showError(error, title: "Error.CloseDatabase".l)
