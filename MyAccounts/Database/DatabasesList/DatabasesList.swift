@@ -74,10 +74,10 @@ struct DatabasesList: View {
             isPresented: $viewModel.showCloseAlert,
             titleVisibility: .visible
         ) {
-            Button("Save database".l) {
+            Button("CloseDBAlert.Save".l) {
                 viewModel.saveDatabase()
             }
-            Button("Close database".l, role: .destructive) {
+            Button("CloseDBAlert.Close".l, role: .destructive) {
                 viewModel.closeDatabase()
             }
         }

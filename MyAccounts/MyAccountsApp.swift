@@ -41,7 +41,7 @@ struct MyAccountsApp: App {
     func prepareTestData() {
         let testMode = ProcessInfo
             .processInfo.arguments.contains("testMode")
-//        if !testMode { return }
+        if !testMode { return }
         if preparedData { return }
         preparedData = true
         print("PREPARING TEST DATA")
@@ -50,10 +50,13 @@ struct MyAccountsApp: App {
             try setupSrcDir()
             try copyDatabase()
             try copyDatabase(as: "test")
+            try copyDatabase(as: "unsaved")
             viewModel.loadDatabases()
             try viewModel.databases[1].open(with: "123")
+            try viewModel.databases[2].open(with: "123")
+            viewModel.databases[2].accounts["gmail"] = nil
         } catch {
-            error.log(category: "databases_list")
+            error.log(category: "myaccounts_app")
         }
     }
 }

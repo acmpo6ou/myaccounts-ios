@@ -67,7 +67,7 @@ class DatabasesListViewModel: ObservableObject {
     /// Displays a confirmation dialog to delete selected database.
     func confirmDelete(of database: Database) {
         dbToDelete = database
-        deleteMessage = "DeleteDatabaseAlert.Message".l(database.name)
+        deleteMessage = "DeleteDBAlert.Message".l(database.name)
         showDeleteAlert = true
     }
 
@@ -76,7 +76,7 @@ class DatabasesListViewModel: ObservableObject {
             try filemgr.removeItem(atPath: dbToDelete!.dbaPath)
             databases.removeAll { $0 == dbToDelete }
         } catch {
-            showError(error, title: "Error.DatabaseDeletion".l)
+            showError(error, title: "Error.DeleteDatabase".l)
         }
     }
 
@@ -89,7 +89,7 @@ class DatabasesListViewModel: ObservableObject {
             closeDatabase()
             return
         }
-        closeMessage = "CloseDatabaseAlert.Message".l(database.wrappedValue.name)
+        closeMessage = "CloseDBAlert.Message".l(database.wrappedValue.name)
         showCloseAlert = true
     }
 

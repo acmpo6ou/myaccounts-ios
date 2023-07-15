@@ -15,9 +15,11 @@
 "NoItems" = "No items.";
 
 /// DatabasesList
-"DeleteDatabaseAlert.Message" = "Are you sure you want to delete %@?";
-"Error.DatabaseDeletion" = "Failed to delete the database.";
-"CloseDatabaseAlert.Message" = "%@ has unsafed changes.";
+"DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
+"Error.DeleteDatabase" = "Failed to delete the database.";
+"CloseDBAlert.Message" = "%@ has unsafed changes.";
+"CloseDBAlert.Save" = "Save database";
+"CloseDBAlert.Close" = "Close database";
 "Error.CloseDatabase" = "Failed to close the database.";
 
 "A11y.CreateDatabase" = "Create database";
