@@ -28,7 +28,6 @@ struct DatabaseItem: View {
             Spacer()
         }
         .padding(.vertical)
-        .font(.title)
         .transition(.slide)
         .swipeActions {
             Button(
