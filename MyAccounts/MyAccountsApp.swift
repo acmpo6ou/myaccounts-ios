@@ -46,6 +46,9 @@ struct MyAccountsApp: App {
         preparedData = true
         print("PREPARING TEST DATA")
 
+        // speed up animations
+        UIApplication.shared.keyWindow?.layer.speed = 100
+
         do {
             try setupSrcDir()
             try copyDatabase()
