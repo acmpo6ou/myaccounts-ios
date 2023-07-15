@@ -19,6 +19,21 @@ final class DatabasesListUITests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
+    func testNoItems() throws {
+        // when there are databases, there should be no message
+        XCTAssert(!app.staticTexts["NoItems".l].exists)
+
+        // delete all databases
+        for db in ["main", "test", "unsaved"] {
+            app.staticTexts[db].swipeLeft()
+            app.buttons["A11y.DeleteDatabase".l(db)].tap()
+            app.buttons["Delete".l].tap()
+        }
+
+        // a message saying "No items" should appear
+        XCTAssert(app.staticTexts["NoItems".l].exists)
+    }
+
     func testDelete() throws {
         // try to delete `main`
         app.staticTexts["main"].swipeLeft()
