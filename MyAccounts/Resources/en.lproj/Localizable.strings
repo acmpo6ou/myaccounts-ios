@@ -16,6 +16,8 @@
 "Create" = "Create";
 "GenPass" = "Generate password";
 
+"Error.Name" = "Please provide a name.";
+
 /// DatabasesList
 "DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
 "Error.DeleteDatabase" = "Failed to delete the database.";

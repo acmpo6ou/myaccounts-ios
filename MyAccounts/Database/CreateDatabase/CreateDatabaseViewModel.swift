@@ -23,4 +23,8 @@ class CreateDatabaseViewModel: ObservableObject {
 
     @Published var nameError = ""
     @Published var passwordError = ""
+
+    func validateName() {
+        nameError = name.isEmpty ? "Error.Name".l : ""
+    }
 }

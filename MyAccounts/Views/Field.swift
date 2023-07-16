@@ -21,12 +21,16 @@ struct Field: View {
     @Binding var text: String
     var tip = ""
     var errorMessage = ""
+    let validate: () -> Void
 
     var body: some View {
         VStack(alignment: .leading) {
             Text(label)
                 .font(.system(size: 28))
             TextField("", text: $text)
+                .onChange(of: text) {_ in validate() }
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -49,13 +53,13 @@ struct Field_Previews: PreviewProvider {
                 label: "DBName".l,
                 text: $password1,
                 tip: "Helpful tip."
-            )
+            ) {}
             Field(
                 label: "DBName".l,
                 text: $password1,
                 tip: "Helpful tip.",
                 errorMessage: "Incorrect name!"
-            )
+            ) {}
         }
         .padding()
     }
