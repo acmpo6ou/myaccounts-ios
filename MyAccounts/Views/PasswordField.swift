@@ -21,11 +21,16 @@ struct PasswordField: View {
     @FocusState private var focus1: Bool
     @FocusState private var focus2: Bool
     @State private var showPassword: Bool = false
+
+    let label: String
     @Binding var password: String
+    var tip = ""
     var errorMessage = ""
 
     var body: some View {
         VStack(alignment: .leading) {
+            Text(label)
+                .font(.system(size: 28))
             HStack {
                 ZStack(alignment: .trailing) {
                     TextField("", text: $password)
@@ -51,6 +56,9 @@ struct PasswordField: View {
                     .stroke(errorMessage.isEmpty ? .gray : .red, lineWidth: 1)
             )
         }
+        Text(errorMessage.isEmpty ? tip : "")
+            .foregroundColor(.gray)
+            .frame(maxWidth: .infinity, alignment: .leading)
         Text(errorMessage)
             .foregroundColor(.red)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -62,8 +70,18 @@ struct PasswordField_Previews: PreviewProvider {
     @State static var password2 = "incorrect"
     static var previews: some View {
         VStack {
-            PasswordField(password: $password1, errorMessage: "")
-            PasswordField(password: $password2, errorMessage: "Incorrect password!")
+            PasswordField(
+                label: "Password".l,
+                password: $password1,
+                tip: "Helpful tip.",
+                errorMessage: ""
+            )
+            PasswordField(
+                label: "RepeatPassword".l,
+                password: $password2,
+                tip: "Helpful tip.",
+                errorMessage: "Incorrect password!"
+            )
         }
         .padding()
     }

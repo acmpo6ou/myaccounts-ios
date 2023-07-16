@@ -25,6 +25,7 @@
 		D2AB93562A4BF465004334BB /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93552A4BF465004334BB /* DatabaseTests.swift */; };
 		D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */; };
 		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
+		D2C16CA72A641A8A00C72086 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C16CA62A641A8A00C72086 /* Field.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
 		D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */; };
@@ -77,6 +78,7 @@
 		D2AB935B2A4BF465004334BB /* MyAccountsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAccountsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListUITests.swift; sourceTree = "<group>"; };
 		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2C16CA62A641A8A00C72086 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
 		D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabaseViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				D2F7B78E2A64033C002CEDF8 /* PasswordField.swift */,
+				D2C16CA62A641A8A00C72086 /* Field.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
+				D2C16CA72A641A8A00C72086 /* Field.swift in Sources */,
 				D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */,
 				D2FD5A3B2A600E99003EA40F /* AccountsList.swift in Sources */,
 				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,

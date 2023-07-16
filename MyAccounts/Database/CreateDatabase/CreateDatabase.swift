@@ -22,13 +22,22 @@ struct CreateDatabase: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("DBName".l)
-            TextField("", text: $viewModel.name)
-                .textFieldStyle(.roundedBorder)
-            Text("Password".l)
-            PasswordField(password: $viewModel.password, errorMessage: viewModel.passwordError)
-            Text("RepeatPassword".l)
-            PasswordField(password: $viewModel.repeatPassword)
+            Field(
+                label: "DBName".l,
+                text: $viewModel.name,
+                tip: "DBNameTip".l,
+                errorMessage: viewModel.nameError
+            )
+            PasswordField(
+                label: "Password".l,
+                password: $viewModel.password,
+                errorMessage: viewModel.passwordError
+            )
+            PasswordField(
+                label: "RepeatPassword".l,
+                password: $viewModel.repeatPassword,
+                tip: "PasswordTip".l
+            )
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
