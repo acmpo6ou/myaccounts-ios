@@ -22,9 +22,10 @@ struct PasswordField: View {
     @FocusState var focus2: Bool
     @State var showPassword: Bool = false
     @Binding var password: String
+    var errorMessage: String
 
     var body: some View {
-        HStack {
+        VStack(alignment: .leading) {
             HStack {
                 ZStack(alignment: .trailing) {
                     TextField("", text: $password)
@@ -41,17 +42,30 @@ struct PasswordField: View {
                     if showPassword { focus1 = true } else { focus2 = true }
                 } label: {
                     Image(systemName: showPassword ? "eye.slash.fill" : "eye.fill")
+                        .tint(.gray)
                         .padding()
                 }
             }
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(errorMessage.isEmpty ? .gray : .red, lineWidth: 1)
+            )
         }
+        Text(errorMessage)
+            .foregroundColor(.red)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct PasswordField_Previews: PreviewProvider {
+    @State static var password1 = ""
+    @State static var password2 = "incorrect"
     static var previews: some View {
-        PasswordField(.constant(""))
+        VStack {
+            PasswordField(password: $password1, errorMessage: "")
+            PasswordField(password: $password2, errorMessage: "Incorrect password!")
+        }
+        .padding()
     }
 }
 
