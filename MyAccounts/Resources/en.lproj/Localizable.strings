@@ -29,3 +29,9 @@
 
 // OpenDatabase
 "OpenDB" = "Open %@";
+
+// CreateDatabase
+"CreateDB" = "Create database";
+"DBName" = "Database name";
+"Password" = "Password";
+"RepeatPassword" = "Repeat password";

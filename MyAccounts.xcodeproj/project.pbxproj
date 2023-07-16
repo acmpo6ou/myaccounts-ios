@@ -27,6 +27,8 @@
 		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
+		D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */; };
+		D2F7B78F2A64033C002CEDF8 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F7B78E2A64033C002CEDF8 /* PasswordField.swift */; };
 		D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */; };
 		D2FD5A3B2A600E99003EA40F /* AccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD5A3A2A600E99003EA40F /* AccountsList.swift */; };
 		D2FD5A3D2A604610003EA40F /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2FD5A3C2A604610003EA40F /* main.dba */; };
@@ -77,6 +79,8 @@
 		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
+		D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabaseViewModel.swift; sourceTree = "<group>"; };
+		D2F7B78E2A64033C002CEDF8 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabase.swift; sourceTree = "<group>"; };
 		D2FD5A3A2A600E99003EA40F /* AccountsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsList.swift; sourceTree = "<group>"; };
 		D2FD5A3C2A604610003EA40F /* main.dba */ = {isa = PBXFileReference; lastKnownFileType = text; name = main.dba; path = MyAccountsTests/sampledata/main.dba; sourceTree = SOURCE_ROOT; };
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */,
+				D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */,
 			);
 			path = CreateDatabase;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 		D2A602582A5846FA00BAFB54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2F7B78E2A64033C002CEDF8 /* PasswordField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,11 +448,13 @@
 				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
+				D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */,
 				D2FD5A3B2A600E99003EA40F /* AccountsList.swift in Sources */,
 				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,
 				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
 				D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */,
 				D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */,
+				D2F7B78F2A64033C002CEDF8 /* PasswordField.swift in Sources */,
 				D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */,
 				D2A6025D2A58480500BAFB54 /* DatabaseItem.swift in Sources */,
 			);

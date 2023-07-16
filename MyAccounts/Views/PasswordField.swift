@@ -18,11 +18,11 @@ import Foundation
 import SwiftUI
 
 struct PasswordField: View {
-    @FocusState var focus1: Bool
-    @FocusState var focus2: Bool
-    @State var showPassword: Bool = false
+    @FocusState private var focus1: Bool
+    @FocusState private var focus2: Bool
+    @State private var showPassword: Bool = false
     @Binding var password: String
-    var errorMessage: String
+    var errorMessage = ""
 
     var body: some View {
         VStack(alignment: .leading) {

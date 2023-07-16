@@ -17,13 +17,28 @@
 import SwiftUI
 
 struct CreateDatabase: View {
+    @EnvironmentObject var dbsViewModel: DatabasesListViewModel
+    @StateObject var viewModel = CreateDatabaseViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text("DBName".l)
+            TextField("", text: $viewModel.name)
+                .textFieldStyle(.roundedBorder)
+            Text("Password".l)
+            PasswordField(password: $viewModel.password, errorMessage: viewModel.passwordError)
+            Text("RepeatPassword".l)
+            PasswordField(password: $viewModel.repeatPassword)
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .navigationTitle("CreateDB".l)
     }
 }
 
 struct CreateDatabase_Previews: PreviewProvider {
     static var previews: some View {
         CreateDatabase()
+            .environmentObject(DatabasesListViewModel())
     }
 }
