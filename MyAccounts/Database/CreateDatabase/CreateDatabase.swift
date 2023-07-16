@@ -39,15 +39,34 @@ struct CreateDatabase: View {
                 tip: "PasswordTip".l
             )
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                } label: {
+                    Text("GenPass".l).fontWeight(.semibold)
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                } label: {
+                    Text("Create".l).fontWeight(.semibold)
+                }
+            }
+        }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .navigationTitle("CreateDB".l)
     }
 }
 
 struct CreateDatabase_Previews: PreviewProvider {
     static var previews: some View {
-        CreateDatabase()
-            .environmentObject(DatabasesListViewModel())
+        VStack {}
+            .sheet(isPresented: .constant(true)) {
+                NavigationStack {
+                    CreateDatabase()
+                        .environmentObject(DatabasesListViewModel())
+                }
+                .presentationDragIndicator(.visible)
+            }
     }
 }

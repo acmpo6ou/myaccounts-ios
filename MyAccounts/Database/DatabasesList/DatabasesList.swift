@@ -53,7 +53,10 @@ struct DatabasesList: View {
             }
         }
         .sheet(isPresented: $viewModel.showCreateDatabase) {
-            CreateDatabase()
+            NavigationStack {
+                CreateDatabase()
+            }
+            .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $viewModel.showEditDatabase) {
             EditDatabase(database: $viewModel.dbToEdit)

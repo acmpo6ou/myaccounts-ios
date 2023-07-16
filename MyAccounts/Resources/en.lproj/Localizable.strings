@@ -13,6 +13,8 @@
 "Warning" = "Warning";
 "Close" = "Close";
 "NoItems" = "No items.";
+"Create" = "Create";
+"GenPass" = "Generate password";
 
 /// DatabasesList
 "DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
