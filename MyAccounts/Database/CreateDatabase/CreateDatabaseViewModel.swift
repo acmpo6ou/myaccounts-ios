@@ -16,15 +16,5 @@
 
 import Foundation
 
-class CreateDatabaseViewModel: ObservableObject {
-    @Published var name = ""
-    @Published var password = ""
-    @Published var repeatPassword = ""
-
-    @Published var nameError = ""
-    @Published var passwordError = ""
-
-    func validateName() {
-        nameError = name.isEmpty ? "Error.Name".l : ""
-    }
+class CreateDatabaseViewModel: CreateViewModel {
 }

@@ -13,10 +13,6 @@
 "Warning" = "Warning";
 "Close" = "Close";
 "NoItems" = "No items.";
-"Create" = "Create";
-"GenPass" = "Generate password";
-
-"Error.Name" = "Please provide a name.";
 
 /// DatabasesList
 "DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
@@ -34,10 +30,19 @@
 // OpenDatabase
 "OpenDB" = "Open %@";
 
+// CreateForm
+"Create" = "Create";
+"Password" = "Password";
+"RepeatPassword" = "Repeat password";
+"GenPass" = "Generate password";
+"PasswordTip" = "You can generate it using the button below";
+
+"Error.EmptyName" = "Please provide a name.";
+"Error.NameTaken" = "This name is already taken.";
+"Error.EmptyPassword" = "Please provide a password.";
+"Error.PasswordsDiff" = "Passwords do not match.";
+
 // CreateDatabase
 "CreateDB" = "Create database";
 "DBName" = "Database name";
 "DBNameTip" = "Only latin symbols, numbers and .()-_ are supported";
-"Password" = "Password";
-"RepeatPassword" = "Repeat password";
-"PasswordTip" = "You can generate it using button below";

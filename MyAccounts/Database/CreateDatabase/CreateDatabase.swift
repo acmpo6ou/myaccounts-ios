@@ -27,7 +27,7 @@ struct CreateDatabase: View {
                 text: $viewModel.name,
                 tip: "DBNameTip".l,
                 errorMessage: viewModel.nameError
-            ) { viewModel.validateName() }
+            ) { /*TODO: implement*/ }
             PasswordField(
                 label: "Password".l,
                 password: $viewModel.password,

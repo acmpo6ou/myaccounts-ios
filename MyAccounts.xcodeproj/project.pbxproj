@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */; };
 		D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */; };
+		D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */; };
 		D27CEDBA2A52D0580091B634 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDB92A52D0580091B634 /* Database.swift */; };
 		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
@@ -58,6 +59,7 @@
 		D2610EF42A5EE2E000BB100C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabase.swift; sourceTree = "<group>"; };
 		D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesList.swift; sourceTree = "<group>"; };
+		D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		D27CEDB92A52D0580091B634 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		D27CEDBB2A52D1420091B634 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D27CEDBE2A5311F60091B634 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A602542A58207E00BAFB54 /* Utilities.swift */,
+				D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			files = (
 				D27CEDBC2A52D1420091B634 /* Account.swift in Sources */,
 				D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */,
+				D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */,
 				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
