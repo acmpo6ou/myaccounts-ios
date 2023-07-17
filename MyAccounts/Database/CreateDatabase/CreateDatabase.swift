@@ -38,9 +38,10 @@ struct CreateDatabase: View {
             PasswordField(
                 label: "RepeatPassword".l,
                 password: $viewModel.repeatPassword,
-                tip: "PasswordTip".l,
                 validate: validate
             )
+            Button("GenPass".l) {}
+                .buttonStyle(.borderedProminent)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -48,6 +49,8 @@ struct CreateDatabase: View {
                     viewModel.createDatabase()
                 } label: {
                     Text("Create".l).fontWeight(.semibold)
+                        .font(.system(size: 24))
+                        .padding()
                 }
                 .disabled(!viewModel.applyEnabled)
             }

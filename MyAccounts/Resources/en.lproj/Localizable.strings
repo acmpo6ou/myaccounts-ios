@@ -35,7 +35,6 @@
 "Password" = "Password";
 "RepeatPassword" = "Repeat password";
 "GenPass" = "Generate password";
-"PasswordTip" = "You can generate it using the button below";
 
 "Error.EmptyName" = "Please provide a name.";
 "Error.NameTaken" = "This name is already taken.";
