@@ -26,35 +26,39 @@ struct CreateDatabase: View {
                 label: "DBName".l,
                 text: $viewModel.name,
                 tip: "DBNameTip".l,
-                errorMessage: viewModel.nameError
-            ) { /*TODO: implement*/ }
+                errorMessage: viewModel.nameError,
+                validate: validate
+            )
             PasswordField(
                 label: "Password".l,
                 password: $viewModel.password,
-                errorMessage: viewModel.passwordError
+                errorMessage: viewModel.passwordError,
+                validate: validate
             )
             PasswordField(
                 label: "RepeatPassword".l,
                 password: $viewModel.repeatPassword,
-                tip: "PasswordTip".l
+                tip: "PasswordTip".l,
+                validate: validate
             )
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                } label: {
-                    Text("GenPass".l).fontWeight(.semibold)
-                }
-            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
+                    viewModel.createDatabase()
                 } label: {
                     Text("Create".l).fontWeight(.semibold)
                 }
+                .disabled(!viewModel.applyEnabled)
             }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+
+    func validate() {
+        let takenNames = dbsViewModel.databases.map { $0.name }
+        viewModel.applyEnabled(takenNames: takenNames)
     }
 }
 

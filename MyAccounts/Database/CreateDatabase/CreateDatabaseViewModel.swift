@@ -17,4 +17,7 @@
 import Foundation
 
 class CreateDatabaseViewModel: CreateViewModel {
+    func createDatabase() {
+
+    }
 }

@@ -26,6 +26,7 @@ struct PasswordField: View {
     @Binding var password: String
     var tip = ""
     var errorMessage = ""
+    let validate: () -> Void
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -34,10 +35,12 @@ struct PasswordField: View {
             HStack {
                 ZStack(alignment: .trailing) {
                     TextField("", text: $password)
+                        .onChange(of: password) {_ in validate() }
                         .modifier(LoginModifier())
                         .focused($focus1)
                         .opacity(showPassword ? 1 : 0)
                     SecureField("", text: $password)
+                        .onChange(of: password) {_ in validate() }
                         .modifier(LoginModifier())
                         .focused($focus2)
                         .opacity(showPassword ? 0 : 1)
@@ -75,13 +78,13 @@ struct PasswordField_Previews: PreviewProvider {
                 password: $password1,
                 tip: "Helpful tip.",
                 errorMessage: ""
-            )
+            ) {}
             PasswordField(
                 label: "RepeatPassword".l,
                 password: $password2,
                 tip: "Helpful tip.",
                 errorMessage: "Incorrect password!"
-            )
+            ) {}
         }
         .padding()
     }
