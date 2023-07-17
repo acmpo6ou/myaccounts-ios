@@ -57,6 +57,9 @@ struct CreateDatabase: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .onAppear {
+            viewModel.dbsViewModel = dbsViewModel
+        }
     }
 
     func validate() {

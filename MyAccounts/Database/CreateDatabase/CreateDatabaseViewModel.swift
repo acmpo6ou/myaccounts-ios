@@ -16,8 +16,24 @@
 
 import Foundation
 
-class CreateDatabaseViewModel: CreateViewModel {
-    func createDatabase() {
+class CreateDatabaseViewModel: CreateViewModel, ErrorModel {
+    var dbsViewModel: DatabasesListViewModel?
+    
+    @Published var showErrorAlert = false
+    @Published var errorTitle = ""
+    @Published var errorMessage = ""
+    var logCategory = "create_database_model"
 
+    func createDatabase() {
+        let database = Database(name: name, password: password)
+        do {
+            try database.create()
+        } catch {
+            showError(error, title: "Error.CreateDB".l)
+            return
+        }
+        dbsViewModel?.databases.append(database)
+        dbsViewModel?.databases.sort { $0.name < $1.name }
+        dbsViewModel?.showCreateDatabase = false
     }
 }

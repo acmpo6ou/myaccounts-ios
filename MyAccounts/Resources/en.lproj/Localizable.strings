@@ -45,3 +45,4 @@
 "CreateDB" = "Create database";
 "DBName" = "Database name";
 "DBNameTip" = "Only latin symbols, numbers and .()-_ are supported";
+"Error.CreateDB" = "Failed to create the database.";
