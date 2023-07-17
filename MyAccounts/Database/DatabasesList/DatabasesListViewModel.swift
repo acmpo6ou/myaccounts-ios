@@ -17,7 +17,8 @@
 import Foundation
 import SwiftUI
 
-class DatabasesListViewModel: ObservableObject {
+class DatabasesListViewModel: ObservableObject, ErrorModel {
+    var logCategory = "database_view_model"
     let filemgr = FileManager.default
     @Published var databases: [Database] = []
 
@@ -111,16 +112,5 @@ class DatabasesListViewModel: ObservableObject {
         // TODO: is this method and `dbToEdit` property even needed?
         dbToEdit = database
         showEditDatabase = true
-    }
-
-    func showError(_ error: Error, title: String) {
-        log(error)
-        errorTitle = title
-        errorMessage = error.localizedDescription
-        showErrorAlert = true
-    }
-
-    func log(_ error: Error) {
-        error.log(category: "database_view_model")
     }
 }
