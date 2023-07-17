@@ -24,6 +24,8 @@ open class CreateViewModel: ObservableObject {
     @Published var nameError = ""
     @Published var passwordError = ""
 
+    @Published var applyEnabled = false
+
     /// Validates name field, displaying error tip if database name is invalid.
     ///
     /// Possible problems with database name:
@@ -53,5 +55,14 @@ open class CreateViewModel: ObservableObject {
         passwordError = password != repeatPassword ? "Error.PassDiff".l : ""
         if !passwordError.isEmpty { return false }
         return true
+    }
+
+    /// Enables or disables apply button depending on whether there are errors in the form.
+    ///
+    /// - Note: "apply button" is a general way to refer to "Create" or "Edit" button.
+    func applyEnabled(takenNames: [String]) {
+        let nameGood = validateName(takenNames: takenNames)
+        let passwordsGood = validatePasswords()
+        applyEnabled = nameGood && passwordsGood
     }
 }
