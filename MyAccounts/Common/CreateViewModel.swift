@@ -32,12 +32,26 @@ open class CreateViewModel: ObservableObject {
     ///
     /// - Note: for `EditDatabase` and `EditAccount`
     ///  it's OK if database name hasn't changed throughout editing, and they should pass in correct `takenNames` list.
-    /// - Returns: true if name is valid.
+    /// - Returns: `true` if name is valid.
     func validateName(takenNames: [String]) -> Bool {
         nameError = name.isEmpty ? "Error.EmptyName".l : ""
         if !nameError.isEmpty { return false }
         nameError = takenNames.contains(name) ? "Error.NameTaken".l : ""
         if !nameError.isEmpty { return false }
+        return true
+    }
+
+    /// Validates password fields, displaying error tips if passwords are invalid.
+    ///
+    /// Possible problems with passwords:
+    ///   - password fields are empty
+    ///   - passwords from password fields don't match
+    /// - Returns: `true` if passwords are valid.
+    func validatePasswords() -> Bool {
+        passwordError = password.isEmpty ? "Error.EmptyPass".l : ""
+        if !passwordError.isEmpty { return false }
+        passwordError = password != repeatPassword ? "Error.PassDiff".l : ""
+        if !passwordError.isEmpty { return false }
         return true
     }
 }

@@ -30,7 +30,7 @@
 // OpenDatabase
 "OpenDB" = "Open %@";
 
-// CreateForm
+// CreateViewModel
 "Create" = "Create";
 "Password" = "Password";
 "RepeatPassword" = "Repeat password";
@@ -39,8 +39,8 @@
 
 "Error.EmptyName" = "Please provide a name.";
 "Error.NameTaken" = "This name is already taken.";
-"Error.EmptyPassword" = "Please provide a password.";
-"Error.PasswordsDiff" = "Passwords do not match.";
+"Error.EmptyPass" = "Please provide a password.";
+"Error.PassDiff" = "Passwords do not match.";
 
 // CreateDatabase
 "CreateDB" = "Create database";
