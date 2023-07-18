@@ -36,11 +36,13 @@ struct PasswordField: View {
                 ZStack(alignment: .trailing) {
                     TextField("", text: $password)
                         .onChange(of: password) {_ in validate() }
+                        .accessibilityLabel(label)
                         .modifier(LoginModifier())
                         .focused($focus1)
                         .opacity(showPassword ? 1 : 0)
                     SecureField("", text: $password)
                         .onChange(of: password) {_ in validate() }
+                        .accessibilityLabel(label)
                         .modifier(LoginModifier())
                         .focused($focus2)
                         .opacity(showPassword ? 0 : 1)

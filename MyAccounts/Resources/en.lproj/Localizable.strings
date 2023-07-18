@@ -22,7 +22,6 @@
 "CloseDBAlert.Close" = "Close database";
 "Error.CloseDatabase" = "Failed to close the database.";
 
-"A11y.CreateDatabase" = "Create database";
 "A11y.EditDatabase" = "Edit %@ database";
 "A11y.DeleteDatabase" = "Delete %@ database";
 "A11y.CloseDatabase" = "Close %@ database";

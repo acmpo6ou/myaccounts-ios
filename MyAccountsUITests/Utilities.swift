@@ -16,6 +16,7 @@
 
 import Foundation
 import os
+import XCTest
 
 extension String {
     var l: String {
@@ -40,5 +41,28 @@ extension Error {
     func log(category: String) {
         let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "", category: category)
         logger.error("\(self.localizedDescription)")
+    }
+}
+
+extension XCUIElement {
+    func clearText() {
+        guard let stringValue = self.value as? String else {
+            return
+        }
+        // workaround for apple bug
+        if let placeholderString = self.placeholderValue, placeholderString == stringValue {
+            return
+        }
+
+        var deleteString = String()
+        for _ in stringValue {
+            deleteString += XCUIKeyboardKey.delete.rawValue
+        }
+        typeText(deleteString)
+    }
+
+    func writeText(_ text: String) {
+        self.tap()
+        self.typeText(text)
     }
 }

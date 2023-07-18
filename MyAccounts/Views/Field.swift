@@ -29,6 +29,7 @@ struct Field: View {
                 .font(.system(size: 28))
             TextField("", text: $text)
                 .onChange(of: text) {_ in validate() }
+                .accessibilityLabel(label)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
                 .padding()
