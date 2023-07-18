@@ -47,9 +47,9 @@ struct MyAccountsApp: App {
         print("PREPARING TEST DATA")
 
         // speed up animations
-//        UIApplication.shared.connectedScenes
-//            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-//            .last?.layer.speed = 100
+        UIApplication.shared.connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+            .last?.layer.speed = 100
 
         do {
             try setupSrcDir()

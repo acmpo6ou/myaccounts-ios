@@ -58,11 +58,17 @@ extension XCUIElement {
         for _ in stringValue {
             deleteString += XCUIKeyboardKey.delete.rawValue
         }
+        tap()
         typeText(deleteString)
     }
 
     func writeText(_ text: String) {
-        self.tap()
-        self.typeText(text)
+        tap()
+        typeText(text)
+    }
+
+    func replaceText(with newText: String) {
+        clearText()
+        writeText(newText)
     }
 }

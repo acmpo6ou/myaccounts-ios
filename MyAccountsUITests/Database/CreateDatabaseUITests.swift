@@ -69,6 +69,33 @@ final class CreateDatabaseUITests: BaseTest {
         // the Create database form should be hidden
         XCTAssert(!app.textFields["DBName".l].exists)
     }
-    // TODO: test Create button enabled
+
+    func testCreateEnabled() throws {
+        app.buttons["CreateDB".l].tap()
+        // at first, the create button should be disabled
+        XCTAssert(!app.buttons["Create".l].isEnabled)
+
+        // when all data is correct, the button should be enabled
+        app.textFields["DBName".l].writeText("data")
+        app.secureTextFields["Password".l].writeText("123")
+        app.secureTextFields["RepeatPassword".l].writeText("123")
+        XCTAssert(app.buttons["Create".l].isEnabled)
+
+        // it should be disabled when there is a name error
+        app.textFields["DBName".l].clearText()
+        XCTAssert(!app.buttons["Create".l].isEnabled)
+        app.textFields["DBName".l].writeText("main")
+        XCTAssert(!app.buttons["Create".l].isEnabled)
+        app.textFields["DBName".l].replaceText(with: "data")
+        XCTAssert(app.buttons["Create".l].isEnabled)
+
+        // or a password error
+        app.secureTextFields["Password".l].clearText()
+        XCTAssert(!app.buttons["Create".l].isEnabled)
+        app.secureTextFields["Password".l].replaceText(with: "321")
+        XCTAssert(!app.buttons["Create".l].isEnabled)
+        app.secureTextFields["Password".l].replaceText(with: "123")
+        XCTAssert(app.buttons["Create".l].isEnabled)
+    }
     // TODO: test Password fields visibility
 }
