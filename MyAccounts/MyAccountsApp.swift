@@ -51,6 +51,7 @@ struct MyAccountsApp: App {
             .compactMap { ($0 as? UIWindowScene)?.keyWindow }
             .last?.layer.speed = 100
 
+        viewModel.databases = []
         do {
             try setupSrcDir()
             try copyDatabase()

@@ -97,5 +97,4 @@ final class CreateDatabaseUITests: BaseTest {
         app.secureTextFields["Password".l].replaceText(with: "123")
         XCTAssert(app.buttons["Create".l].isEnabled)
     }
-    // TODO: test Password fields visibility
 }
