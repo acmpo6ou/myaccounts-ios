@@ -32,18 +32,19 @@ struct DatabaseItem: View {
         .transition(.slide)
         .swipeActions {
             Button(
-                action: { viewModel.editDatabase(database) },
-                label: { Image(systemName: "pencil") }
-            )
-            .accessibilityLabel("A11y.EditDatabase".l(database.name))
-            .tint(.accentColor)
-            Button(
                 action: { viewModel.confirmDelete(of: database) },
                 label: { Image(systemName: "trash.fill") }
             )
             .accessibilityLabel("A11y.DeleteDatabase".l(database.name))
             .tint(.red)
+
             if database.isOpen {
+                Button(
+                    action: { viewModel.editDatabase(database) },
+                    label: { Image(systemName: "pencil") }
+                )
+                .accessibilityLabel("A11y.EditDatabase".l(database.name))
+                .tint(.accentColor)
                 Button(
                     action: { viewModel.confirmClose(of: $database) },
                     label: { Image(systemName: "lock.fill") }

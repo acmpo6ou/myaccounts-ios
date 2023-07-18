@@ -99,4 +99,14 @@ final class DatabasesListUITests: BaseTest {
         app.staticTexts["test"].tap()
         XCTAssert(app.navigationBars["OpenDB".l("test")].exists)
     }
+
+    func testEditButton() throws {
+        // `main` is closed, so it SHOULDN'T have an Edit button
+        app.staticTexts["main"].swipeLeft()
+        XCTAssert(!app.buttons["A11y.EditDatabase".l("main")].exists)
+
+        // `test` is opened, so it SHOULDN have an Edit button
+        app.staticTexts["test"].swipeLeft()
+        XCTAssert(app.buttons["A11y.EditDatabase".l("test")].exists)
+    }
 }
