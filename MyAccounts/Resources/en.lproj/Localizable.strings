@@ -13,6 +13,7 @@
 "Warning" = "Warning";
 "Close" = "Close";
 "NoItems" = "No items.";
+"GenPass" = "Generate password";
 
 /// DatabasesList
 "DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
@@ -33,7 +34,6 @@
 "Create" = "Create";
 "Password" = "Password";
 "RepeatPassword" = "Repeat password";
-"GenPass" = "Generate password";
 
 "Error.EmptyName" = "Please provide a name.";
 "Error.NameTaken" = "This name is already taken.";
@@ -45,3 +45,11 @@
 "DBName" = "Database name";
 "DBNameTip" = "Only latin symbols, numbers and .()-_ are supported";
 "Error.CreateDB" = "Failed to create the database.";
+
+// GenPass
+"PassLen" = "Password length:";
+"Numbers" = "Numbers";
+"Lower" = "Lowercase letters";
+"Upper" = "Uppercase letters";
+"Punct" = "Punctuation";
+"Generate" = "Generate";

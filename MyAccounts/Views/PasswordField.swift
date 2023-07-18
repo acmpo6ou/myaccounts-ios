@@ -93,7 +93,6 @@ struct PasswordField_Previews: PreviewProvider {
 }
 
 struct LoginModifier: ViewModifier {
-
     func body(content: Content) -> some View {
         content
             .textContentType(.password)

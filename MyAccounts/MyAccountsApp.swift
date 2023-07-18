@@ -23,6 +23,10 @@ struct MyAccountsApp: App {
                     }
             }
             .environmentObject(viewModel)
+            .modifier(
+                GenPass(isPresented: .constant(true))
+            )
+
         }
     }
 
