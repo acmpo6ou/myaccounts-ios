@@ -27,7 +27,7 @@ open class CreateViewModel: ObservableObject {
 
     let allowedChars = "abcdefghijklmnopqrstuvwxyz" +
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-        "0123456789.()-_"
+        "0123456789.()-_ " // Note that "space" is allowed
 
     /// Cleans the database name.
     ///

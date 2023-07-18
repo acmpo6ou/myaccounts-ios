@@ -17,8 +17,12 @@
 import XCTest
 
 final class CreateDatabaseUITests: BaseTest {
-    func testCreateDatabase() throws {
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         app.buttons["CreateDB".l].tap()
+    }
+
+    func testCreateDatabase() throws {
         // enter "main" in name field
         app.textFields["DBName".l].writeText("main")
 
@@ -71,7 +75,6 @@ final class CreateDatabaseUITests: BaseTest {
     }
 
     func testCreateEnabled() throws {
-        app.buttons["CreateDB".l].tap()
         // at first, the create button should be disabled
         XCTAssert(!app.buttons["Create".l].isEnabled)
 
@@ -96,5 +99,13 @@ final class CreateDatabaseUITests: BaseTest {
         XCTAssert(!app.buttons["Create".l].isEnabled)
         app.secureTextFields["Password".l].replaceText(with: "123")
         XCTAssert(app.buttons["Create".l].isEnabled)
+    }
+
+    func testFilterDBName() throws {
+        app.textFields["DBName".l].writeText("clean name")
+        XCTAssertEqual(app.textFields["DBName".l].value as? String, "clean name")
+
+        app.textFields["DBName".l].replaceText(with: "-c/l(e)a%n. n$a!m*e_1")
+        XCTAssertEqual(app.textFields["DBName".l].value as? String, "-cl(e)an. name_1")
     }
 }
