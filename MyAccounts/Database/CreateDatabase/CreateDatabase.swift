@@ -27,7 +27,10 @@ struct CreateDatabase: View {
                 text: $viewModel.name,
                 tip: "DBNameTip".l,
                 errorMessage: viewModel.nameError,
-                validate: validate
+                validate: {
+                    viewModel.cleanDBName()
+                    validate()
+                }
             )
             PasswordField(
                 label: "Password".l,

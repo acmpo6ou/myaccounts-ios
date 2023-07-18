@@ -23,8 +23,18 @@ open class CreateViewModel: ObservableObject {
 
     @Published var nameError = ""
     @Published var passwordError = ""
-
     @Published var applyEnabled = false
+
+    let allowedChars = "abcdefghijklmnopqrstuvwxyz" +
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        "0123456789.()-_"
+
+    /// Cleans the database name.
+    ///
+    /// Database names are used to name their .dba files, so they should contain only allowed characters.
+    func cleanDBName() {
+        name = name.filter(allowedChars.contains)
+    }
 
     /// Validates name field, displaying error tip if database name is invalid.
     ///
