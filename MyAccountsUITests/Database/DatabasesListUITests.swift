@@ -8,21 +8,7 @@
 import XCTest
 @testable import MyAccounts
 
-final class DatabasesListUITests: XCTestCase {
-    let app = XCUIApplication()
-
-    override func setUpWithError() throws {
-        app.launchArguments = ["testMode"]
-        app.launch()
-    }
-
-    override func tearDownWithError() throws {
-    }
-
-    func goBack() {
-        let backButton = app.navigationBars.buttons.element(boundBy: 0)
-        backButton.tap()
-    }
+final class DatabasesListUITests: BaseTest {
 
     func testNoItems() throws {
         // when there are databases, there should be no message

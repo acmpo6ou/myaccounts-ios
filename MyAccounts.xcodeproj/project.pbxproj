@@ -21,6 +21,8 @@
 		D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A602542A58207E00BAFB54 /* Utilities.swift */; };
 		D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */; };
 		D2A6025D2A58480500BAFB54 /* DatabaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A6025C2A58480500BAFB54 /* DatabaseItem.swift */; };
+		D2A940052A66958800BA9D0E /* CreateDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A940042A66958800BA9D0E /* CreateDatabaseUITests.swift */; };
+		D2A940082A6695CF00BA9D0E /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A940072A6695CF00BA9D0E /* BaseTest.swift */; };
 		D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93442A4BF464004334BB /* MyAccountsApp.swift */; };
 		D2AB93492A4BF465004334BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB93482A4BF465004334BB /* Assets.xcassets */; };
 		D2AB934C2A4BF465004334BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB934B2A4BF465004334BB /* Preview Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		D2A602542A58207E00BAFB54 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D2A602562A5843DC00BAFB54 /* DatabasesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListViewModel.swift; sourceTree = "<group>"; };
 		D2A6025C2A58480500BAFB54 /* DatabaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseItem.swift; sourceTree = "<group>"; };
+		D2A940042A66958800BA9D0E /* CreateDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabaseUITests.swift; sourceTree = "<group>"; };
+		D2A940072A6695CF00BA9D0E /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		D2AB93412A4BF464004334BB /* MyAccounts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAccounts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB93442A4BF464004334BB /* MyAccountsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsApp.swift; sourceTree = "<group>"; };
 		D2AB93482A4BF465004334BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,6 +210,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		D2A940062A6695B000BA9D0E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */,
+				D2A940042A66958800BA9D0E /* CreateDatabaseUITests.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		D2AB93382A4BF464004334BB = {
 			isa = PBXGroup;
 			children = (
@@ -264,9 +277,10 @@
 		D2AB935E2A4BF465004334BB /* MyAccountsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D2A940062A6695B000BA9D0E /* Database */,
 				D2FDD62A2A61437E00F79D8A /* Utilities.swift */,
-				D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */,
 				D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */,
+				D2A940072A6695CF00BA9D0E /* BaseTest.swift */,
 			);
 			path = MyAccountsUITests;
 			sourceTree = "<group>";
@@ -487,6 +501,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A940082A6695CF00BA9D0E /* BaseTest.swift in Sources */,
+				D2A940052A66958800BA9D0E /* CreateDatabaseUITests.swift in Sources */,
 				D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */,
 				D2FDD62C2A61438600F79D8A /* Utilities.swift in Sources */,
 				D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */,

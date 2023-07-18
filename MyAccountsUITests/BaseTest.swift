@@ -14,26 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
+import XCTest
 
-class CreateDatabaseViewModel: CreateViewModel, ErrorModel {
-    var dbsViewModel: DatabasesListViewModel?
+open class BaseTest: XCTestCase {
+    let app = XCUIApplication()
 
-    @Published var showErrorAlert = false
-    @Published var errorTitle = ""
-    @Published var errorMessage = ""
-    var logCategory = "create_database_model"
+    override open func setUpWithError() throws {
+        app.launchArguments = ["testMode"]
+        app.launch()
+    }
 
-    func createDatabase() {
-        let database = Database(name: name, password: password)
-        do {
-            try database.create()
-        } catch {
-            showError(error, title: "Error.CreateDB".l)
-            return
-        }
-        dbsViewModel?.databases.append(database)
-        dbsViewModel?.databases.sort { $0.name < $1.name }
-        dbsViewModel?.showCreateDatabase = false
+    func goBack() {
+        let backButton = app.navigationBars.buttons.element(boundBy: 0)
+        backButton.tap()
     }
 }
