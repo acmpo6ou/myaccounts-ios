@@ -18,17 +18,22 @@ import SwiftUI
 
 struct GenPass: ViewModifier {
     @Binding var isPresented: Bool
+    @Binding var pass1: String
+    @Binding var pass2: String
 
     func body(content: Content) -> some View {
         content.sheet(isPresented: $isPresented) {
             NavigationStack {
-                GenPassView()
+                GenPassView(pass1: $pass1, pass2: $pass2)
             }
         }
     }
 }
 
 struct GenPassView: View {
+    @Binding var pass1: String
+    @Binding var pass2: String
+
     @State private var length = 16
     @State private var numbersOn = true
     @State private var lowerOn = true
@@ -49,13 +54,14 @@ struct GenPassView: View {
             }
 
             Toggle("Numbers".l, isOn: $numbersOn)
-            Toggle("Lower".l, isOn: $numbersOn)
-            Toggle("Upper".l, isOn: $numbersOn)
-            Toggle("Punct".l, isOn: $numbersOn)
+            Toggle("Lower".l, isOn: $lowerOn)
+            Toggle("Upper".l, isOn: $upperOn)
+            Toggle("Punct".l, isOn: $punctOn)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
+                    generate()
                 } label: {
                     Text("Generate".l).fontWeight(.semibold)
                         .font(.system(size: 24))
@@ -66,12 +72,40 @@ struct GenPassView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
+
+    func generate() {
+        var charsToInclude = ""
+        if numbersOn { charsToInclude += Chars.numbers }
+        if lowerOn { charsToInclude += Chars.lower }
+        if upperOn { charsToInclude += Chars.upper }
+        if punctOn { charsToInclude += Chars.punct }
+
+        let password = genpass(length: length, chars: charsToInclude)
+        pass1 = password
+        pass2 = password
+    }
+
+    func genpass(length: Int, chars: String) -> String {
+        let result = (0..<length).map {_ in chars[Int.random(in: 0...chars.count)]}
+        return result.joined()
+    }
 }
 
 struct GenPass_Previews: PreviewProvider {
     static var previews: some View {
         VStack {}.modifier(
-            GenPass(isPresented: .constant(true))
+            GenPass(
+                isPresented: .constant(true),
+                pass1: .constant(""),
+                pass2: .constant("")
+            )
         )
     }
+}
+
+struct Chars {
+    static let numbers = "0123456789"
+    static let lower = "abcdefghijklmnopqrstuvwxyz"
+    static let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    static let punct = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 }

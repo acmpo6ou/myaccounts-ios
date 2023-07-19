@@ -25,9 +25,8 @@ open class CreateViewModel: ObservableObject {
     @Published var passwordError = ""
     @Published var applyEnabled = false
 
-    let allowedChars = "abcdefghijklmnopqrstuvwxyz" +
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-        "0123456789.()-_ " // Note that "space" is allowed
+    let allowedChars = Chars.numbers + Chars.lower + Chars.upper +
+        ".()-_ " // Note that "space" is allowed
 
     /// Cleans the database name.
     ///
