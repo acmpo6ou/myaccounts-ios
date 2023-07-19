@@ -24,13 +24,14 @@ struct GenPass: ViewModifier {
     func body(content: Content) -> some View {
         content.sheet(isPresented: $isPresented) {
             NavigationStack {
-                GenPassView(pass1: $pass1, pass2: $pass2)
+                GenPassView(isPresented: $isPresented, pass1: $pass1, pass2: $pass2)
             }
         }
     }
 }
 
 struct GenPassView: View {
+    @Binding var isPresented: Bool
     @Binding var pass1: String
     @Binding var pass2: String
 
@@ -62,6 +63,7 @@ struct GenPassView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     generate()
+                    isPresented = false
                 } label: {
                     Text("Generate".l).fontWeight(.semibold)
                         .font(.system(size: 24))

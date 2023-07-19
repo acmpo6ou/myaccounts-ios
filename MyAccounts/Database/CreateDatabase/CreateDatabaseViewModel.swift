@@ -18,6 +18,7 @@ import Foundation
 
 class CreateDatabaseViewModel: CreateViewModel, ErrorModel {
     var dbsViewModel: DatabasesListViewModel?
+    @Published var showGenPass = false
 
     @Published var showErrorAlert = false
     @Published var errorTitle = ""
