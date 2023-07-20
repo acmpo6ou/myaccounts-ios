@@ -33,6 +33,7 @@
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
 		D2EF561D2A66FA0200D33CD4 /* GenPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF561C2A66FA0200D33CD4 /* GenPass.swift */; };
+		D2EF561F2A682D3E00D33CD4 /* GenPassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF561E2A682D3E00D33CD4 /* GenPassUITests.swift */; };
 		D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */; };
 		D2F7B78F2A64033C002CEDF8 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F7B78E2A64033C002CEDF8 /* PasswordField.swift */; };
 		D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */; };
@@ -91,6 +92,7 @@
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
 		D2EF561C2A66FA0200D33CD4 /* GenPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenPass.swift; sourceTree = "<group>"; };
+		D2EF561E2A682D3E00D33CD4 /* GenPassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenPassUITests.swift; sourceTree = "<group>"; };
 		D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabaseViewModel.swift; sourceTree = "<group>"; };
 		D2F7B78E2A64033C002CEDF8 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		D2FD5A352A5FF81D003EA40F /* OpenDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabase.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				D2FDD62A2A61437E00F79D8A /* Utilities.swift */,
 				D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */,
 				D2A940072A6695CF00BA9D0E /* BaseTest.swift */,
+				D2EF561E2A682D3E00D33CD4 /* GenPassUITests.swift */,
 			);
 			path = MyAccountsUITests;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */,
 				D2FDD62C2A61438600F79D8A /* Utilities.swift in Sources */,
 				D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */,
+				D2EF561F2A682D3E00D33CD4 /* GenPassUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

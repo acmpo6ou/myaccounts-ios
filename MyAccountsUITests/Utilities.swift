@@ -71,4 +71,9 @@ extension XCUIElement {
         clearText()
         writeText(newText)
     }
+
+    /// Toggle a switch.
+    func toggle() {
+        switches.firstMatch.tap()
+    }
 }

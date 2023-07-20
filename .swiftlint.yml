@@ -1,5 +1,6 @@
 disabled_rules:
   - todo
+  - force_cast
 
 identifier_name:
   min_length: 1

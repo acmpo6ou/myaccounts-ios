@@ -76,20 +76,29 @@ struct GenPassView: View {
     }
 
     func generate() {
-        var charsToInclude = ""
-        if numbersOn { charsToInclude += Chars.numbers }
-        if lowerOn { charsToInclude += Chars.lower }
-        if upperOn { charsToInclude += Chars.upper }
-        if punctOn { charsToInclude += Chars.punct }
+        var charsToInclude: [String] = []
+        if numbersOn { charsToInclude.append(Chars.numbers) }
+        if lowerOn { charsToInclude.append(Chars.lower) }
+        if upperOn { charsToInclude.append(Chars.upper) }
+        if punctOn { charsToInclude.append(Chars.punct) }
 
         let password = genpass(length: length, chars: charsToInclude)
         pass1 = password
         pass2 = password
     }
 
-    func genpass(length: Int, chars: String) -> String {
-        let result = (0..<length).map {_ in chars[Int.random(in: 0...chars.count)]}
-        return result.joined()
+    func genpass(length: Int, chars: [String]) -> String {
+        let allChars = chars.joined()
+        var password = (0..<length).map {_ in allChars[Int.random(in: 0...allChars.count)]}.joined()
+
+        // Because password is generated randomly it won't necessarily contain
+        // all characters that are specified in `chars`.
+        // So here we check that generated password contains at least one
+        // character from each charset specified in `chars` and if it doesn't, we regenerate password
+        for charset in chars where !password.hasoneof(chars: charset) {
+            return genpass(length: length, chars: chars)
+        }
+        return password
     }
 }
 
@@ -110,4 +119,11 @@ struct Chars {
     static let lower = "abcdefghijklmnopqrstuvwxyz"
     static let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     static let punct = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+}
+
+extension String {
+    func hasoneof(chars: String) -> Bool {
+        let charset = CharacterSet(charactersIn: chars)
+        return rangeOfCharacter(from: charset) != nil
+    }
 }
