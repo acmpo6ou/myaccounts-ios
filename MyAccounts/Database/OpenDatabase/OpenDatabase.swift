@@ -27,10 +27,14 @@ struct OpenDatabase: View {
                 label: "Password",
                 password: $viewModel.password,
                 errorMessage: viewModel.passwordError,
-                validate: {}
+                validate: {
+                    withAnimation {
+                        viewModel.passwordError = ""
+                    }
+                }
             )
             Button {
-
+                viewModel.openDatabase($database)
             } label: {
                 Text("OpenDBGeneral".l)
                     .padding(.vertical, 8)
@@ -38,6 +42,12 @@ struct OpenDatabase: View {
             }
             .buttonStyle(.borderedProminent)
         }
+        .alert(
+            Text(viewModel.errorTitle),
+            isPresented: $viewModel.showErrorAlert,
+            actions: {},
+            message: { Text(viewModel.errorMessage) }
+        )
         .navigationTitle("OpenDB".l(database.name))
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

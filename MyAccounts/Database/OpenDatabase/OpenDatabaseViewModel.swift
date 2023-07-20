@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import SwiftUI
 
 class OpenDatabaseViewModel: ObservableObject, ErrorModel {
     var dbViewModel: DatabasesListViewModel?
@@ -26,4 +27,14 @@ class OpenDatabaseViewModel: ObservableObject, ErrorModel {
 
     @Published var password = ""
     @Published var passwordError = ""
+
+    func openDatabase(_ database: Binding<Database>) {
+        do {
+            try database.wrappedValue.open(with: password)
+        } catch DecodingError.dataCorrupted {
+            passwordError = "BadPass".l
+        } catch {
+            showError(error, title: "Error.OpenDB".l)
+        }
+    }
 }

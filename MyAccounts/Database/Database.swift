@@ -61,9 +61,9 @@ struct Database: Equatable {
             throw DBError.databaseError("Couldn't read fernet token from \(dbaPath).")
         }
         try? file.close()
-        self.password = password
         let json = try decrypt(token, password, salt)
         self.accounts = try JSONDecoder().decode([String: Account].self, from: json)
+        self.password = password
     }
 
     mutating func close() {

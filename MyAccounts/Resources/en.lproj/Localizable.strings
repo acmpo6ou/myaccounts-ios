@@ -30,6 +30,8 @@
 // OpenDatabase
 "OpenDB" = "Open %@";
 "OpenDBGeneral" = "Open database";
+"Error.OpenDB" = "Error opening database.";
+"BadPass" = "Incorrect password.";
 
 // CreateViewModel
 "Create" = "Create";
