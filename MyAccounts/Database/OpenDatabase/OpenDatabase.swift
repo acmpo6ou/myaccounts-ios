@@ -17,15 +17,38 @@
 import SwiftUI
 
 struct OpenDatabase: View {
+    @EnvironmentObject var dbViewModel: DatabasesListViewModel
+    @StateObject var viewModel = OpenDatabaseViewModel()
     @Binding var database: Database
+
     var body: some View {
-        Text("Hello!")
-            .navigationTitle("OpenDB".l(database.name))
+        VStack {
+            PasswordField(
+                label: "Password",
+                password: $viewModel.password,
+                errorMessage: viewModel.passwordError,
+                validate: {}
+            )
+            Button {
+
+            } label: {
+                Text("OpenDBGeneral".l)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .navigationTitle("OpenDB".l(database.name))
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 
 struct OpenDatabase_Previews: PreviewProvider {
     static var previews: some View {
-        OpenDatabase(database: .constant(Database(name: "main")))
+        NavigationStack {
+            OpenDatabase(database: .constant(Database(name: "main")))
+                .environmentObject(DatabasesListViewModel())
+        }
     }
 }

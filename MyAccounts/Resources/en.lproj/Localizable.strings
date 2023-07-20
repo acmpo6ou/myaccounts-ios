@@ -29,6 +29,7 @@
 
 // OpenDatabase
 "OpenDB" = "Open %@";
+"OpenDBGeneral" = "Open database";
 
 // CreateViewModel
 "Create" = "Create";
