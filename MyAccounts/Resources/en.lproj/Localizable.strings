@@ -29,7 +29,7 @@
 
 // OpenDatabase
 "OpenDB" = "Open %@";
-"OpenDBGeneral" = "Open database";
+"OpenDBButton" = "Open database";
 "Error.OpenDB" = "Error opening database.";
 "BadPass" = "Incorrect password.";
 

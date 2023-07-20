@@ -89,7 +89,7 @@ struct GenPassView: View {
 
     func genpass(length: Int, chars: [String]) -> String {
         let allChars = chars.joined()
-        var password = (0..<length).map {_ in allChars[Int.random(in: 0..<allChars.count)]}.joined()
+        let password = (0..<length).map {_ in allChars[Int.random(in: 0..<allChars.count)]}.joined()
 
         // Because password is generated randomly it won't necessarily contain
         // all characters that are specified in `chars`.

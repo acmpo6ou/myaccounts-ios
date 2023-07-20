@@ -36,7 +36,7 @@ struct OpenDatabase: View {
             Button {
                 viewModel.openDatabase($database)
             } label: {
-                Text("OpenDBGeneral".l)
+                Text("OpenDBButton".l)
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity)
             }
