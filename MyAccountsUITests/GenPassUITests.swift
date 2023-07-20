@@ -17,19 +17,24 @@
 import XCTest
 
 final class GenPassUITests: BaseTest {
+    var length = 16
+
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.buttons["CreateDB".l].tap()
         app.buttons["GenPass".l].tap()
+
+        length = Int.random(in: 8...128)
+        app.pickerWheels.element.adjust(toPickerWheelValue: "\(length)")
     }
 
-    func testGeneratePasswordUseDefaults() throws {
+    func testGeneratePasswordAllChars() throws {
         app.buttons["Generate".l].tap()
         let pass1 = app.textFields["Password".l].value as! String
         let pass2 = app.textFields["RepeatPassword".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
-        XCTAssertEqual(pass1.count, 16)
+        XCTAssertEqual(pass1.count, length)
         XCTAssert(pass1.hasoneof(chars: Chars.numbers))
         XCTAssert(pass1.hasoneof(chars: Chars.lower))
         XCTAssert(pass1.hasoneof(chars: Chars.upper))
@@ -45,7 +50,7 @@ final class GenPassUITests: BaseTest {
         let pass2 = app.textFields["RepeatPassword".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
-        XCTAssertEqual(pass1.count, 16)
+        XCTAssertEqual(pass1.count, length)
         XCTAssert(pass1.hasoneof(chars: Chars.numbers))
         XCTAssert(!pass1.hasoneof(chars: Chars.lower))
         XCTAssert(!pass1.hasoneof(chars: Chars.upper))
@@ -61,7 +66,7 @@ final class GenPassUITests: BaseTest {
         let pass2 = app.textFields["RepeatPassword".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
-        XCTAssertEqual(pass1.count, 16)
+        XCTAssertEqual(pass1.count, length)
         XCTAssert(!pass1.hasoneof(chars: Chars.numbers))
         XCTAssert(pass1.hasoneof(chars: Chars.lower))
         XCTAssert(!pass1.hasoneof(chars: Chars.upper))
@@ -77,7 +82,7 @@ final class GenPassUITests: BaseTest {
         let pass2 = app.textFields["RepeatPassword".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
-        XCTAssertEqual(pass1.count, 16)
+        XCTAssertEqual(pass1.count, length)
         XCTAssert(!pass1.hasoneof(chars: Chars.numbers))
         XCTAssert(!pass1.hasoneof(chars: Chars.lower))
         XCTAssert(pass1.hasoneof(chars: Chars.upper))
@@ -93,7 +98,7 @@ final class GenPassUITests: BaseTest {
         let pass2 = app.textFields["RepeatPassword".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
-        XCTAssertEqual(pass1.count, 16)
+        XCTAssertEqual(pass1.count, length)
         XCTAssert(!pass1.hasoneof(chars: Chars.numbers))
         XCTAssert(!pass1.hasoneof(chars: Chars.lower))
         XCTAssert(!pass1.hasoneof(chars: Chars.upper))
