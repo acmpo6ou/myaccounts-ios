@@ -16,7 +16,7 @@
 
 import Foundation
 
-class CreateDatabaseViewModel: CreateViewModel, ErrorModel {
+open class CreateDatabaseViewModel: CreateViewModel, ErrorModel {
     var dbsViewModel: DatabasesListViewModel?
     @Published var showGenPass = false
 

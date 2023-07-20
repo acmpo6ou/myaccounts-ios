@@ -34,6 +34,7 @@
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
 		D2DAE0802A697EDE0044964A /* OpenDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DAE07F2A697EDE0044964A /* OpenDatabaseViewModel.swift */; };
 		D2DAE0822A69BDD40044964A /* OpenDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DAE0812A69BDD40044964A /* OpenDatabaseUITests.swift */; };
+		D2DAE0842A69C2EB0044964A /* EditDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DAE0832A69C2EB0044964A /* EditDatabaseViewModel.swift */; };
 		D2EF561D2A66FA0200D33CD4 /* GenPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF561C2A66FA0200D33CD4 /* GenPass.swift */; };
 		D2EF561F2A682D3E00D33CD4 /* GenPassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF561E2A682D3E00D33CD4 /* GenPassUITests.swift */; };
 		D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */; };
@@ -95,6 +96,7 @@
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
 		D2DAE07F2A697EDE0044964A /* OpenDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabaseViewModel.swift; sourceTree = "<group>"; };
 		D2DAE0812A69BDD40044964A /* OpenDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabaseUITests.swift; sourceTree = "<group>"; };
+		D2DAE0832A69C2EB0044964A /* EditDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabaseViewModel.swift; sourceTree = "<group>"; };
 		D2EF561C2A66FA0200D33CD4 /* GenPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenPass.swift; sourceTree = "<group>"; };
 		D2EF561E2A682D3E00D33CD4 /* GenPassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenPassUITests.swift; sourceTree = "<group>"; };
 		D2F7B78C2A63E335002CEDF8 /* CreateDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabaseViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */,
+				D2DAE0832A69C2EB0044964A /* EditDatabaseViewModel.swift */,
 			);
 			path = EditDatabase;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */,
 				D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */,
 				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
+				D2DAE0842A69C2EB0044964A /* EditDatabaseViewModel.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
 				D2C16CA72A641A8A00C72086 /* Field.swift in Sources */,

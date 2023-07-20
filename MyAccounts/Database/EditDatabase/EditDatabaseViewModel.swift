@@ -14,23 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import SwiftUI
+import Foundation
 
-struct EditDatabase: View {
-    @StateObject var viewModel = EditDatabaseViewModel()
-    @Binding var database: Database?
-    var body: some View {
-        CreateDatabase(viewModel: viewModel)
-            .onAppear {
-                viewModel.initialize(database)
-            }
-    }
-}
-
-struct EditDatabase_Previews: PreviewProvider {
-    static var previews: some View {
-        EditDatabase(database: .constant(
-            Database(name: "main", password: "123")
-        ))
+class EditDatabaseViewModel: CreateDatabaseViewModel {
+    func initialize(_ database: Database?) {
+        guard let database else { return }
+        name = database.name
+        password = database.password ?? ""
+        repeatPassword = database.password ?? ""
     }
 }
