@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D2586F1D2A6A9E8D004A2F90 /* EditDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F1C2A6A9E8D004A2F90 /* EditDatabaseUITests.swift */; };
+		D2586F1F2A6AB681004A2F90 /* AccountItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F1E2A6AB681004A2F90 /* AccountItem.swift */; };
+		D2586F212A6AB8E5004A2F90 /* AccountsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F202A6AB8E5004A2F90 /* AccountsListViewModel.swift */; };
 		D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */; };
 		D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */; };
 		D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		D2586F1C2A6A9E8D004A2F90 /* EditDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabaseUITests.swift; sourceTree = "<group>"; };
+		D2586F1E2A6AB681004A2F90 /* AccountItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountItem.swift; sourceTree = "<group>"; };
+		D2586F202A6AB8E5004A2F90 /* AccountsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListViewModel.swift; sourceTree = "<group>"; };
 		D2610EF42A5EE2E000BB100C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabase.swift; sourceTree = "<group>"; };
 		D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesList.swift; sourceTree = "<group>"; };
@@ -324,6 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				D2FD5A3A2A600E99003EA40F /* AccountsList.swift */,
+				D2586F1E2A6AB681004A2F90 /* AccountItem.swift */,
+				D2586F202A6AB8E5004A2F90 /* AccountsListViewModel.swift */,
 			);
 			path = AccountsList;
 			sourceTree = "<group>";
@@ -492,7 +498,9 @@
 				D2DAE0842A69C2EB0044964A /* EditDatabaseViewModel.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
+				D2586F1F2A6AB681004A2F90 /* AccountItem.swift in Sources */,
 				D2C16CA72A641A8A00C72086 /* Field.swift in Sources */,
+				D2586F212A6AB8E5004A2F90 /* AccountsListViewModel.swift in Sources */,
 				D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */,
 				D2DAE0802A697EDE0044964A /* OpenDatabaseViewModel.swift in Sources */,
 				D2EF561D2A66FA0200D33CD4 /* GenPass.swift in Sources */,

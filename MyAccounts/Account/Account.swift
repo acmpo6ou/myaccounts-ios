@@ -33,3 +33,13 @@ struct Account: Codable, Equatable {
         case attachedFiles = "attach_files"
     }
 }
+
+let testAccount = Account(
+    accountName: "gmail",
+    username: "Gmail User",
+    email: "example@gmail.com",
+    password: "123",
+    birthDate: "01.01.2000",
+    notes: "My gmail account.",
+    attachedFiles: ["file1": "ZmlsZTEgY29udGVudAo=", "file2": "ZmlsZTIgY29udGVudAo="]
+)

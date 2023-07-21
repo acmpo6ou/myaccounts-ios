@@ -22,8 +22,8 @@ class EditDatabaseViewModel: CreateDatabaseViewModel {
 
     func initialize(_ database: Binding<Database>) {
         logCategory = "edit_database_model"
-        let db = database.wrappedValue
         self.database = database
+        let db = database.wrappedValue
         name = db.name
         password = db.password ?? ""
         repeatPassword = db.password ?? ""

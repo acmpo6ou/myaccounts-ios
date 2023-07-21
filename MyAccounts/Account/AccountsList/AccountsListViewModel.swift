@@ -14,20 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import Foundation
 import SwiftUI
 
-struct AccountsList: View {
-    @Binding var database: Database
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationTitle(database.name)
-    }
-}
+class AccountsListViewModel: ObservableObject, ErrorModel {
+    var logCategory = "accounts_view_model"
+    var showErrorAlert = false
+    var errorTitle = ""
+    var errorMessage = ""
 
-struct AccountsList_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            AccountsList(database: .constant(Database(name: "main")))
-        }
+    func confirmDelete(of account: Account) {
+    }
+
+    func editAccount(_ account: Binding<Account>) {
     }
 }

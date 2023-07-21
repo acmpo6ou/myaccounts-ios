@@ -61,3 +61,9 @@
 "Upper" = "Uppercase letters";
 "Punct" = "Punctuation";
 "Generate" = "Generate";
+
+// - MARK: Accounts
+
+// AccountItem
+"EditAcc" = "Edit %@ account";
+"DeleteAcc" = "Delete %@ account";
