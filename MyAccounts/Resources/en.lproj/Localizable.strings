@@ -6,7 +6,7 @@
   
 */
 
-/// General
+// General
 "Yes" = "Yes";
 "No" = "No";
 "Delete" = "Delete";
@@ -16,7 +16,7 @@
 "GenPass" = "Generate password";
 "Save" = "Save";
 
-/// DatabasesList
+// DatabasesList
 "DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
 "Error.DeleteDatabase" = "Failed to delete the database.";
 "CloseDBAlert.Message" = "%@ has unsafed changes.";
@@ -24,9 +24,10 @@
 "CloseDBAlert.Close" = "Close database";
 "Error.CloseDatabase" = "Failed to close the database.";
 
-"A11y.EditDatabase" = "Edit %@ database";
-"A11y.DeleteDatabase" = "Delete %@ database";
-"A11y.CloseDatabase" = "Close %@ database";
+// DatabaseItem
+"EditDB" = "Edit %@ database";
+"DeleteDB" = "Delete %@ database";
+"CloseDB" = "Close %@ database";
 
 // OpenDatabase
 "OpenDB" = "Open %@";

@@ -17,7 +17,7 @@ final class DatabasesListUITests: BaseTest {
         // delete all databases
         for db in ["main", "test", "unsaved"] {
             app.staticTexts[db].swipeLeft()
-            app.buttons["A11y.DeleteDatabase".l(db)].tap()
+            app.buttons["DeleteDB".l(db)].tap()
             app.buttons["Delete".l].tap()
         }
 
@@ -28,7 +28,7 @@ final class DatabasesListUITests: BaseTest {
     func testDelete() throws {
         // try to delete `main`
         app.staticTexts["main"].swipeLeft()
-        app.buttons["A11y.DeleteDatabase".l("main")].tap()
+        app.buttons["DeleteDB".l("main")].tap()
 
         // a confirmation dialog should appear
         let message = "DeleteDBAlert.Message".l("main")
@@ -44,11 +44,11 @@ final class DatabasesListUITests: BaseTest {
     func testClose() throws {
         // `main` is closed, so it SHOULDN'T have a Close button
         app.staticTexts["main"].swipeLeft()
-        XCTAssert(!app.buttons["A11y.CloseDatabase".l("main")].exists)
+        XCTAssert(!app.buttons["CloseDB".l("main")].exists)
 
         // `test` is opened, so it SHOULD have a Close button
         app.staticTexts["test"].swipeLeft()
-        var closeButton = app.buttons["A11y.CloseDatabase".l("test")]
+        var closeButton = app.buttons["CloseDB".l("test")]
         XCTAssert(closeButton.exists)
 
         // once tapped, no dialog should appear since `test` doesn't have unsaved changes
@@ -58,12 +58,12 @@ final class DatabasesListUITests: BaseTest {
 
         // `test` should now be closed, so it shouldn't have Close button anymore
         app.staticTexts["test"].swipeLeft()
-        closeButton = app.buttons["A11y.CloseDatabase".l("test")]
+        closeButton = app.buttons["CloseDB".l("test")]
         XCTAssert(!closeButton.exists)
 
         // `unsaved` has unsaved changes, so closing it should show a confirmation dialog
         app.staticTexts["unsaved"].swipeLeft()
-        closeButton = app.buttons["A11y.CloseDatabase".l("unsaved")]
+        closeButton = app.buttons["CloseDB".l("unsaved")]
         closeButton.tap()
         message = "CloseDBAlert.Message".l("unsaved")
         XCTAssert(app.staticTexts[message].exists)
@@ -73,7 +73,7 @@ final class DatabasesListUITests: BaseTest {
 
         // `unsaved` should be closed now
         app.staticTexts["unsaved"].swipeLeft()
-        closeButton = app.buttons["A11y.CloseDatabase".l("unsaved")]
+        closeButton = app.buttons["CloseDB".l("unsaved")]
         XCTAssert(!closeButton.exists)
 
         // TODO: test that it was actually saved by opening it and checking list of accounts
@@ -93,7 +93,7 @@ final class DatabasesListUITests: BaseTest {
         // close `test`
         goBack()
         app.staticTexts["test"].swipeLeft()
-        app.buttons["A11y.CloseDatabase".l("test")].tap()
+        app.buttons["CloseDB".l("test")].tap()
 
         // it should now go to OpenDatabase
         app.staticTexts["test"].tap()
@@ -103,10 +103,10 @@ final class DatabasesListUITests: BaseTest {
     func testEditButton() throws {
         // `main` is closed, so it SHOULDN'T have an Edit button
         app.staticTexts["main"].swipeLeft()
-        XCTAssert(!app.buttons["A11y.EditDatabase".l("main")].exists)
+        XCTAssert(!app.buttons["EditDB".l("main")].exists)
 
         // `test` is opened, so it SHOULDN have an Edit button
         app.staticTexts["test"].swipeLeft()
-        XCTAssert(app.buttons["A11y.EditDatabase".l("test")].exists)
+        XCTAssert(app.buttons["EditDB".l("test")].exists)
     }
 }

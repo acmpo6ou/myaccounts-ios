@@ -35,7 +35,7 @@ struct DatabaseItem: View {
                 action: { viewModel.confirmDelete(of: database) },
                 label: { Image(systemName: "trash.fill") }
             )
-            .accessibilityLabel("A11y.DeleteDatabase".l(database.name))
+            .accessibilityLabel("DeleteDB".l(database.name))
             .tint(.red)
 
             if database.isOpen {
@@ -43,13 +43,13 @@ struct DatabaseItem: View {
                     action: { viewModel.editDatabase($database) },
                     label: { Image(systemName: "pencil") }
                 )
-                .accessibilityLabel("A11y.EditDatabase".l(database.name))
+                .accessibilityLabel("EditDB".l(database.name))
                 .tint(.accentColor)
                 Button(
                     action: { viewModel.confirmClose(of: $database) },
                     label: { Image(systemName: "lock.fill") }
                 )
-                .accessibilityLabel("A11y.CloseDatabase".l(database.name))
+                .accessibilityLabel("CloseDB".l(database.name))
             }
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2586F1D2A6A9E8D004A2F90 /* EditDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F1C2A6A9E8D004A2F90 /* EditDatabaseUITests.swift */; };
 		D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */; };
 		D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */; };
 		D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2586F1C2A6A9E8D004A2F90 /* EditDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabaseUITests.swift; sourceTree = "<group>"; };
 		D2610EF42A5EE2E000BB100C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabase.swift; sourceTree = "<group>"; };
 		D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesList.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */,
 				D2A940042A66958800BA9D0E /* CreateDatabaseUITests.swift */,
 				D2DAE0812A69BDD40044964A /* OpenDatabaseUITests.swift */,
+				D2586F1C2A6A9E8D004A2F90 /* EditDatabaseUITests.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2586F1D2A6A9E8D004A2F90 /* EditDatabaseUITests.swift in Sources */,
 				D2A940082A6695CF00BA9D0E /* BaseTest.swift in Sources */,
 				D2A940052A66958800BA9D0E /* CreateDatabaseUITests.swift in Sources */,
 				D2DAE0822A69BDD40044964A /* OpenDatabaseUITests.swift in Sources */,
