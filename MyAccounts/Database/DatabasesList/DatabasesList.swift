@@ -59,7 +59,10 @@ struct DatabasesList: View {
             .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $viewModel.showEditDatabase) {
-            EditDatabase(database: $viewModel.dbToEdit)
+            NavigationStack {
+                EditDatabase(database: $viewModel.dbToEdit)
+            }
+            .presentationDragIndicator(.visible)
         }
         .confirmationDialog(
             Text(viewModel.deleteMessage),

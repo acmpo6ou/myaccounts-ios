@@ -15,12 +15,35 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import SwiftUI
 
 class EditDatabaseViewModel: CreateDatabaseViewModel {
-    func initialize(_ database: Database?) {
-        guard let database else { return }
-        name = database.name
-        password = database.password ?? ""
-        repeatPassword = database.password ?? ""
+    var database: Binding<Database?>?
+
+    func initialize(_ database: Binding<Database?>) {
+        logCategory = "edit_database_model"
+        guard let db = database.wrappedValue else { return }
+        self.database = database
+        name = db.name
+        password = db.password ?? ""
+        repeatPassword = db.password ?? ""
+    }
+
+    override func validateName(takenNames: [String]) -> Bool {
+        // it's OK if database name didn't change when editing
+        super.validateName(
+            takenNames: takenNames.filter { $0 != database?.wrappedValue?.name }
+        )
+    }
+
+    override func createDatabase() {
+        do {
+            try database?.wrappedValue?.save(name: name, password: password)
+        } catch {
+            showError(error, title: "Error.EditDB".l)
+            return
+        }
+        dbsViewModel?.databases.sort { $0.name < $1.name }
+        dbsViewModel?.showEditDatabase = false
     }
 }

@@ -14,6 +14,7 @@
 "Close" = "Close";
 "NoItems" = "No items.";
 "GenPass" = "Generate password";
+"Save" = "Save";
 
 /// DatabasesList
 "DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
@@ -48,6 +49,9 @@
 "DBName" = "Database name";
 "DBNameTip" = "Only latin symbols, numbers and .()-_ are supported";
 "Error.CreateDB" = "Failed to create the database.";
+
+// EditDatabase
+"Error.EditDB" = "Failed to edit the database.";
 
 // GenPass
 "PassLen" = "Password length:";

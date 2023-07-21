@@ -20,6 +20,8 @@ struct CreateDatabase: View {
     @EnvironmentObject var dbsViewModel: DatabasesListViewModel
     @StateObject var viewModel = CreateDatabaseViewModel()
 
+    var applyButtonText = "Create".l
+
     var body: some View {
         VStack(alignment: .leading) {
             Field(
@@ -53,7 +55,7 @@ struct CreateDatabase: View {
                 Button {
                     viewModel.createDatabase()
                 } label: {
-                    Text("Create".l).fontWeight(.semibold)
+                    Text(applyButtonText).fontWeight(.semibold)
                         .font(.system(size: 24))
                         .padding()
                 }

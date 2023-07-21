@@ -20,10 +20,13 @@ struct EditDatabase: View {
     @StateObject var viewModel = EditDatabaseViewModel()
     @Binding var database: Database?
     var body: some View {
-        CreateDatabase(viewModel: viewModel)
-            .onAppear {
-                viewModel.initialize(database)
-            }
+        CreateDatabase(
+            viewModel: viewModel,
+            applyButtonText: "Save".l
+        )
+        .onAppear {
+            viewModel.initialize($database)
+        }
     }
 }
 
