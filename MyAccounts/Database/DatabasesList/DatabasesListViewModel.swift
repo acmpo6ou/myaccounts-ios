@@ -24,7 +24,7 @@ class DatabasesListViewModel: ObservableObject, ErrorModel {
 
     @Published var showCreateDatabase = false
     @Published var showEditDatabase = false
-    @Published var dbToEdit: Database?
+    @Published var dbToEdit: Binding<Database>?
 
     @Published var showErrorAlert = false
     @Published var errorTitle = ""
@@ -107,9 +107,7 @@ class DatabasesListViewModel: ObservableObject, ErrorModel {
         }
     }
 
-    func editDatabase(_ database: Database) {
-        // TODO: pass database as a binding?
-        // TODO: is this method and `dbToEdit` property even needed?
+    func editDatabase(_ database: Binding<Database>) {
         dbToEdit = database
         showEditDatabase = true
     }

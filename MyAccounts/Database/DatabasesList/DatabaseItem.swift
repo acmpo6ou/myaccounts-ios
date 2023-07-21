@@ -40,7 +40,7 @@ struct DatabaseItem: View {
 
             if database.isOpen {
                 Button(
-                    action: { viewModel.editDatabase(database) },
+                    action: { viewModel.editDatabase($database) },
                     label: { Image(systemName: "pencil") }
                 )
                 .accessibilityLabel("A11y.EditDatabase".l(database.name))

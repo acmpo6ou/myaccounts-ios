@@ -60,7 +60,9 @@ struct DatabasesList: View {
         }
         .sheet(isPresented: $viewModel.showEditDatabase) {
             NavigationStack {
-                EditDatabase(database: $viewModel.dbToEdit)
+                if viewModel.dbToEdit != nil {
+                    EditDatabase(database: viewModel.dbToEdit!)
+                }
             }
             .presentationDragIndicator(.visible)
         }

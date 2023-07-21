@@ -18,11 +18,11 @@ import Foundation
 import SwiftUI
 
 class EditDatabaseViewModel: CreateDatabaseViewModel {
-    var database: Binding<Database?>?
+    var database: Binding<Database>?
 
-    func initialize(_ database: Binding<Database?>) {
+    func initialize(_ database: Binding<Database>) {
         logCategory = "edit_database_model"
-        guard let db = database.wrappedValue else { return }
+        let db = database.wrappedValue
         self.database = database
         name = db.name
         password = db.password ?? ""
@@ -32,13 +32,13 @@ class EditDatabaseViewModel: CreateDatabaseViewModel {
     override func validateName(takenNames: [String]) -> Bool {
         // it's OK if database name didn't change when editing
         super.validateName(
-            takenNames: takenNames.filter { $0 != database?.wrappedValue?.name }
+            takenNames: takenNames.filter { $0 != database?.wrappedValue.name }
         )
     }
 
     override func createDatabase() {
         do {
-            try database?.wrappedValue?.save(name: name, password: password)
+            try database?.wrappedValue.save(name: name, password: password)
         } catch {
             showError(error, title: "Error.EditDB".l)
             return

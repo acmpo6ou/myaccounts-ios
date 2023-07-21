@@ -18,7 +18,7 @@ import SwiftUI
 
 struct EditDatabase: View {
     @StateObject var viewModel = EditDatabaseViewModel()
-    @Binding var database: Database?
+    @Binding var database: Database
     var body: some View {
         CreateDatabase(
             viewModel: viewModel,
