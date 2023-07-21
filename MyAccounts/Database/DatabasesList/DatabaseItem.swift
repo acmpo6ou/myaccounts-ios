@@ -57,7 +57,7 @@ struct DatabaseItem: View {
 
 struct DatabaseItem_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
+        List {
             DatabaseItem(
                 database: .constant(Database(name: "closed"))
             )
