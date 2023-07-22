@@ -25,10 +25,10 @@ final class DatabasesListViewModelTests: BaseTest {
         try copyDatabase()
         try copyDatabase(as: "test")
         model.loadDatabases()
-        XCTAssertEqual(model.databases, [Database(name: "main"), Database(name: "test")])
+        XCTAssertEqual(model.items, [Database(name: "main"), Database(name: "test")])
 
         // now open `test`, and add a new database to source folder
-        try model.databases[1].open(with: "123")
+        try model.items[1].open(with: "123")
         try copyDatabase(as: "crypt")
 
         // refresh
@@ -36,7 +36,7 @@ final class DatabasesListViewModelTests: BaseTest {
 
         // `crypt` should be added to the list, and `test` should still be opened
         XCTAssertEqual(
-            model.databases,
+            model.items,
             [
                 Database(name: "crypt"),
                 Database(name: "main"),

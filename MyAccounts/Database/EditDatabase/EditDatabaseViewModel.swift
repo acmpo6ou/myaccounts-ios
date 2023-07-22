@@ -43,7 +43,7 @@ class EditDatabaseViewModel: CreateDatabaseViewModel {
             showError(error, title: "Error.EditDB".l)
             return
         }
-        dbsViewModel?.databases.sort { $0.name < $1.name }
+        dbsViewModel?.items.sort { $0.name < $1.name }
         dbsViewModel?.showEditItem = false
     }
 }

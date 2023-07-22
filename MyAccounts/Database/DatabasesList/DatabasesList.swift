@@ -20,64 +20,24 @@ struct DatabasesList: View {
     @EnvironmentObject var viewModel: DatabasesListViewModel
 
     var body: some View {
-        List {
-            ForEach($viewModel.databases, id: \.name) { $database in
-                NavigationLink(
-                    destination: {
-                        VStack {
-                            if database.isOpen {
-                                AccountsList(database: $database)
-                            } else {
-                                OpenDatabase(database: $database)
-                            }
+        ItemsList<Database>(
+            createLabel: "CreateDB".l,
+            destination: { database in
+                AnyView(
+                    VStack {
+                        if database.wrappedValue.isOpen {
+                            AccountsList(database: database)
+                        } else {
+                            OpenDatabase(database: database)
                         }
-                    },
-                    label: { DatabaseItem(database: $database) }
+                    }
                 )
-                .environmentObject(viewModel as ListViewModel<Database>)
-            }
-        }
+            },
+            label: { AnyView(DatabaseItem(database: $0)) },
+            createItem: { AnyView(CreateDatabase()) },
+            editItem: { AnyView(EditDatabase(database: $0)) }
+        )
         .navigationTitle("MyAccounts")
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button(
-                    action: { viewModel.showCreateItem = true },
-                    label: { Image(systemName: "plus") }
-                )
-                .accessibilityLabel("CreateDB".l)
-            }
-        }
-        .overlay {
-            if viewModel.databases.isEmpty {
-                Text("NoItems".l)
-                    .font(.system(size: 24))
-            }
-        }
-        .sheet(isPresented: $viewModel.showCreateItem) {
-            NavigationStack {
-                CreateDatabase()
-            }
-            .presentationDragIndicator(.visible)
-        }
-        .sheet(isPresented: $viewModel.showEditItem) {
-            NavigationStack {
-                if viewModel.itemToEdit != nil {
-                    EditDatabase(database: viewModel.itemToEdit!)
-                }
-            }
-            .presentationDragIndicator(.visible)
-        }
-        .confirmationDialog(
-            Text(viewModel.deleteMessage),
-            isPresented: $viewModel.showDeleteAlert,
-            titleVisibility: .visible
-        ) {
-            Button("Delete".l, role: .destructive) {
-                withAnimation {
-                    viewModel.deleteDatabase()
-                }
-            }
-        }
         .confirmationDialog(
             Text(viewModel.closeMessage),
             isPresented: $viewModel.showCloseAlert,
@@ -90,12 +50,6 @@ struct DatabasesList: View {
                 viewModel.closeDatabase()
             }
         }
-        .alert(
-            Text(viewModel.errorTitle),
-            isPresented: $viewModel.showErrorAlert,
-            actions: {},
-            message: { Text(viewModel.errorMessage) }
-        )
         .refreshable {
             withAnimation {
                 viewModel.loadDatabases()
@@ -110,19 +64,18 @@ struct DatabasesList_Previews: PreviewProvider {
         Group {
             NavigationStack {
                 DatabasesList()
-                    .previewLayout(.sizeThatFits)
                     .onAppear {
-                        viewModel.databases = [Database(name: "main"), Database(name: "test")]
+                        viewModel.items = [Database(name: "main"), Database(name: "test")]
                     }
             }
             NavigationStack {
                 DatabasesList()
-                    .previewLayout(.sizeThatFits)
                     .onAppear {
-                        viewModel.databases = []
+                        viewModel.items = []
                     }
             }
         }
         .environmentObject(viewModel)
+        .previewLayout(.sizeThatFits)
     }
 }

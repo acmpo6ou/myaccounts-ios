@@ -18,6 +18,8 @@ import Foundation
 import SwiftUI
 
 class ListViewModel<T: ListItem>: ObservableObject, ErrorModel {
+    @Published var items: [T] = []
+
     var logCategory = "list_view_model"
     @Published var showErrorAlert = false
     @Published var errorTitle = ""
@@ -36,6 +38,10 @@ class ListViewModel<T: ListItem>: ObservableObject, ErrorModel {
         itemToDelete = item
         deleteMessage = "DeleteItemAlert.Message".l(item.itemName)
         showDeleteAlert = true
+    }
+
+    func deleteItem() {
+        fatalError("deleteItem must be implemented by subclasses.")
     }
 
     func editItem(_ item: Binding<T>) {

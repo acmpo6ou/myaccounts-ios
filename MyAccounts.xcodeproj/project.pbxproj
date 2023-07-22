@@ -35,6 +35,7 @@
 		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
 		D2B365FA2A6B17D20043C659 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365F92A6B17D20043C659 /* ListItem.swift */; };
 		D2B365FD2A6B1A310043C659 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FC2A6B1A310043C659 /* ListViewModel.swift */; };
+		D2B365FF2A6C155B0043C659 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FE2A6C155B0043C659 /* ItemsList.swift */; };
 		D2C16CA72A641A8A00C72086 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C16CA62A641A8A00C72086 /* Field.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
@@ -103,6 +104,7 @@
 		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2B365F92A6B17D20043C659 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		D2B365FC2A6B1A310043C659 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		D2B365FE2A6C155B0043C659 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
 		D2C16CA62A641A8A00C72086 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				D2586F222A6B158A004A2F90 /* ListItemView.swift */,
 				D2B365F92A6B17D20043C659 /* ListItem.swift */,
 				D2B365FC2A6B1A310043C659 /* ListViewModel.swift */,
+				D2B365FE2A6C155B0043C659 /* ItemsList.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
 				D2DAE0842A69C2EB0044964A /* EditDatabaseViewModel.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
+				D2B365FF2A6C155B0043C659 /* ItemsList.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
 				D2586F1F2A6AB681004A2F90 /* AccountItem.swift in Sources */,
 				D2C16CA72A641A8A00C72086 /* Field.swift in Sources */,

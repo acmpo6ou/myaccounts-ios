@@ -33,8 +33,8 @@ open class CreateDatabaseViewModel: CreateViewModel, ErrorModel {
             showError(error, title: "Error.CreateDB".l)
             return
         }
-        dbsViewModel?.databases.append(database)
-        dbsViewModel?.databases.sort { $0.name < $1.name }
+        dbsViewModel?.items.append(database)
+        dbsViewModel?.items.sort { $0.name < $1.name }
         dbsViewModel?.showCreateItem = false
     }
 }

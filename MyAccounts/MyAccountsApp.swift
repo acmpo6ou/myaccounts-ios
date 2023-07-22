@@ -23,6 +23,7 @@ struct MyAccountsApp: App {
                     }
             }
             .environmentObject(viewModel)
+            .environmentObject(viewModel as ListViewModel<Database>)
         }
     }
 
@@ -51,16 +52,16 @@ struct MyAccountsApp: App {
             .compactMap { ($0 as? UIWindowScene)?.keyWindow }
             .last?.layer.speed = 100
 
-        viewModel.databases = []
+        viewModel.items = []
         do {
             try setupSrcDir()
             try copyDatabase()
             try copyDatabase(as: "test")
             try copyDatabase(as: "unsaved")
             viewModel.loadDatabases()
-            try viewModel.databases[1].open(with: "123")
-            try viewModel.databases[2].open(with: "123")
-            viewModel.databases[2].accounts["gmail"] = nil
+            try viewModel.items[1].open(with: "123")
+            try viewModel.items[2].open(with: "123")
+            viewModel.items[2].accounts["gmail"] = nil
         } catch {
             error.log(category: "myaccounts_app")
         }

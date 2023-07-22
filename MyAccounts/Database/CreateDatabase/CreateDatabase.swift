@@ -77,7 +77,7 @@ struct CreateDatabase: View {
     }
 
     func validate() {
-        let takenNames = dbsViewModel.databases.map { $0.name }
+        let takenNames = dbsViewModel.items.map { $0.name }
         viewModel.applyEnabled(takenNames: takenNames)
     }
 }

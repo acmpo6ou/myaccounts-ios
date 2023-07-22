@@ -19,8 +19,6 @@ import SwiftUI
 
 class DatabasesListViewModel: ListViewModel<Database> {
     let filemgr = FileManager.default
-    @Published var databases: [Database] = []
-
     @Published var showCloseAlert = false
     @Published var closeMessage = ""
     var dbToClose: Binding<Database>?
@@ -45,22 +43,22 @@ class DatabasesListViewModel: ListViewModel<Database> {
     func loadDatabases() {
         print("SRC_DIR: \(Database.srcDir)")
         guard let enumerator = filemgr.enumerator(atPath: Database.srcDir) else { return }
-        let dbNames = databases.map { $0.name }
+        let dbNames = items.map { $0.name }
         while let file = enumerator.nextObject() as? String {
             let name = (file as NSString).deletingPathExtension
             // add only databases that are missing from the list
             // don't replace the whole list of dbs, as this will close all open databases.
             if file.hasSuffix(".dba") && !dbNames.contains(name) {
-                databases.append(Database(name: name))
+                items.append(Database(name: name))
             }
         }
-        databases.sort { $0.name < $1.name }
+        items.sort { $0.name < $1.name }
     }
 
-    func deleteDatabase() {
+    override func deleteItem() {
         do {
             try filemgr.removeItem(atPath: itemToDelete!.dbaPath)
-            databases.removeAll { $0 == itemToDelete }
+            items.removeAll { $0 == itemToDelete }
         } catch {
             showError(error, title: "Error.DeleteDatabase".l)
         }
