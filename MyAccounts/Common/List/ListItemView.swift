@@ -16,9 +16,9 @@
 
 import SwiftUI
 
-struct ListItemView: View {
+struct ListItemView<T: ListItem>: View {
     @EnvironmentObject var viewModel: ListViewModel
-    @Binding var item: ListItem
+    @Binding var item: T
     var image: String
     var deleteLabel: String
 

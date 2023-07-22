@@ -21,23 +21,12 @@ struct AccountItem: View {
     @Binding var account: Account
 
     var body: some View {
-        HStack {
-            Image(systemName: "person.crop.circle")
-                .frame(width: 32, height: 32)
-            Text(account.accountName)
-            Spacer()
-        }
-        .padding(.vertical)
-        .font(.title)
-        .transition(.slide)
+        ListItemView<Account>(
+            item: $account,
+            image: "person.crop.circle",
+            deleteLabel: "DeleteAcc"
+        )
         .swipeActions {
-            Button(
-                action: { viewModel.confirmDelete(of: account) },
-                label: { Image(systemName: "trash.fill") }
-            )
-            .accessibilityLabel("DeleteAcc".l(account.accountName))
-            .tint(.red)
-
             Button(
                 action: { viewModel.editAccount($account) },
                 label: { Image(systemName: "pencil") }

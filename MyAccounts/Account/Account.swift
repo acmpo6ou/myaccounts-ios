@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-struct Account: Codable, Equatable {
+struct Account: ListItem, Codable, Equatable {
     let accountName: String
     let username: String
     let email: String
@@ -22,6 +22,7 @@ struct Account: Codable, Equatable {
     let birthDate: String
     let notes: String
     var attachedFiles: [String: String] = [:]
+    var itemName: String { accountName }
 
     enum CodingKeys: String, CodingKey {
         case accountName = "account"

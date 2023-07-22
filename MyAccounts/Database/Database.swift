@@ -17,7 +17,7 @@
 import Foundation
 import CommonCrypto
 
-struct Database: Equatable {
+struct Database: ListItem, Equatable {
     static var srcDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path + "/src/"
     let filemgr = FileManager.default
 
@@ -27,6 +27,7 @@ struct Database: Equatable {
 
     var dbaPath: String { "\(Database.srcDir)/\(name).dba" }
     var isOpen: Bool { password != nil }
+    var itemName: String { name }
 
     static func == (lhs: Database, rhs: Database) -> Bool {
         lhs.name == rhs.name &&

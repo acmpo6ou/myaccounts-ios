@@ -21,23 +21,11 @@ struct DatabaseItem: View {
     @EnvironmentObject var viewModel: DatabasesListViewModel
 
     var body: some View {
-        HStack {
-            Image(systemName: database.isOpen ? "lock.open.fill" : "lock.fill")
-                .frame(width: 32, height: 32)
-            Text(database.name)
-            Spacer()
-        }
-        .padding(.vertical)
-        .font(.title)
-        .transition(.slide)
-        .swipeActions {
-            Button(
-                action: { viewModel.confirmDelete(of: database) },
-                label: { Image(systemName: "trash.fill") }
-            )
-            .accessibilityLabel("DeleteDB".l(database.name))
-            .tint(.red)
-        }
+        ListItemView<Database>(
+            item: $database,
+            image: database.isOpen ? "lock.open.fill" : "lock.fill",
+            deleteLabel: "DeleteDB"
+        )
         .swipeActions {
             if database.isOpen {
                 Button(
