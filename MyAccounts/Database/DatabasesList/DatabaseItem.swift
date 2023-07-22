@@ -37,7 +37,8 @@ struct DatabaseItem: View {
             )
             .accessibilityLabel("DeleteDB".l(database.name))
             .tint(.red)
-
+        }
+        .swipeActions {
             if database.isOpen {
                 Button(
                     action: { viewModel.editDatabase($database) },

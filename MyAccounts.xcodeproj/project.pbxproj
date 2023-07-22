@@ -10,6 +10,7 @@
 		D2586F1D2A6A9E8D004A2F90 /* EditDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F1C2A6A9E8D004A2F90 /* EditDatabaseUITests.swift */; };
 		D2586F1F2A6AB681004A2F90 /* AccountItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F1E2A6AB681004A2F90 /* AccountItem.swift */; };
 		D2586F212A6AB8E5004A2F90 /* AccountsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F202A6AB8E5004A2F90 /* AccountsListViewModel.swift */; };
+		D2586F232A6B158A004A2F90 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2586F222A6B158A004A2F90 /* ListItemView.swift */; };
 		D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */; };
 		D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */; };
 		D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */; };
@@ -32,6 +33,8 @@
 		D2AB93562A4BF465004334BB /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93552A4BF465004334BB /* DatabaseTests.swift */; };
 		D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */; };
 		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
+		D2B365FA2A6B17D20043C659 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365F92A6B17D20043C659 /* ListItem.swift */; };
+		D2B365FD2A6B1A310043C659 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FC2A6B1A310043C659 /* ListViewModel.swift */; };
 		D2C16CA72A641A8A00C72086 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C16CA62A641A8A00C72086 /* Field.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
@@ -70,6 +73,7 @@
 		D2586F1C2A6A9E8D004A2F90 /* EditDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabaseUITests.swift; sourceTree = "<group>"; };
 		D2586F1E2A6AB681004A2F90 /* AccountItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountItem.swift; sourceTree = "<group>"; };
 		D2586F202A6AB8E5004A2F90 /* AccountsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListViewModel.swift; sourceTree = "<group>"; };
+		D2586F222A6B158A004A2F90 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		D2610EF42A5EE2E000BB100C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2610EF62A5EEFEC00BB100C /* EditDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabase.swift; sourceTree = "<group>"; };
 		D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesList.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		D2AB935B2A4BF465004334BB /* MyAccountsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAccountsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListUITests.swift; sourceTree = "<group>"; };
 		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2B365F92A6B17D20043C659 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		D2B365FC2A6B1A310043C659 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		D2C16CA62A641A8A00C72086 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 		D2A6025B2A58477300BAFB54 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D2B365FB2A6B17D80043C659 /* List */,
 				D2A602542A58207E00BAFB54 /* Utilities.swift */,
 				D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */,
 				D26F7B622A65BBC4000BB5CD /* ErrorModel.swift */,
@@ -304,6 +311,16 @@
 				D2EF561E2A682D3E00D33CD4 /* GenPassUITests.swift */,
 			);
 			path = MyAccountsUITests;
+			sourceTree = "<group>";
+		};
+		D2B365FB2A6B17D80043C659 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				D2586F222A6B158A004A2F90 /* ListItemView.swift */,
+				D2B365F92A6B17D20043C659 /* ListItem.swift */,
+				D2B365FC2A6B1A310043C659 /* ListViewModel.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		D2CE7EF32A5B2F3100945A0D /* sampledata */ = {
@@ -491,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26F7B632A65BBC4000BB5CD /* ErrorModel.swift in Sources */,
+				D2586F232A6B158A004A2F90 /* ListItemView.swift in Sources */,
 				D27CEDBC2A52D1420091B634 /* Account.swift in Sources */,
 				D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */,
 				D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */,
@@ -504,10 +522,12 @@
 				D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */,
 				D2DAE0802A697EDE0044964A /* OpenDatabaseViewModel.swift in Sources */,
 				D2EF561D2A66FA0200D33CD4 /* GenPass.swift in Sources */,
+				D2B365FD2A6B1A310043C659 /* ListViewModel.swift in Sources */,
 				D2FD5A3B2A600E99003EA40F /* AccountsList.swift in Sources */,
 				D27CEDBA2A52D0580091B634 /* Database.swift in Sources */,
 				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
 				D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */,
+				D2B365FA2A6B17D20043C659 /* ListItem.swift in Sources */,
 				D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */,
 				D2F7B78F2A64033C002CEDF8 /* PasswordField.swift in Sources */,
 				D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */,
