@@ -19,23 +19,25 @@ import SwiftUI
 struct DatabasesList: View {
     @EnvironmentObject var viewModel: DatabasesListViewModel
 
+    private var destination: (Binding<Database>) -> AnyView = { database in
+        AnyView(
+            VStack {
+                if database.wrappedValue.isOpen {
+                    var accsViewModel = AccountsListViewModel(database)
+                    AccountsList(database: database)
+                        .environmentObject(accsViewModel)
+                        .environmentObject(accsViewModel as ListViewModel<Account>)
+                } else {
+                    OpenDatabase(database: database)
+                }
+            }
+        )
+    }
+
     var body: some View {
         ItemsList<Database>(
             createLabel: "CreateDB".l,
-            destination: { database in
-                AnyView(
-                    VStack {
-                        if database.wrappedValue.isOpen {
-                            var accsViewModel = AccountsListViewModel(database)
-                            AccountsList(database: database)
-                                .environmentObject(accsViewModel)
-                                .environmentObject(accsViewModel as ListViewModel<Account>)
-                        } else {
-                            OpenDatabase(database: database)
-                        }
-                    }
-                )
-            },
+            destination: destination,
             itemView: { AnyView(DatabaseItem(database: $0)) },
             createItem: { AnyView(CreateDatabase()) },
             editItem: { AnyView(EditDatabase(database: $0)) }
