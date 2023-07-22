@@ -35,6 +35,6 @@ open class CreateDatabaseViewModel: CreateViewModel, ErrorModel {
         }
         dbsViewModel?.databases.append(database)
         dbsViewModel?.databases.sort { $0.name < $1.name }
-        dbsViewModel?.showCreateDatabase = false
+        dbsViewModel?.showCreateItem = false
     }
 }

@@ -31,7 +31,7 @@ final class DatabasesListUITests: BaseTest {
         app.buttons["DeleteDB".l("main")].tap()
 
         // a confirmation dialog should appear
-        let message = "DeleteDBAlert.Message".l("main")
+        let message = "DeleteItemAlert.Message".l("main")
         XCTAssert(app.staticTexts[message].exists)
 
         // choose Delete

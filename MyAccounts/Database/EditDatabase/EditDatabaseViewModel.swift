@@ -44,6 +44,6 @@ class EditDatabaseViewModel: CreateDatabaseViewModel {
             return
         }
         dbsViewModel?.databases.sort { $0.name < $1.name }
-        dbsViewModel?.showEditDatabase = false
+        dbsViewModel?.showEditItem = false
     }
 }

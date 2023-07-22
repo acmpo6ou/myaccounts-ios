@@ -34,13 +34,14 @@ struct DatabasesList: View {
                     },
                     label: { DatabaseItem(database: $database) }
                 )
+                .environmentObject(viewModel as ListViewModel<Database>)
             }
         }
         .navigationTitle("MyAccounts")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(
-                    action: { viewModel.showCreateDatabase = true },
+                    action: { viewModel.showCreateItem = true },
                     label: { Image(systemName: "plus") }
                 )
                 .accessibilityLabel("CreateDB".l)
@@ -52,16 +53,16 @@ struct DatabasesList: View {
                     .font(.system(size: 24))
             }
         }
-        .sheet(isPresented: $viewModel.showCreateDatabase) {
+        .sheet(isPresented: $viewModel.showCreateItem) {
             NavigationStack {
                 CreateDatabase()
             }
             .presentationDragIndicator(.visible)
         }
-        .sheet(isPresented: $viewModel.showEditDatabase) {
+        .sheet(isPresented: $viewModel.showEditItem) {
             NavigationStack {
-                if viewModel.dbToEdit != nil {
-                    EditDatabase(database: viewModel.dbToEdit!)
+                if viewModel.itemToEdit != nil {
+                    EditDatabase(database: viewModel.itemToEdit!)
                 }
             }
             .presentationDragIndicator(.visible)

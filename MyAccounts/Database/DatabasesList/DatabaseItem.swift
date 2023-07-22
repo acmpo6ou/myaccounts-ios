@@ -29,7 +29,7 @@ struct DatabaseItem: View {
         .swipeActions {
             if database.isOpen {
                 Button(
-                    action: { viewModel.editDatabase($database) },
+                    action: { viewModel.editItem($database) },
                     label: { Image(systemName: "pencil") }
                 )
                 .accessibilityLabel("EditDB".l(database.name))

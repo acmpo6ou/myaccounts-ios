@@ -28,7 +28,7 @@ struct AccountItem: View {
         )
         .swipeActions {
             Button(
-                action: { viewModel.editAccount($account) },
+                action: { viewModel.editItem($account) },
                 label: { Image(systemName: "pencil") }
             )
             .accessibilityLabel("EditAcc".l(account.accountName))

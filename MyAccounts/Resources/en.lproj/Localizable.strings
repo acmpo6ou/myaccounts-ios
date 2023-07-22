@@ -16,8 +16,10 @@
 "GenPass" = "Generate password";
 "Save" = "Save";
 
+// List
+"DeleteItemAlert.Message" = "Are you sure you want to delete %@?";
+
 // DatabasesList
-"DeleteDBAlert.Message" = "Are you sure you want to delete %@?";
 "Error.DeleteDatabase" = "Failed to delete the database.";
 "CloseDBAlert.Message" = "%@ has unsafed changes.";
 "CloseDBAlert.Save" = "Save database";

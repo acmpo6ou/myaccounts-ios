@@ -15,9 +15,31 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import SwiftUI
 
-class ListViewModel: ObservableObject {
-    func confirmDelete(of item: ListItem) {
+class ListViewModel<T: ListItem>: ObservableObject, ErrorModel {
+    var logCategory = "list_view_model"
+    @Published var showErrorAlert = false
+    @Published var errorTitle = ""
+    @Published var errorMessage = ""
 
+    @Published var showDeleteAlert = false
+    @Published var deleteMessage = ""
+    var itemToDelete: T?
+
+    @Published var showCreateItem = false
+    @Published var showEditItem = false
+    @Published var itemToEdit: Binding<T>?
+
+    /// Displays a confirmation dialog to delete selected item.
+    func confirmDelete(of item: T) {
+        itemToDelete = item
+        deleteMessage = "DeleteItemAlert.Message".l(item.itemName)
+        showDeleteAlert = true
+    }
+
+    func editItem(_ item: Binding<T>) {
+        itemToEdit = item
+        showEditItem = true
     }
 }

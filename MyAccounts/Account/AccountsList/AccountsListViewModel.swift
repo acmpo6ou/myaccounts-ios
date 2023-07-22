@@ -17,15 +17,10 @@
 import Foundation
 import SwiftUI
 
-class AccountsListViewModel: ObservableObject, ErrorModel {
-    var logCategory = "accounts_view_model"
-    var showErrorAlert = false
-    var errorTitle = ""
-    var errorMessage = ""
+class AccountsListViewModel: ListViewModel<Account> {
 
-    func confirmDelete(of account: Account) {
-    }
-
-    func editAccount(_ account: Binding<Account>) {
+    override init() {
+        super.init()
+        logCategory = "accounts_view_model"
     }
 }

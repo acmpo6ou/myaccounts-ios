@@ -17,7 +17,7 @@
 import SwiftUI
 
 struct ListItemView<T: ListItem>: View {
-    @EnvironmentObject var viewModel: ListViewModel
+    @EnvironmentObject var viewModel: ListViewModel<T>
     @Binding var item: T
     var image: String
     var deleteLabel: String
@@ -55,7 +55,6 @@ struct ListItem_Previews: PreviewProvider {
                 image: "photo",
                 deleteLabel: "Delete %@"
             )
-            .environmentObject(ListViewModel())
         }
     }
 }

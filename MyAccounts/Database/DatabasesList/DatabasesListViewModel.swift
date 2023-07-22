@@ -17,26 +17,18 @@
 import Foundation
 import SwiftUI
 
-class DatabasesListViewModel: ObservableObject, ErrorModel {
-    var logCategory = "database_view_model"
+class DatabasesListViewModel: ListViewModel<Database> {
     let filemgr = FileManager.default
     @Published var databases: [Database] = []
-
-    @Published var showCreateDatabase = false
-    @Published var showEditDatabase = false
-    @Published var dbToEdit: Binding<Database>?
-
-    @Published var showErrorAlert = false
-    @Published var errorTitle = ""
-    @Published var errorMessage = ""
-
-    @Published var showDeleteAlert = false
-    @Published var deleteMessage = ""
-    var dbToDelete: Database?
 
     @Published var showCloseAlert = false
     @Published var closeMessage = ""
     var dbToClose: Binding<Database>?
+
+    override init() {
+        super.init()
+        logCategory = "database_view_model"
+    }
 
     /// Creates the source folder if needed.
     func fixSrcFolder() {
@@ -65,17 +57,10 @@ class DatabasesListViewModel: ObservableObject, ErrorModel {
         databases.sort { $0.name < $1.name }
     }
 
-    /// Displays a confirmation dialog to delete selected database.
-    func confirmDelete(of database: Database) {
-        dbToDelete = database
-        deleteMessage = "DeleteDBAlert.Message".l(database.name)
-        showDeleteAlert = true
-    }
-
     func deleteDatabase() {
         do {
-            try filemgr.removeItem(atPath: dbToDelete!.dbaPath)
-            databases.removeAll { $0 == dbToDelete }
+            try filemgr.removeItem(atPath: itemToDelete!.dbaPath)
+            databases.removeAll { $0 == itemToDelete }
         } catch {
             showError(error, title: "Error.DeleteDatabase".l)
         }
@@ -105,10 +90,5 @@ class DatabasesListViewModel: ObservableObject, ErrorModel {
         } catch {
             showError(error, title: "Error.CloseDatabase".l)
         }
-    }
-
-    func editDatabase(_ database: Binding<Database>) {
-        dbToEdit = database
-        showEditDatabase = true
     }
 }
