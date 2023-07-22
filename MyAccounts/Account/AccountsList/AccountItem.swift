@@ -41,7 +41,11 @@ struct AccountItem_Previews: PreviewProvider {
     static var previews: some View {
         List {
             AccountItem(account: .constant(testAccount))
-                .environmentObject(AccountsListViewModel())
+                .environmentObject(
+                    AccountsListViewModel(
+                        .constant(Database(name: "main"))
+                    )
+                )
         }
         .previewLayout(.sizeThatFits)
     }

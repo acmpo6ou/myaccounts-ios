@@ -26,7 +26,10 @@ struct DatabasesList: View {
                 AnyView(
                     VStack {
                         if database.wrappedValue.isOpen {
+                            var accsViewModel = AccountsListViewModel(database)
                             AccountsList(database: database)
+                                .environmentObject(accsViewModel)
+                                .environmentObject(accsViewModel as ListViewModel<Account>)
                         } else {
                             OpenDatabase(database: database)
                         }

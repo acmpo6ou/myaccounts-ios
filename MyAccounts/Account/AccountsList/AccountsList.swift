@@ -17,7 +17,9 @@
 import SwiftUI
 
 struct AccountsList: View {
+    @EnvironmentObject var viewModel: AccountsListViewModel
     @Binding var database: Database
+
     var body: some View {
         ItemsList<Account>(
             createLabel: "CreateAcc".l,

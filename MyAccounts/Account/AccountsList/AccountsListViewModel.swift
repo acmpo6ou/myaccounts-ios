@@ -18,8 +18,10 @@ import Foundation
 import SwiftUI
 
 class AccountsListViewModel: ListViewModel<Account> {
+    var database: Binding<Database>
 
-    override init() {
+    init(_ database: Binding<Database>) {
+        self.database = database
         super.init()
         logCategory = "accounts_view_model"
     }
