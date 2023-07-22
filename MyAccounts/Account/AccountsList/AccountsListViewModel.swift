@@ -19,6 +19,15 @@ import SwiftUI
 
 class AccountsListViewModel: ListViewModel<Account> {
     var database: Binding<Database>
+    override var items: [Account] {
+        get {
+            database.wrappedValue.accounts.values
+                .sorted { $0.accountName < $1.accountName }
+        }
+        set {
+            fatalError("Don't use this `set`!")
+        }
+    }
 
     init(_ database: Binding<Database>) {
         self.database = database
