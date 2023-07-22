@@ -66,6 +66,9 @@
 
 // - MARK: Accounts
 
+// AccountsList
+"CreateAcc" = "Create account";
+
 // AccountItem
 "EditAcc" = "Edit %@ account";
 "DeleteAcc" = "Delete %@ account";

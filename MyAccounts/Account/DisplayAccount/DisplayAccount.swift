@@ -16,23 +16,15 @@
 
 import SwiftUI
 
-struct AccountsList: View {
-    @Binding var database: Database
+struct DisplayAccount: View {
+    @Binding var account: Account
     var body: some View {
-        ItemsList<Account>(
-            createLabel: "CreateAcc".l,
-            destination: { AnyView(DisplayAccount(account: $0)) },
-            itemView: { AnyView(AccountItem(account: $0)) },
-            createItem: { AnyView(CreateAccount()) },
-            editItem: { AnyView(EditAccount(account: $0)) }
-        )
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct AccountsList_Previews: PreviewProvider {
+struct DisplayAccount_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            AccountsList(database: .constant(Database(name: "main")))
-        }
+        DisplayAccount(account: .constant(testAccount))
     }
 }

@@ -28,13 +28,13 @@ struct ItemsList<T: ListItem>: View {
     init(
         createLabel: String,
         @ViewBuilder destination: @escaping (Binding<T>) -> AnyView,
-        @ViewBuilder label: @escaping (Binding<T>) -> AnyView,
+        @ViewBuilder itemView: @escaping (Binding<T>) -> AnyView,
         @ViewBuilder createItem: @escaping () -> AnyView,
         @ViewBuilder editItem: @escaping (Binding<T>) -> AnyView
     ) {
         self.createLabel = createLabel
         self.destination = destination
-        self.itemView = label
+        self.itemView = itemView
         self.createItem = createItem
         self.editItem = editItem
     }

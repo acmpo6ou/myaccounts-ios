@@ -36,6 +36,9 @@
 		D2B365FA2A6B17D20043C659 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365F92A6B17D20043C659 /* ListItem.swift */; };
 		D2B365FD2A6B1A310043C659 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FC2A6B1A310043C659 /* ListViewModel.swift */; };
 		D2B365FF2A6C155B0043C659 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FE2A6C155B0043C659 /* ItemsList.swift */; };
+		D2B366022A6C54200043C659 /* DisplayAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B366012A6C54200043C659 /* DisplayAccount.swift */; };
+		D2B366052A6C54C30043C659 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B366042A6C54C30043C659 /* CreateAccount.swift */; };
+		D2B366082A6C54D70043C659 /* EditAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B366072A6C54D70043C659 /* EditAccount.swift */; };
 		D2C16CA72A641A8A00C72086 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C16CA62A641A8A00C72086 /* Field.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
@@ -105,6 +108,9 @@
 		D2B365F92A6B17D20043C659 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		D2B365FC2A6B1A310043C659 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		D2B365FE2A6C155B0043C659 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
+		D2B366012A6C54200043C659 /* DisplayAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAccount.swift; sourceTree = "<group>"; };
+		D2B366042A6C54C30043C659 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		D2B366072A6C54D70043C659 /* EditAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccount.swift; sourceTree = "<group>"; };
 		D2C16CA62A641A8A00C72086 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 		D26E0EFB2A51DC6F00F47D72 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				D2B366062A6C54C90043C659 /* EditAccount */,
+				D2B366032A6C54B50043C659 /* CreateAccount */,
+				D2B366002A6C54060043C659 /* DisplayAccount */,
 				D2FD5A392A600E7E003EA40F /* AccountsList */,
 				D27CEDBB2A52D1420091B634 /* Account.swift */,
 			);
@@ -324,6 +333,30 @@
 				D2B365FE2A6C155B0043C659 /* ItemsList.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		D2B366002A6C54060043C659 /* DisplayAccount */ = {
+			isa = PBXGroup;
+			children = (
+				D2B366012A6C54200043C659 /* DisplayAccount.swift */,
+			);
+			path = DisplayAccount;
+			sourceTree = "<group>";
+		};
+		D2B366032A6C54B50043C659 /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				D2B366042A6C54C30043C659 /* CreateAccount.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		D2B366062A6C54C90043C659 /* EditAccount */ = {
+			isa = PBXGroup;
+			children = (
+				D2B366072A6C54D70043C659 /* EditAccount.swift */,
+			);
+			path = EditAccount;
 			sourceTree = "<group>";
 		};
 		D2CE7EF32A5B2F3100945A0D /* sampledata */ = {
@@ -521,9 +554,12 @@
 				D2B365FF2A6C155B0043C659 /* ItemsList.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
 				D2586F1F2A6AB681004A2F90 /* AccountItem.swift in Sources */,
+				D2B366052A6C54C30043C659 /* CreateAccount.swift in Sources */,
+				D2B366022A6C54200043C659 /* DisplayAccount.swift in Sources */,
 				D2C16CA72A641A8A00C72086 /* Field.swift in Sources */,
 				D2586F212A6AB8E5004A2F90 /* AccountsListViewModel.swift in Sources */,
 				D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */,
+				D2B366082A6C54D70043C659 /* EditAccount.swift in Sources */,
 				D2DAE0802A697EDE0044964A /* OpenDatabaseViewModel.swift in Sources */,
 				D2EF561D2A66FA0200D33CD4 /* GenPass.swift in Sources */,
 				D2B365FD2A6B1A310043C659 /* ListViewModel.swift in Sources */,

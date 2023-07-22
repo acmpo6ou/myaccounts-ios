@@ -33,7 +33,7 @@ struct DatabasesList: View {
                     }
                 )
             },
-            label: { AnyView(DatabaseItem(database: $0)) },
+            itemView: { AnyView(DatabaseItem(database: $0)) },
             createItem: { AnyView(CreateDatabase()) },
             editItem: { AnyView(EditDatabase(database: $0)) }
         )
