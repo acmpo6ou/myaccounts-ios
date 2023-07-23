@@ -17,6 +17,7 @@
 import SwiftUI
 
 struct DisplayAccount: View {
+    @StateObject var viewModel = DisplayAccountViewModel()
     var account: Account
     @State var showPassword = false
     @State var showNotes = false
@@ -46,13 +47,31 @@ struct DisplayAccount: View {
                     .frame(maxHeight: 200)
                 }
             }
-            .navigationTitle(account.accountName)
+            let attachedFiles = account.attachedFiles.keys.sorted(by: <)
+            if !attachedFiles.isEmpty {
+                Section("AttachedFiles".l) {
+                    ForEach(attachedFiles, id: \.self) {fileName in
+                        Text(fileName)
+                    }
+                }
+            }
+        }
+        .navigationTitle(account.accountName)
+        .onAppear {
+            viewModel.account = account
         }
     }
 }
 
 struct DisplayAccount_Previews: PreviewProvider {
     static var previews: some View {
-        DisplayAccount(account: longAccount)
+        Group {
+            NavigationStack {
+                DisplayAccount(account: longAccount)
+            }
+            NavigationStack {
+                DisplayAccount(account: accountUnattached)
+            }
+        }
     }
 }
