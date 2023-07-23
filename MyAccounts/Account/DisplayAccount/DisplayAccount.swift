@@ -18,32 +18,41 @@ import SwiftUI
 
 struct DisplayAccount: View {
     var account: Account
-    @State var password = String(repeating: "●", count: 10)
+    @State var showPassword = false
+    @State var showNotes = false
+    let hiddenText = String(repeating: "●", count: 10)
 
     var body: some View {
-        Form {
+        List {
             Section("AccountInfo".l) {
                 SpacedText("Username".l, account.username)
                 SpacedText("Email".l, account.email)
-                SpacedText("Pass".l, password)
+                Button {
+                    showPassword.toggle()
+                } label: {
+                    SpacedText(
+                        "Pass".l,
+                        showPassword ? account.password : hiddenText
+                    )
+                }
                 SpacedText("BirthDate".l, account.birthDate)
-            }
-            Section("Notes".l) {
-                GeometryReader { _ in
+                DisclosureGroup("Notes".l) {
                     ScrollView {
                         Text(account.notes)
                             .lineLimit(nil)
-                            .frame(minHeight: 500, maxHeight: 800)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
+                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .frame(maxHeight: 200)
                 }
             }
+            .navigationTitle(account.accountName)
         }
-        .navigationTitle(account.accountName)
     }
 }
 
 struct DisplayAccount_Previews: PreviewProvider {
     static var previews: some View {
-        DisplayAccount(account: testAccount)
+        DisplayAccount(account: longAccount)
     }
 }

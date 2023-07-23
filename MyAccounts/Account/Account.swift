@@ -44,3 +44,13 @@ let testAccount = Account(
     notes: "My gmail account.",
     attachedFiles: ["file1": "ZmlsZTEgY29udGVudAo=", "file2": "ZmlsZTIgY29udGVudAo="]
 )
+
+let longAccount = Account(
+    accountName: "gmail",
+    username: "Gmail User",
+    email: "example@gmail.com",
+    password: "123",
+    birthDate: "01.01.2000",
+    notes: String(repeating: "My gmail account.", count: 32),
+    attachedFiles: ["file1": "ZmlsZTEgY29udGVudAo=", "file2": "ZmlsZTIgY29udGVudAo="]
+)
