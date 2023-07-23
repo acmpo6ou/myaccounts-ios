@@ -32,7 +32,6 @@
 		D2AB934C2A4BF465004334BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB934B2A4BF465004334BB /* Preview Assets.xcassets */; };
 		D2AB93562A4BF465004334BB /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93552A4BF465004334BB /* DatabaseTests.swift */; };
 		D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */; };
-		D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */; };
 		D2B365FA2A6B17D20043C659 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365F92A6B17D20043C659 /* ListItem.swift */; };
 		D2B365FD2A6B1A310043C659 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FC2A6B1A310043C659 /* ListViewModel.swift */; };
 		D2B365FF2A6C155B0043C659 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FE2A6C155B0043C659 /* ItemsList.swift */; };
@@ -104,7 +103,6 @@
 		D2AB93552A4BF465004334BB /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		D2AB935B2A4BF465004334BB /* MyAccountsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAccountsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListUITests.swift; sourceTree = "<group>"; };
-		D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2B365F92A6B17D20043C659 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		D2B365FC2A6B1A310043C659 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		D2B365FE2A6C155B0043C659 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 			children = (
 				D2A940062A6695B000BA9D0E /* Database */,
 				D2FDD62A2A61437E00F79D8A /* Utilities.swift */,
-				D2AB93612A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift */,
 				D2A940072A6695CF00BA9D0E /* BaseTest.swift */,
 				D2EF561E2A682D3E00D33CD4 /* GenPassUITests.swift */,
 			);
@@ -594,7 +591,6 @@
 				D2A940082A6695CF00BA9D0E /* BaseTest.swift in Sources */,
 				D2A940052A66958800BA9D0E /* CreateDatabaseUITests.swift in Sources */,
 				D2DAE0822A69BDD40044964A /* OpenDatabaseUITests.swift in Sources */,
-				D2AB93622A4BF465004334BB /* MyAccountsUITestsLaunchTests.swift in Sources */,
 				D2FDD62C2A61438600F79D8A /* Utilities.swift in Sources */,
 				D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */,
 				D2EF561F2A682D3E00D33CD4 /* GenPassUITests.swift in Sources */,
