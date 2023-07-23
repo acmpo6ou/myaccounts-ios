@@ -34,4 +34,9 @@ class AccountsListViewModel: ListViewModel<Account> {
         super.init()
         logCategory = "accounts_view_model"
     }
+
+    override func deleteItem() {
+        guard let name = itemToDelete?.accountName else { return }
+        database.wrappedValue.accounts[name] = nil
+    }
 }
