@@ -19,6 +19,7 @@
 		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
 		D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */; };
+		D28E27402A6D25C8009F57CE /* AccountsListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */; };
 		D296FD582A62FC83006BFEE5 /* DatabasesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */; };
 		D296FD5A2A62FD14006BFEE5 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296FD592A62FD14006BFEE5 /* BaseTest.swift */; };
 		D2A602512A581FDE00BAFB54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A602532A581FDE00BAFB54 /* Localizable.strings */; };
@@ -87,6 +88,7 @@
 		D27CEDBE2A5311F60091B634 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D27CEDBF2A5324D10091B634 /* Fernet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fernet.swift; sourceTree = "<group>"; };
 		D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabase.swift; sourceTree = "<group>"; };
+		D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListUITests.swift; sourceTree = "<group>"; };
 		D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListViewModelTests.swift; sourceTree = "<group>"; };
 		D296FD592A62FD14006BFEE5 /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		D2A602522A581FDE00BAFB54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -204,6 +206,14 @@
 			path = CreateDatabase;
 			sourceTree = "<group>";
 		};
+		D28E273E2A6D25A1009F57CE /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		D296FD5B2A62FD21006BFEE5 /* DatabaseList */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +323,7 @@
 		D2AB935E2A4BF465004334BB /* MyAccountsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D28E273E2A6D25A1009F57CE /* Account */,
 				D2A940062A6695B000BA9D0E /* Database */,
 				D2FDD62A2A61437E00F79D8A /* Utilities.swift */,
 				D2A940072A6695CF00BA9D0E /* BaseTest.swift */,
@@ -588,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2586F1D2A6A9E8D004A2F90 /* EditDatabaseUITests.swift in Sources */,
+				D28E27402A6D25C8009F57CE /* AccountsListUITests.swift in Sources */,
 				D2A940082A6695CF00BA9D0E /* BaseTest.swift in Sources */,
 				D2A940052A66958800BA9D0E /* CreateDatabaseUITests.swift in Sources */,
 				D2DAE0822A69BDD40044964A /* OpenDatabaseUITests.swift in Sources */,
