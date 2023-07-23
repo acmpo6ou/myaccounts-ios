@@ -16,25 +16,28 @@
 
 import SwiftUI
 
-struct AccountsList: View {
-    @EnvironmentObject var viewModel: AccountsListViewModel
-    @Binding var database: Database
+struct SpacedText: View {
+    var key: String
+    var value: String
+
+    init(_ key: String, _ value: String) {
+        self.key = key
+        self.value = value
+    }
 
     var body: some View {
-        ItemsList<Account>(
-            createLabel: "CreateAcc".l,
-            destination: { AnyView(DisplayAccount(account: $0.wrappedValue)) },
-            itemView: { AnyView(AccountItem(account: $0)) },
-            createItem: { AnyView(CreateAccount()) },
-            editItem: { AnyView(EditAccount(account: $0)) }
-        )
+        HStack {
+            Text(key)
+            Spacer()
+            Text(value)
+        }
     }
 }
 
-struct AccountsList_Previews: PreviewProvider {
+struct SpacedText_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            AccountsList(database: .constant(Database(name: "main")))
+        Form {
+            SpacedText("Name: ", "John Doe")
         }
     }
 }

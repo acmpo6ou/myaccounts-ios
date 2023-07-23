@@ -20,6 +20,7 @@
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
 		D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */; };
 		D28E27402A6D25C8009F57CE /* AccountsListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */; };
+		D28E27422A6D3F31009F57CE /* SpacedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E27412A6D3F31009F57CE /* SpacedText.swift */; };
 		D296FD582A62FC83006BFEE5 /* DatabasesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */; };
 		D296FD5A2A62FD14006BFEE5 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296FD592A62FD14006BFEE5 /* BaseTest.swift */; };
 		D2A602512A581FDE00BAFB54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A602532A581FDE00BAFB54 /* Localizable.strings */; };
@@ -89,6 +90,7 @@
 		D27CEDBF2A5324D10091B634 /* Fernet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fernet.swift; sourceTree = "<group>"; };
 		D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabase.swift; sourceTree = "<group>"; };
 		D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListUITests.swift; sourceTree = "<group>"; };
+		D28E27412A6D3F31009F57CE /* SpacedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedText.swift; sourceTree = "<group>"; };
 		D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListViewModelTests.swift; sourceTree = "<group>"; };
 		D296FD592A62FD14006BFEE5 /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		D2A602522A581FDE00BAFB54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				D2F7B78E2A64033C002CEDF8 /* PasswordField.swift */,
 				D2C16CA62A641A8A00C72086 /* Field.swift */,
 				D2EF561C2A66FA0200D33CD4 /* GenPass.swift */,
+				D28E27412A6D3F31009F57CE /* SpacedText.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 			files = (
 				D26F7B632A65BBC4000BB5CD /* ErrorModel.swift in Sources */,
 				D2586F232A6B158A004A2F90 /* ListItemView.swift in Sources */,
+				D28E27422A6D3F31009F57CE /* SpacedText.swift in Sources */,
 				D27CEDBC2A52D1420091B634 /* Account.swift in Sources */,
 				D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */,
 				D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */,

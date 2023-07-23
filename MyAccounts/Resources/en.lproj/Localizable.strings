@@ -72,3 +72,11 @@
 // AccountItem
 "EditAcc" = "Edit %@ account";
 "DeleteAcc" = "Delete %@ account";
+
+// DisplayAccount
+"AccountInfo" = "Account info";
+"Username" = "Username:";
+"Email" = "Email:";
+"Pass" = "Password:";
+"BirthDate" = "Date of birth:";
+"Notes" = "Notes";

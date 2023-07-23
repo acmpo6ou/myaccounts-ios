@@ -17,14 +17,33 @@
 import SwiftUI
 
 struct DisplayAccount: View {
-    @Binding var account: Account
+    var account: Account
+    @State var password = String(repeating: "●", count: 10)
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section("AccountInfo".l) {
+                SpacedText("Username".l, account.username)
+                SpacedText("Email".l, account.email)
+                SpacedText("Pass".l, password)
+                SpacedText("BirthDate".l, account.birthDate)
+            }
+            Section("Notes".l) {
+                GeometryReader { _ in
+                    ScrollView {
+                        Text(account.notes)
+                            .lineLimit(nil)
+                            .frame(minHeight: 500, maxHeight: 800)
+                    }
+                }
+            }
+        }
+        .navigationTitle(account.accountName)
     }
 }
 
 struct DisplayAccount_Previews: PreviewProvider {
     static var previews: some View {
-        DisplayAccount(account: .constant(testAccount))
+        DisplayAccount(account: testAccount)
     }
 }
