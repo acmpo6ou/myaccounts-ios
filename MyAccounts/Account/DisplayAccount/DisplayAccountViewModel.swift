@@ -38,4 +38,14 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
         self.defaultFilename = fileName
         showExportFile = true
     }
+
+    func handleExportResult(_ result: Result<URL, Error>) {
+        switch result {
+        case .success:
+            // TODO: indicate success
+            break
+        case .failure(let error):
+            showError(error, title: "Error.Export".l)
+        }
+    }
 }

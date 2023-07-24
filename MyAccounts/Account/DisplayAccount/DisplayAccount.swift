@@ -65,8 +65,8 @@ struct DisplayAccount: View {
             document: viewModel.document,
             contentType: .data,
             defaultFilename: viewModel.defaultFilename
-        ) { _ in
-            // TODO: handle result, show success message (or fail)
+        ) {
+            viewModel.handleExportResult($0)
         }
         .alert(
             Text(viewModel.errorTitle),
