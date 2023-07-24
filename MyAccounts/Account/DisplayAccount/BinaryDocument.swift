@@ -57,7 +57,7 @@ struct BinaryDocument: FileDocument {
 }
 
 enum BinaryFileError {
-    case binaryFileError(_ message: String)
+case binaryFileError(_ message: String)
 }
 
 extension BinaryFileError: LocalizedError {

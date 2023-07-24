@@ -153,3 +153,12 @@ typealias Accounts = [String: Account]
 enum DBError: Error {
 case databaseError(_ message: String)
 }
+
+extension DBError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .databaseError(let message):
+            return message
+        }
+    }
+}
