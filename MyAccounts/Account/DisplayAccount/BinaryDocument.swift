@@ -21,34 +21,50 @@ import UniformTypeIdentifiers
 struct BinaryDocument: FileDocument {
     static var readableContentTypes = [UTType.data]
     var data: Data
-    
+
     init(_ data: Data) {
         self.data = data
     }
-    
-    init(_ base64data: String) throws {
-        if let data = Data(base64URL: base64data) {
+
+    init(_ base64data: String?) throws {
+        guard let base64data else {
+            throw BinaryFileError.binaryFileError(
+                "Can't init BinaryDocument when `base64data` is null!"
+            )
+        }
+        if let data = Data(base64Encoded: base64data) {
             self.data = data
+            return
         }
         throw BinaryFileError.binaryFileError(
             "Couldn't init file from base64 encoded data: \(base64data)"
         )
     }
-    
+
     init(configuration: ReadConfiguration) throws {
         if let data = configuration.file.regularFileContents {
             self.data = data
+            return
         }
         throw BinaryFileError.binaryFileError(
             "Couldn't read file \(configuration.file.filename ?? "[couldn't get file name]")"
         )
     }
-    
+
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         FileWrapper(regularFileWithContents: data)
     }
 }
 
-enum BinaryFileError: Error {
+enum BinaryFileError {
     case binaryFileError(_ message: String)
+}
+
+extension BinaryFileError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .binaryFileError(let message):
+            return message
+        }
+    }
 }
