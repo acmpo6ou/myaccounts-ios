@@ -19,6 +19,7 @@ import SwiftUI
 struct DisplayAccount: View {
     @StateObject var viewModel = DisplayAccountViewModel()
     var account: Account
+
     @State var showPassword = false
     @State var showNotes = false
     let hiddenText = String(repeating: "●", count: 10)
@@ -51,12 +52,28 @@ struct DisplayAccount: View {
             if !attachedFiles.isEmpty {
                 Section("AttachedFiles".l) {
                     ForEach(attachedFiles, id: \.self) {fileName in
-                        Text(fileName)
+                        Button(fileName) {
+                            viewModel.exportFile(fileName)
+                        }
                     }
                 }
             }
         }
         .navigationTitle(account.accountName)
+        .fileExporter(
+            isPresented: $viewModel.showExportFile,
+            document: viewModel.document,
+            contentType: .data,
+            defaultFilename: viewModel.defaultFilename
+        ) { _ in
+            // TODO: handle result, show success message (or fail)
+        }
+        .alert(
+            Text(viewModel.errorTitle),
+            isPresented: $viewModel.showErrorAlert,
+            actions: {},
+            message: { Text(viewModel.errorMessage) }
+        )
         .onAppear {
             viewModel.account = account
         }
