@@ -15,7 +15,7 @@
 "NoItems" = "No items.";
 "GenPass" = "Generate password";
 "Save" = "Save";
-"Success" = "Operation successful!";
+"Success" = "Success!";
 
 // List
 "DeleteItemAlert.Message" = "Are you sure you want to delete %@?";

@@ -31,6 +31,9 @@ struct MyAccountsApp: App {
         let filemgr = FileManager.default
         try? filemgr.removeItem(atPath: Database.srcDir)
         try filemgr.createDirectory(atPath: Database.srcDir, withIntermediateDirectories: false)
+
+        let file1Path = Database.srcDir.replacingOccurrences(of: "src/", with: "file1")
+        try? filemgr.removeItem(atPath: file1Path)
     }
 
     func copyDatabase(as name: String = "main") throws {
@@ -59,9 +62,12 @@ struct MyAccountsApp: App {
             try copyDatabase(as: "test")
             try copyDatabase(as: "unsaved")
             viewModel.loadDatabases()
+
             try viewModel.items[1].open(with: "123")
             try viewModel.items[2].open(with: "123")
             viewModel.items[2].accounts["gmail"] = nil
+            viewModel.items[2].accounts["mega"]?.attachedFiles = [:]
+            viewModel.items[1].accounts["gmail"]?.attachedFiles["file2"] = "corrupted content"
         } catch {
             error.log(category: "myaccounts_app")
         }

@@ -48,4 +48,30 @@ final class DisplayAccountUITests: BaseTest {
         app.staticTexts["Notes".l].tap()
         XCTAssert(app.staticTexts["My gmail account."].exists)
     }
+
+    func testAttachedFiles() {
+        // "attached files" section should be hidden when there are no attached files
+        app.staticTexts["unsaved"].tap()
+        app.staticTexts["mega"].tap()
+        XCTAssert(!app.staticTexts["ATTACHED FILES"].exists)
+
+        // go back, then go to `gmail` info screen
+        goBack()
+        goBack()
+        app.staticTexts["test"].tap()
+        app.staticTexts["gmail"].tap()
+
+        // export `file1` replacing if it already exists
+        app.buttons["file1"].tap()
+        app.buttons["Move"].tap()
+
+        // Success message should appear
+        XCTAssert(app.staticTexts["Success".l].exists)
+
+        // try exporting a corrupted file
+        app.buttons["file2"].tap()
+
+        // Error message should appear
+        XCTAssert(app.staticTexts["Error.Export".l].exists)
+    }
 }
