@@ -8,3 +8,4 @@ identifier_name:
 
 excluded:
   - MyPlayground.playground
+  - Pods
