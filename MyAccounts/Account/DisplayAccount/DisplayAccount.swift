@@ -22,29 +22,28 @@ struct DisplayAccount: View {
 
     @State var showPassword = false
     @State var showNotes = false
-    let hiddenText = String(repeating: "●", count: 10)
 
     var body: some View {
         List {
             Section("AccountInfo".l) {
                 SpacedText("Username".l, account.username)
                 SpacedText("Email".l, account.email)
-                Button {
-                    showPassword.toggle()
-                } label: {
-                    SpacedText(
-                        "Pass".l,
-                        showPassword ? account.password : hiddenText
-                    )
+                DisclosureGroup("Pass".l) {
+                    Text(account.password)
+                        .font(.system(.body, design: .monospaced))
+                        .textSelection(.disabled)
+                        .lineLimit(nil)
+                        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
                 SpacedText("BirthDate".l, account.birthDate)
                 DisclosureGroup("Notes".l) {
                     ScrollView {
                         Text(account.notes)
+                            .font(.system(.body, design: .monospaced))
                             .lineLimit(nil)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
-                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .listRowInsets(.init(top: 8, leading: 0, bottom: 0, trailing: 8))
                     .frame(maxHeight: 200)
                 }
             }
@@ -60,6 +59,7 @@ struct DisplayAccount: View {
             }
         }
         .navigationTitle(account.accountName)
+        .textSelection(.enabled)
         .fileExporter(
             isPresented: $viewModel.showExportFile,
             document: viewModel.document,

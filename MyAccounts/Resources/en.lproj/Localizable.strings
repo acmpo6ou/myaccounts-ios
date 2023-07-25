@@ -78,7 +78,7 @@
 "AccountInfo" = "Account info";
 "Username" = "Username:";
 "Email" = "Email:";
-"Pass" = "Password:";
+"Pass" = "Password";
 "BirthDate" = "Date of birth:";
 "Notes" = "Notes";
 "NotesHidden" = "Notes are hidden, tap to toggle their visibility.";
