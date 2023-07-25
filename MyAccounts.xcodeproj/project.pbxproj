@@ -15,6 +15,7 @@
 		D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */; };
 		D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */; };
 		D26F7B632A65BBC4000BB5CD /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B622A65BBC4000BB5CD /* ErrorModel.swift */; };
+		D2774D732A6FC61000F72945 /* DisplayAccountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */; };
 		D27CEDBA2A52D0580091B634 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDB92A52D0580091B634 /* Database.swift */; };
 		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
@@ -86,6 +87,7 @@
 		D26E0EFD2A51DD4400F47D72 /* DatabasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesList.swift; sourceTree = "<group>"; };
 		D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		D26F7B622A65BBC4000BB5CD /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAccountUITests.swift; sourceTree = "<group>"; };
 		D27CEDB92A52D0580091B634 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		D27CEDBB2A52D1420091B634 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D27CEDBE2A5311F60091B634 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */,
+				D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				D2A940082A6695CF00BA9D0E /* BaseTest.swift in Sources */,
 				D2A940052A66958800BA9D0E /* CreateDatabaseUITests.swift in Sources */,
 				D2DAE0822A69BDD40044964A /* OpenDatabaseUITests.swift in Sources */,
+				D2774D732A6FC61000F72945 /* DisplayAccountUITests.swift in Sources */,
 				D2FDD62C2A61438600F79D8A /* Utilities.swift in Sources */,
 				D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */,
 				D2EF561F2A682D3E00D33CD4 /* GenPassUITests.swift in Sources */,
