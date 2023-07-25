@@ -19,6 +19,7 @@ import SwiftUI
 
 class DisplayAccountViewModel: ObservableObject, ErrorModel {
     var account: Account!
+    @Published var showExportSuccess = false
     @Published var showExportFile = false
     @Published var defaultFilename: String?
     @Published var document: BinaryDocument?
@@ -42,8 +43,7 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
     func handleExportResult(_ result: Result<URL, Error>) {
         switch result {
         case .success:
-            // TODO: indicate success
-            break
+            showExportSuccess = true
         case .failure(let error):
             showError(error, title: "Error.Export".l)
         }

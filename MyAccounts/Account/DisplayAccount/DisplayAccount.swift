@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import SwiftUI
+import AlertToast
 
 struct DisplayAccount: View {
     @StateObject var viewModel = DisplayAccountViewModel()
@@ -67,6 +68,12 @@ struct DisplayAccount: View {
             defaultFilename: viewModel.defaultFilename
         ) {
             viewModel.handleExportResult($0)
+        }
+        .toast(isPresenting: $viewModel.showExportSuccess) {
+            AlertToast(
+                type: .complete(.green),
+                title: "Success".l
+            )
         }
         .alert(
             Text(viewModel.errorTitle),
