@@ -76,7 +76,14 @@ final class DatabasesListUITests: BaseTest {
         closeButton = app.buttons["CloseDB".l("unsaved")]
         XCTAssert(!closeButton.exists)
 
-        // TODO: test that it was actually saved by opening it and checking list of accounts
+        // open `unsaved`, and check that it was actually saved
+        app.staticTexts["unsaved"].tap()
+        app.staticTexts["unsaved"].tap()
+        app.secureTextFields["Password".l].writeText("123")
+        app.buttons["OpenDBButton".l].tap()
+        XCTAssert(!app.staticTexts["gmail"].exists)
+        XCTAssert(app.staticTexts["mega"].exists)
+
         // TODO: test choosing Close instead of Save
     }
 
