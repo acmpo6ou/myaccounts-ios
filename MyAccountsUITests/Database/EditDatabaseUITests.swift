@@ -65,9 +65,10 @@ final class EditDatabaseUITests: BaseTest {
         app.buttons["OpenDBButton".l].tap()
 
         // you should be redirected to AccountsList
-        // TODO: check accounts
         XCTAssert(!app.staticTexts["OpenDB".l("test2")].exists)
         XCTAssert(app.navigationBars["test2"].exists)
+        XCTAssert(app.staticTexts["gmail"].exists)
+        XCTAssert(app.staticTexts["mega"].exists)
 
         // edit `test2` again, this time without renaming it
         goBack()
@@ -92,8 +93,9 @@ final class EditDatabaseUITests: BaseTest {
         app.buttons["OpenDBButton".l].tap()
 
         // you should be redirected to AccountsList
-        // TODO: check accounts
         XCTAssert(!app.staticTexts["OpenDB".l("test2")].exists)
         XCTAssert(app.navigationBars["test2"].exists)
+        XCTAssert(app.staticTexts["gmail"].exists)
+        XCTAssert(app.staticTexts["mega"].exists)
     }
 }

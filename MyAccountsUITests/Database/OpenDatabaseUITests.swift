@@ -40,8 +40,9 @@ final class OpenDatabaseUITests: BaseTest {
         app.buttons["OpenDBButton".l].tap()
 
         // You should be redirected to AccountsList
-        // TODO: check accounts
         XCTAssert(!app.staticTexts["OpenDB".l("main")].exists)
         XCTAssert(app.navigationBars["main"].exists)
+        XCTAssert(app.staticTexts["gmail"].exists)
+        XCTAssert(app.staticTexts["mega"].exists)
     }
 }
