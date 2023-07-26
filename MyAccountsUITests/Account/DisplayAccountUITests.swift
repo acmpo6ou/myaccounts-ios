@@ -55,11 +55,11 @@ final class DisplayAccountUITests: BaseTest {
         app.staticTexts["mega"].tap()
         XCTAssert(!app.staticTexts["ATTACHED FILES"].exists)
 
-        // go back, then go to `no_attached` info screen
+        // go back, then go to `gmail` info screen of `no_attached` database
         goBack()
         goBack()
-        app.staticTexts["test"].tap()
         app.staticTexts["no_attached"].tap()
+        app.staticTexts["gmail"].tap()
 
         // export `file1` replacing if it already exists
         app.buttons["file1"].tap()

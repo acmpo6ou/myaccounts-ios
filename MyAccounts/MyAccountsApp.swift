@@ -64,6 +64,7 @@ struct MyAccountsApp: App {
             try copyDatabase(as: "unsaved")
             viewModel.loadDatabases()
 
+            try viewModel.items[1].open(with: "123")
             try viewModel.items[2].open(with: "123")
             try viewModel.items[3].open(with: "123")
             viewModel.items[3].accounts["gmail"] = nil
