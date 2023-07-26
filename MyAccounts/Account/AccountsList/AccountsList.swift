@@ -28,6 +28,7 @@ struct AccountsList: View {
             createItem: { AnyView(CreateAccount()) },
             editItem: { AnyView(EditAccount(account: $0)) }
         )
+        .navigationTitle(database.name)
     }
 }
 
