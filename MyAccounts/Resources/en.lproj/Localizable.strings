@@ -83,3 +83,4 @@
 "NotesHidden" = "Notes are hidden, tap to toggle their visibility.";
 "AttachedFiles" = "Attached files";
 "Error.Export" = "Failed to export file.";
+"CopyPass" = "Copy password";

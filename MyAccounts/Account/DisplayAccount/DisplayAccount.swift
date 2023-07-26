@@ -34,7 +34,9 @@ struct DisplayAccount: View {
                         .font(.system(.body, design: .monospaced))
                         .textSelection(.disabled)
                         .lineLimit(nil)
-                        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    Button("CopyPass".l) {
+                        // TODO: copy the password
+                    }
                 }
                 SpacedText("BirthDate".l, account.birthDate)
                 DisclosureGroup("Notes".l) {
