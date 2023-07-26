@@ -83,8 +83,20 @@ final class DatabasesListUITests: BaseTest {
         app.buttons["OpenDBButton".l].tap()
         XCTAssert(!app.staticTexts["gmail"].exists)
         XCTAssert(app.staticTexts["mega"].exists)
+    }
 
-        // TODO: test choosing Close instead of Save
+    func testCloseWithoutSaving() throws {
+        // close `unsaved` without saving the changes
+        app.staticTexts["unsaved"].swipeLeft()
+        app.buttons["CloseDB".l("unsaved")].tap()
+        app.buttons["CloseDBAlert.Close".l].tap()
+
+        // open `unsaved`, and check that the changes weren't saved
+        app.staticTexts["unsaved"].tap()
+        app.secureTextFields["Password".l].writeText("123")
+        app.buttons["OpenDBButton".l].tap()
+        XCTAssert(app.staticTexts["gmail"].exists)
+        XCTAssert(app.staticTexts["mega"].exists)
     }
 
     func testNavDestination() throws {
