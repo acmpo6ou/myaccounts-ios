@@ -59,14 +59,15 @@ struct MyAccountsApp: App {
         do {
             try setupSrcDir()
             try copyDatabase()
+            try copyDatabase(as: "no_attached")
             try copyDatabase(as: "test")
             try copyDatabase(as: "unsaved")
             viewModel.loadDatabases()
 
-            try viewModel.items[1].open(with: "123")
             try viewModel.items[2].open(with: "123")
-            viewModel.items[2].accounts["gmail"] = nil
-            viewModel.items[2].accounts["mega"]?.attachedFiles = [:]
+            try viewModel.items[3].open(with: "123")
+            viewModel.items[3].accounts["gmail"] = nil
+            viewModel.items[3].accounts["mega"]?.attachedFiles = [:]
             viewModel.items[1].accounts["gmail"]?.attachedFiles["file2"] = "corrupted content"
         } catch {
             error.log(category: "myaccounts_app")

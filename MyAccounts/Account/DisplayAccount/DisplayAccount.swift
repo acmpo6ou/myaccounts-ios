@@ -29,7 +29,7 @@ struct DisplayAccount: View {
             Section("AccountInfo".l) {
                 SpacedText("Username".l, account.username)
                 SpacedText("Email".l, account.email)
-                DisclosureGroup("Pass".l) {
+                DisclosureGroup("Password".l) {
                     Text(account.password)
                         .font(.system(.body, design: .monospaced))
                         .textSelection(.disabled)

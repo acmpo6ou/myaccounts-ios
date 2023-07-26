@@ -43,7 +43,7 @@ final class DisplayAccountUITests: BaseTest {
         XCTAssert(app.buttons["file2"].exists)
 
         // expanding password and notes should reveal them
-        app.staticTexts["Pass".l].tap()
+        app.staticTexts["Password".l].tap()
         XCTAssert(app.staticTexts["123"].exists)
         app.staticTexts["Notes".l].tap()
         XCTAssert(app.staticTexts["My gmail account."].exists)
@@ -55,11 +55,11 @@ final class DisplayAccountUITests: BaseTest {
         app.staticTexts["mega"].tap()
         XCTAssert(!app.staticTexts["ATTACHED FILES"].exists)
 
-        // go back, then go to `gmail` info screen
+        // go back, then go to `no_attached` info screen
         goBack()
         goBack()
         app.staticTexts["test"].tap()
-        app.staticTexts["gmail"].tap()
+        app.staticTexts["no_attached"].tap()
 
         // export `file1` replacing if it already exists
         app.buttons["file1"].tap()

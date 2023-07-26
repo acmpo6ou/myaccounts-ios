@@ -15,7 +15,7 @@ final class DatabasesListUITests: BaseTest {
         XCTAssert(!app.staticTexts["NoItems".l].exists)
 
         // delete all databases
-        for db in ["main", "test", "unsaved"] {
+        for db in ["main", "test", "unsaved", "no_attached"] {
             app.staticTexts[db].swipeLeft()
             app.buttons["DeleteDB".l(db)].tap()
             app.buttons["Delete".l].tap()
