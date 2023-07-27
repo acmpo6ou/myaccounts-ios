@@ -29,8 +29,13 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupPasteButton()
         setupNextKeyboardButton()
+    }
+
+    func setupView() {
+        view.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
 
     func setupPasteButton() {
