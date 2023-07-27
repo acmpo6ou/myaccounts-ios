@@ -131,6 +131,8 @@
 		D2935AAC2A72811300FB5936 /* MyAccountsBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyAccountsBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2935AAE2A72811300FB5936 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		D2935AB02A72811300FB5936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2935ABA2A72DE6B00FB5936 /* MyAccounts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyAccounts.entitlements; sourceTree = "<group>"; };
+		D2935ABB2A72DE9000FB5936 /* MyAccountsBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyAccountsBoard.entitlements; sourceTree = "<group>"; };
 		D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListViewModelTests.swift; sourceTree = "<group>"; };
 		D296FD592A62FD14006BFEE5 /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		D2A602522A581FDE00BAFB54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		D2935AAD2A72811300FB5936 /* MyAccountsBoard */ = {
 			isa = PBXGroup;
 			children = (
+				D2935ABB2A72DE9000FB5936 /* MyAccountsBoard.entitlements */,
 				D2935AAE2A72811300FB5936 /* KeyboardViewController.swift */,
 				D2935AB02A72811300FB5936 /* Info.plist */,
 			);
@@ -384,6 +387,7 @@
 		D2AB93432A4BF464004334BB /* MyAccounts */ = {
 			isa = PBXGroup;
 			children = (
+				D2935ABA2A72DE6B00FB5936 /* MyAccounts.entitlements */,
 				D2610EF42A5EE2E000BB100C /* Info.plist */,
 				D2A6025B2A58477300BAFB54 /* Common */,
 				D2A602582A5846FA00BAFB54 /* Views */,
@@ -887,6 +891,7 @@
 		D2935AB52A72811300FB5936 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MyAccountsBoard/MyAccountsBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URTVUTC478;
@@ -912,6 +917,7 @@
 		D2935AB62A72811300FB5936 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MyAccountsBoard/MyAccountsBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URTVUTC478;
@@ -1057,6 +1063,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyAccounts/MyAccounts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyAccounts/Preview Content\"";
@@ -1090,6 +1097,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyAccounts/MyAccounts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyAccounts/Preview Content\"";
