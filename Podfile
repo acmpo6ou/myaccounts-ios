@@ -9,6 +9,10 @@ target 'MyAccounts' do
   pod 'AlertToast'
   pod 'KeychainAccess'
 
+  target 'MyAccountsBoard' do
+    pod 'KeychainAccess'
+  end
+
   target 'MyAccountsTests' do
     inherit! :search_paths
     # Pods for testing
