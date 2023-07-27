@@ -1060,7 +1060,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B004358B01E77A1EB7DBC4C3 /* Pods-MyAccounts.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyAccounts/MyAccounts.entitlements;
@@ -1094,7 +1093,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 925479D2B79F745289A48628 /* Pods-MyAccounts.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyAccounts/MyAccounts.entitlements;
@@ -1128,7 +1126,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C473CD1278393EB2ACC2CCD /* Pods-MyAccountsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1149,7 +1146,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF15A37F20ED868354A8FFA8 /* Pods-MyAccountsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1170,7 +1166,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D07B68272F3B3C55F777F1E /* Pods-MyAccounts-MyAccountsUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URTVUTC478;
@@ -1189,7 +1184,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF03D0DB1DE1791614D9DAEC /* Pods-MyAccounts-MyAccountsUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URTVUTC478;
