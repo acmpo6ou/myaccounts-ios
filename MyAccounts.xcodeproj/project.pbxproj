@@ -25,6 +25,8 @@
 		D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */; };
 		D28E27402A6D25C8009F57CE /* AccountsListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */; };
 		D28E27422A6D3F31009F57CE /* SpacedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E27412A6D3F31009F57CE /* SpacedText.swift */; };
+		D2935AAF2A72811300FB5936 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2935AAE2A72811300FB5936 /* KeyboardViewController.swift */; };
+		D2935AB32A72811300FB5936 /* MyAccountsBoard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D2935AAC2A72811300FB5936 /* MyAccountsBoard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D296FD582A62FC83006BFEE5 /* DatabasesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */; };
 		D296FD5A2A62FD14006BFEE5 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296FD592A62FD14006BFEE5 /* BaseTest.swift */; };
 		D2A602512A581FDE00BAFB54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2A602532A581FDE00BAFB54 /* Localizable.strings */; };
@@ -64,6 +66,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D2935AB12A72811300FB5936 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2AB93392A4BF464004334BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2935AAB2A72811300FB5936;
+			remoteInfo = MyAccountsBoard;
+		};
 		D2AB93522A4BF465004334BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D2AB93392A4BF464004334BB /* Project object */;
@@ -79,6 +88,20 @@
 			remoteInfo = MyAccounts;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2935AB42A72811300FB5936 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D2935AB32A72811300FB5936 /* MyAccountsBoard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2C473CD1278393EB2ACC2CCD /* Pods-MyAccountsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAccountsTests.debug.xcconfig"; path = "Target Support Files/Pods-MyAccountsTests/Pods-MyAccountsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +128,9 @@
 		D27CFF432A5ED4A9004DA27E /* CreateDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDatabase.swift; sourceTree = "<group>"; };
 		D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListUITests.swift; sourceTree = "<group>"; };
 		D28E27412A6D3F31009F57CE /* SpacedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedText.swift; sourceTree = "<group>"; };
+		D2935AAC2A72811300FB5936 /* MyAccountsBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyAccountsBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2935AAE2A72811300FB5936 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		D2935AB02A72811300FB5936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListViewModelTests.swift; sourceTree = "<group>"; };
 		D296FD592A62FD14006BFEE5 /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		D2A602522A581FDE00BAFB54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -149,6 +175,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D2935AA92A72811300FB5936 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AB933E2A4BF464004334BB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,7 +219,6 @@
 				2C473CD1278393EB2ACC2CCD /* Pods-MyAccountsTests.debug.xcconfig */,
 				CF15A37F20ED868354A8FFA8 /* Pods-MyAccountsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -262,6 +294,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		D2935AAD2A72811300FB5936 /* MyAccountsBoard */ = {
+			isa = PBXGroup;
+			children = (
+				D2935AAE2A72811300FB5936 /* KeyboardViewController.swift */,
+				D2935AB02A72811300FB5936 /* Info.plist */,
+			);
+			path = MyAccountsBoard;
+			sourceTree = "<group>";
+		};
 		D296FD5B2A62FD21006BFEE5 /* DatabaseList */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +363,7 @@
 				D2AB93432A4BF464004334BB /* MyAccounts */,
 				D2AB93542A4BF465004334BB /* MyAccountsTests */,
 				D2AB935E2A4BF465004334BB /* MyAccountsUITests */,
+				D2935AAD2A72811300FB5936 /* MyAccountsBoard */,
 				D2AB93422A4BF464004334BB /* Products */,
 				7B00ADCD34152F889DC2CDAF /* Pods */,
 				85C36F44D37AB038E71AC980 /* Frameworks */,
@@ -334,6 +376,7 @@
 				D2AB93412A4BF464004334BB /* MyAccounts.app */,
 				D2AB93512A4BF465004334BB /* MyAccountsTests.xctest */,
 				D2AB935B2A4BF465004334BB /* MyAccountsUITests.xctest */,
+				D2935AAC2A72811300FB5936 /* MyAccountsBoard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -451,6 +494,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D2935AAB2A72811300FB5936 /* MyAccountsBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2935AB72A72811300FB5936 /* Build configuration list for PBXNativeTarget "MyAccountsBoard" */;
+			buildPhases = (
+				D2935AA82A72811300FB5936 /* Sources */,
+				D2935AA92A72811300FB5936 /* Frameworks */,
+				D2935AAA2A72811300FB5936 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyAccountsBoard;
+			productName = MyAccountsBoard;
+			productReference = D2935AAC2A72811300FB5936 /* MyAccountsBoard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D2AB93402A4BF464004334BB /* MyAccounts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2AB93652A4BF465004334BB /* Build configuration list for PBXNativeTarget "MyAccounts" */;
@@ -461,10 +521,12 @@
 				D2AB933F2A4BF464004334BB /* Resources */,
 				D22C5BFE2A4C5F9800D95DF9 /* ShellScript */,
 				095B0F5C935056209CEB20A3 /* [CP] Embed Pods Frameworks */,
+				D2935AB42A72811300FB5936 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D2935AB22A72811300FB5936 /* PBXTargetDependency */,
 			);
 			name = MyAccounts;
 			productName = MyAccounts;
@@ -520,6 +582,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					D2935AAB2A72811300FB5936 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					D2AB93402A4BF464004334BB = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -549,11 +614,19 @@
 				D2AB93402A4BF464004334BB /* MyAccounts */,
 				D2AB93502A4BF465004334BB /* MyAccountsTests */,
 				D2AB935A2A4BF465004334BB /* MyAccountsUITests */,
+				D2935AAB2A72811300FB5936 /* MyAccountsBoard */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D2935AAA2A72811300FB5936 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AB933F2A4BF464004334BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -705,6 +778,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D2935AA82A72811300FB5936 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2935AAF2A72811300FB5936 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AB933D2A4BF464004334BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -774,6 +855,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D2935AB22A72811300FB5936 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2935AAB2A72811300FB5936 /* MyAccountsBoard */;
+			targetProxy = D2935AB12A72811300FB5936 /* PBXContainerItemProxy */;
+		};
 		D2AB93532A4BF465004334BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D2AB93402A4BF464004334BB /* MyAccounts */;
@@ -798,6 +884,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D2935AB52A72811300FB5936 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = URTVUTC478;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyAccountsBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Password Keyboard";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.acmpo6ou.myaccounts.MyAccounts.MyAccountsBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2935AB62A72811300FB5936 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = URTVUTC478;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyAccountsBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Password Keyboard";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.acmpo6ou.myaccounts.MyAccounts.MyAccountsBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D2AB93632A4BF465004334BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -918,6 +1054,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B004358B01E77A1EB7DBC4C3 /* Pods-MyAccounts.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -950,6 +1087,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 925479D2B79F745289A48628 /* Pods-MyAccounts.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1061,6 +1199,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D2935AB72A72811300FB5936 /* Build configuration list for PBXNativeTarget "MyAccountsBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2935AB52A72811300FB5936 /* Debug */,
+				D2935AB62A72811300FB5936 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D2AB933C2A4BF464004334BB /* Build configuration list for PBXProject "MyAccounts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
