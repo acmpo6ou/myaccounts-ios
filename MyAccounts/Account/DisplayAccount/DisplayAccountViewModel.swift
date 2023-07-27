@@ -16,6 +16,7 @@
 
 import Foundation
 import SwiftUI
+import KeychainAccess
 
 class DisplayAccountViewModel: ObservableObject, ErrorModel {
     var account: Account!
@@ -47,5 +48,15 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
         case .failure(let error):
             showError(error, title: "Error.Export".l)
         }
+    }
+
+    func copyPass() {
+        let keychain = Keychain(
+            service: "com.acmpo6ou.myaccounts",
+            accessGroup: "com.acmpo6ou.myaccounts"
+        )
+        keychain["clipboard"] = account.password
+        // TODO: indicate password was copied
+        // TODO: clear password after 1 minute!!!
     }
 }

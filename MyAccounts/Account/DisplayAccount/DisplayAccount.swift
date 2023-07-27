@@ -35,7 +35,7 @@ struct DisplayAccount: View {
                         .textSelection(.disabled)
                         .lineLimit(nil)
                     Button("CopyPass".l) {
-                        // TODO: copy the password
+                        viewModel.copyPass()
                     }
                 }
                 SpacedText("BirthDate".l, account.birthDate)

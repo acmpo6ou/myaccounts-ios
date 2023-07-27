@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
+import KeychainAccess
 
 class KeyboardViewController: UIInputViewController {
 
@@ -46,6 +47,16 @@ class KeyboardViewController: UIInputViewController {
         view.addSubview(pasteButton)
         pasteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         pasteButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        pasteButton.addTarget(self, action: #selector(pastePass), for: [])
+    }
+
+    @objc func pastePass() {
+        let keychain = Keychain(
+            service: "com.acmpo6ou.myaccounts",
+            accessGroup: "com.acmpo6ou.myaccounts"
+        )
+        print(keychain["clipboard"])
+        // TODO: remove password from clipboard after paste
     }
 
     func setupNextKeyboardButton() {
