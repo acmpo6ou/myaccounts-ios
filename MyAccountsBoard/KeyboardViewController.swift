@@ -19,6 +19,7 @@ import UIKit
 class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
+    @IBOutlet var pasteButton: UIButton!
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -28,7 +29,18 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPasteButton()
         setupNextKeyboardButton()
+    }
+
+    func setupPasteButton() {
+        pasteButton = UIButton(type: .system)
+        pasteButton.setTitle("Paste password", for: [])
+        pasteButton.configuration = UIButton.Configuration.borderedProminent()
+        pasteButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pasteButton)
+        pasteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        pasteButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
     func setupNextKeyboardButton() {
@@ -39,7 +51,7 @@ class KeyboardViewController: UIInputViewController {
         nextKeyboardButton.sizeToFit()
         nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-        view.addSubview(self.nextKeyboardButton)
+        view.addSubview(nextKeyboardButton)
         nextKeyboardButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         nextKeyboardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
