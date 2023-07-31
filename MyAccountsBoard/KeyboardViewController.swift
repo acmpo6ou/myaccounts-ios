@@ -21,6 +21,7 @@ class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     @IBOutlet var pasteButton: UIButton!
+    @IBOutlet var noPassword: UITextView!
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -32,6 +33,7 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         setupView()
         setupPasteButton()
+        setupNoPasswordText()
         setupNextKeyboardButton()
     }
 
@@ -51,14 +53,33 @@ class KeyboardViewController: UIInputViewController {
     }
 
     @objc func pastePass() {
-        // Note: MyAccounts and MyAccountsBoard have separate Info.plist files. The KeychainGroupName is duplicated in both files, so if you change the field in one Info.plist, don't forget to also change it in the other.
+        // Note: MyAccounts and MyAccountsBoard have separate Info.plist files.
+        // The KeychainGroupName is duplicated in both files,
+        // so if you change the field in one Info.plist, don't forget to also change it in the other.
         let keychainGroupName = Bundle.main.infoDictionary?["KeychainGroupName"] as! String
         let keychain = Keychain(
             service: "com.acmpo6ou.myaccounts",
             accessGroup: keychainGroupName
         )
-        print(keychain["clipboard"])
+        if let password = keychain["clipboard"] {
+//            noPassword.isHidden = true
+            textDocumentProxy.insertText(password)
+            keychain["clipboard"] = nil
+        } else {
+//            noPassword.isHidden = false
+        }
         // TODO: remove password from clipboard after paste
+    }
+
+    func setupNoPasswordText() {
+        // TODO: SET WIDTH AND HEIGHT FIXES EVERYTHING!
+        noPassword = UITextView()
+        noPassword.text = "You didn't copy the password!"
+//        noPassword.isHidden = true
+        pasteButton.topAnchor.constraint(equalTo: pasteButton.bottomAnchor).isActive = true
+        pasteButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        pasteButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        view.addSubview(noPassword)
     }
 
     func setupNextKeyboardButton() {
