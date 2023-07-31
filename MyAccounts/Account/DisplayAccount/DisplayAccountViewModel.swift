@@ -51,9 +51,10 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
     }
 
     func copyPass() {
+        let keychainGroupName = Bundle.main.infoDictionary!["KeychainGroupName"] as! String
         let keychain = Keychain(
             service: "com.acmpo6ou.myaccounts",
-            accessGroup: "com.acmpo6ou.myaccounts"
+            accessGroup: keychainGroupName
         )
         keychain["clipboard"] = account.password
         // TODO: indicate password was copied

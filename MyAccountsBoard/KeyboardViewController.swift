@@ -51,9 +51,10 @@ class KeyboardViewController: UIInputViewController {
     }
 
     @objc func pastePass() {
+        let keychainGroupName = Bundle.main.infoDictionary!["KeychainGroupName"] as! String
         let keychain = Keychain(
             service: "com.acmpo6ou.myaccounts",
-            accessGroup: "com.acmpo6ou.myaccounts"
+            accessGroup: keychainGroupName
         )
         print(keychain["clipboard"])
         // TODO: remove password from clipboard after paste
