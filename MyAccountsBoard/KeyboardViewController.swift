@@ -47,11 +47,12 @@ class KeyboardViewController: UIInputViewController {
         view.addSubview(pasteButton)
         pasteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         pasteButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        pasteButton.addTarget(self, action: #selector(pastePass), for: [])
+        pasteButton.addTarget(self, action: #selector(pastePass), for: .touchUpInside)
     }
 
     @objc func pastePass() {
-        let keychainGroupName = Bundle.main.infoDictionary!["KeychainGroupName"] as! String
+        // Note: MyAccounts and MyAccountsBoard have separate Info.plist files. The KeychainGroupName is duplicated in both files, so if you change the field in one Info.plist, don't forget to also change it in the other.
+        let keychainGroupName = Bundle.main.infoDictionary?["KeychainGroupName"] as! String
         let keychain = Keychain(
             service: "com.acmpo6ou.myaccounts",
             accessGroup: keychainGroupName
