@@ -58,6 +58,7 @@ class KeyboardViewController: UIInputViewController {
         if let password = keychain["clipboard"] {
             noPassword.isHidden = true
             textDocumentProxy.insertText(password)
+            haptic(.medium)
             keychain["clipboard"] = nil
         } else {
             noPassword.isHidden = false
@@ -104,5 +105,8 @@ class KeyboardViewController: UIInputViewController {
         }
         nextKeyboardButton.setTitleColor(textColor, for: [])
     }
-
+    
+    func haptic(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        UIImpactFeedbackGenerator(style: style).impactOccurred()
+    }
 }

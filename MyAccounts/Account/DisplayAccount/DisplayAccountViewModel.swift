@@ -20,7 +20,7 @@ import KeychainAccess
 
 class DisplayAccountViewModel: ObservableObject, ErrorModel {
     var account: Account!
-    @Published var showExportSuccess = false
+    @Published var showSuccess = false
     @Published var showExportFile = false
     @Published var defaultFilename: String?
     @Published var document: BinaryDocument?
@@ -44,7 +44,7 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
     func handleExportResult(_ result: Result<URL, Error>) {
         switch result {
         case .success:
-            showExportSuccess = true
+            showSuccess = true
         case .failure(let error):
             showError(error, title: "Error.Export".l)
         }
@@ -57,7 +57,8 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
             accessGroup: keychainGroupName
         )
         keychain["clipboard"] = account.password
-        // TODO: indicate password was copied
+        showSuccess = true
+        haptic(.medium)
         // TODO: clear password after 1 minute!!!
     }
 }

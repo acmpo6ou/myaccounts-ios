@@ -34,9 +34,9 @@ struct DisplayAccount: View {
                         .font(.system(.body, design: .monospaced))
                         .textSelection(.disabled)
                         .lineLimit(nil)
-                    Button("CopyPass".l) {
-                        viewModel.copyPass()
-                    }
+                }
+                Button("CopyPass".l) {
+                    viewModel.copyPass()
                 }
                 SpacedText("BirthDate".l, account.birthDate)
                 DisclosureGroup("Notes".l) {
@@ -71,7 +71,7 @@ struct DisplayAccount: View {
         ) {
             viewModel.handleExportResult($0)
         }
-        .toast(isPresenting: $viewModel.showExportSuccess) {
+        .toast(isPresenting: $viewModel.showSuccess) {
             AlertToast(
                 type: .complete(.green),
                 title: "Success".l
