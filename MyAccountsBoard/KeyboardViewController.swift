@@ -62,23 +62,22 @@ class KeyboardViewController: UIInputViewController {
             accessGroup: keychainGroupName
         )
         if let password = keychain["clipboard"] {
-//            noPassword.isHidden = true
+            noPassword.isHidden = true
             textDocumentProxy.insertText(password)
             keychain["clipboard"] = nil
         } else {
-//            noPassword.isHidden = false
+            noPassword.isHidden = false
         }
         // TODO: remove password from clipboard after paste
     }
 
     func setupNoPasswordText() {
-        // TODO: SET WIDTH AND HEIGHT FIXES EVERYTHING!
-        noPassword = UITextView()
+        noPassword = UITextView(frame: .init(x: 0, y: 0, width: 400, height: 50))
+        noPassword.backgroundColor = .none
+        noPassword.font = .systemFont(ofSize: 26)
         noPassword.text = "You didn't copy the password!"
-//        noPassword.isHidden = true
-        pasteButton.topAnchor.constraint(equalTo: pasteButton.bottomAnchor).isActive = true
-        pasteButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        pasteButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        noPassword.textAlignment = .center
+        noPassword.isHidden = true
         view.addSubview(noPassword)
     }
 
