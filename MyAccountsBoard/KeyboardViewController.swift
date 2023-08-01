@@ -23,12 +23,6 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet var pasteButton: UIButton!
     @IBOutlet var noPassword: UITextView!
 
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-
-        // Add custom view sizing constraints here
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -68,7 +62,6 @@ class KeyboardViewController: UIInputViewController {
         } else {
             noPassword.isHidden = false
         }
-        // TODO: remove password from clipboard after paste
     }
 
     func setupNoPasswordText() {
@@ -97,10 +90,6 @@ class KeyboardViewController: UIInputViewController {
     override func viewWillLayoutSubviews() {
         nextKeyboardButton.isHidden = !needsInputModeSwitchKey
         super.viewWillLayoutSubviews()
-    }
-
-    override func textWillChange(_ textInput: UITextInput?) {
-        // The app is about to change the document's contents. Perform any preparation here.
     }
 
     override func textDidChange(_ textInput: UITextInput?) {
