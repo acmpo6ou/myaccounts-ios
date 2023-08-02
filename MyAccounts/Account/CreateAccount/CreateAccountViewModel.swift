@@ -22,7 +22,7 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
     @Published var birthDate = // 01-01-2000
         Date(timeIntervalSince1970: (30 * 365 + 7) * 24 * 60 * 60)
     @Published var notes = ""
-    @Published var attachedFiles: [String: String] = [:]
+    @Published var attachedFiles: [String: URL] = [:]
 
     @Published var fileToAttach: URL!
     @Published var showAttachFile = false
@@ -39,8 +39,7 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
         case .success(let url):
             let fileName = url.lastPathComponent
             if attachedFiles[fileName] == nil {
-                // TODO: set actual content
-                attachedFiles[url.lastPathComponent] = ""
+                attachedFiles[url.lastPathComponent] = url
             } else {
                 fileToAttach = url
                 showAttachConfirm = true
@@ -52,8 +51,7 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
     }
 
     func replace() {
-        // TODO: set actual content
-        attachedFiles[fileToAttach.lastPathComponent] = ""
+        attachedFiles[fileToAttach.lastPathComponent] = fileToAttach
     }
 
     func createAccount() {

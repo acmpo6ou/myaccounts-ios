@@ -130,13 +130,14 @@ struct CreateAccount_Previews: PreviewProvider {
     static func getModel() -> CreateAccountViewModel {
         let viewModel = CreateAccountViewModel()
         viewModel.attachedFiles = [
-            "file1": "", "file2": "",
-            "file3": "", "file9": "",
-            "file4": "", "file0": "",
-            "file5": "", "file10": "",
-            "file6": "", "file11": "",
-            "file7": "", "file12": "",
-            "file8": "", "file13": ""
+            "file1": URL(string: "https://")!,
+            "file2": URL(string: "https://")!,
+            "file3": URL(string: "https://")!,
+            "file4": URL(string: "https://")!,
+            "file5": URL(string: "https://")!,
+            "file6": URL(string: "https://")!,
+            "file7": URL(string: "https://")!,
+            "file8": URL(string: "https://")!
         ]
         return viewModel
     }

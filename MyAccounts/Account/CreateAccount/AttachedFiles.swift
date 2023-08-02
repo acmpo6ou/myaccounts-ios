@@ -45,7 +45,10 @@ struct AttachedFiles: View {
 struct AttachedFiles_Previews: PreviewProvider {
     static func getModel() -> CreateAccountViewModel {
         let viewModel = CreateAccountViewModel()
-        viewModel.attachedFiles = ["file1": "", "file2": ""]
+        viewModel.attachedFiles = [
+            "file1": URL(string: "https://")!,
+            "file2": URL(string: "https://")!
+        ]
         return viewModel
     }
 
