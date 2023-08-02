@@ -76,11 +76,14 @@
 
 // DisplayAccount
 "AccountInfo" = "Account info";
-"Username" = "Username:";
-"Email" = "Email:";
-"BirthDate" = "Date of birth:";
+"Username" = "Username";
+"Email" = "Email";
+"BirthDate" = "Date of birth";
 "Notes" = "Notes";
 "NotesHidden" = "Notes are hidden, tap to toggle their visibility.";
 "AttachedFiles" = "Attached files";
 "Error.Export" = "Failed to export file.";
 "CopyPass" = "Copy password";
+
+// CreateAccount
+"AccName" = "Account name";

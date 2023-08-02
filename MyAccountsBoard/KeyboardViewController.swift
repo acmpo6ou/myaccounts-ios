@@ -105,7 +105,7 @@ class KeyboardViewController: UIInputViewController {
         }
         nextKeyboardButton.setTitleColor(textColor, for: [])
     }
-    
+
     func haptic(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
         UIImpactFeedbackGenerator(style: style).impactOccurred()
     }

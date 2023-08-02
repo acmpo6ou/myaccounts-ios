@@ -17,13 +17,85 @@
 import SwiftUI
 
 struct CreateAccount: View {
+    @StateObject var viewModel = CreateAccountViewModel()
+    @Binding var database: Database
+    var applyButtonText = "Create".l
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Field(
+                label: "AccName".l,
+                text: $viewModel.name,
+                errorMessage: viewModel.nameError,
+                validate: {
+                    validate()
+                }
+            )
+            Field(
+                label: "Username".l,
+                text: $viewModel.username,
+                validate: {
+                    validate()
+                }
+            )
+            Field(
+                label: "Email".l,
+                text: $viewModel.email,
+                validate: {
+                    validate()
+                }
+            )
+            PasswordField(
+                label: "Password".l,
+                password: $viewModel.password,
+                errorMessage: viewModel.passwordError,
+                validate: validate
+            )
+            PasswordField(
+                label: "RepeatPassword".l,
+                password: $viewModel.repeatPassword,
+                validate: validate
+            )
+            DatePicker(
+                "BirthDate".l,
+                selection: $viewModel.birthDate,
+                displayedComponents: [.date]
+            )
+            .font(.system(size: 24))
+            Button("GenPass".l) {
+                viewModel.showGenPass = true
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    viewModel.createAccount()
+                } label: {
+                    Text(applyButtonText).fontWeight(.semibold)
+                        .font(.system(size: 24))
+                        .padding()
+                }
+                .disabled(!viewModel.applyEnabled)
+            }
+        }
+        .modifier(
+            GenPass(
+                isPresented: $viewModel.showGenPass,
+                pass1: $viewModel.password,
+                pass2: $viewModel.repeatPassword
+            )
+        )
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+
+    func validate() {
     }
 }
 
 struct CreateAccount_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccount()
+        CreateAccount(database: .constant(Database(name: "main")))
     }
 }

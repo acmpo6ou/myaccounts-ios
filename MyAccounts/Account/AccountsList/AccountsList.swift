@@ -25,7 +25,9 @@ struct AccountsList: View {
             createLabel: "CreateAcc".l,
             destination: { AnyView(DisplayAccount(account: $0.wrappedValue)) },
             itemView: { AnyView(AccountItem(account: $0)) },
-            createItem: { AnyView(CreateAccount()) },
+            createItem: {
+                AnyView(CreateAccount(database: $database))
+            },
             editItem: { AnyView(EditAccount(account: $0)) }
         )
         .navigationTitle(database.name)
