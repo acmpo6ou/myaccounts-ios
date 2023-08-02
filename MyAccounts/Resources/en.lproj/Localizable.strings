@@ -88,5 +88,6 @@
 
 // CreateAccount
 "AccName" = "Account name";
+"FileListEmpty" = "Press + to attach files.";
 "ReplaceAttachMsg" = "File with the same name already exists, replace?";
 "Error.Attach" = "Failed to attach the file.";

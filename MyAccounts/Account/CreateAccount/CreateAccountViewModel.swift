@@ -53,6 +53,11 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
         attachedFiles[fileToAttach.lastPathComponent] = fileToAttach
     }
 
+    func detachFile(_ index: IndexSet) {
+        let fileName = attachedFiles.keys.sorted()[index.first!]
+        attachedFiles[fileName] = nil
+    }
+
     func createAccount() {
     }
 }

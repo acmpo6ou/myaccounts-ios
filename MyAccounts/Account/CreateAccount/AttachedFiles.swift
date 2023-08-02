@@ -25,8 +25,11 @@ struct AttachedFiles: View {
                 ForEach(viewModel.attachedFiles.keys.sorted(), id: \.self) { fileName in
                     Text(fileName)
                 }
+                .onDelete { index in
+                    viewModel.detachFile(index)
+                }
                 if viewModel.attachedFiles.keys.sorted().isEmpty {
-                    Text("Press + to attach files.")
+                    Text("FileListEmpty".l)
                 }
             } header: {
                 HStack {
