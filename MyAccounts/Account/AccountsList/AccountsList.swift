@@ -26,7 +26,11 @@ struct AccountsList: View {
             destination: { AnyView(DisplayAccount(account: $0.wrappedValue)) },
             itemView: { AnyView(AccountItem(account: $0)) },
             createItem: {
-                AnyView(CreateAccount(database: $database))
+                AnyView(
+                    ScrollView(.vertical) {
+                        CreateAccount(database: $database)
+                    }
+                )
             },
             editItem: { AnyView(EditAccount(account: $0)) }
         )

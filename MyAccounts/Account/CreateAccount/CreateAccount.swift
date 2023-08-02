@@ -107,8 +107,13 @@ struct CreateAccount: View {
 
 struct CreateAccount_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollView(.vertical) {
-            CreateAccount(database: .constant(Database(name: "main")))
+        VStack {}.sheet(isPresented: .constant(true)) {
+            NavigationStack {
+                ScrollView(.vertical) {
+                    CreateAccount(database: .constant(Database(name: "main")))
+                }
+            }
+            .presentationDragIndicator(.visible)
         }
     }
 }
