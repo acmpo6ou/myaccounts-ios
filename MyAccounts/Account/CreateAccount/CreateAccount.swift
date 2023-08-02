@@ -61,7 +61,18 @@ struct CreateAccount: View {
                 selection: $viewModel.birthDate,
                 displayedComponents: [.date]
             )
-            .font(.system(size: 24))
+            .font(.system(size: 28))
+            Text("Notes".l)
+                .font(.system(size: 28))
+                .frame(maxWidth: .infinity, alignment: .leading)
+            TextEditor(text: $viewModel.notes)
+                .font(.system(size: 28))
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                            .stroke(.gray, lineWidth: 1)
+                )
+                .frame(minHeight: 200)
             Button("GenPass".l) {
                 viewModel.showGenPass = true
             }
@@ -96,6 +107,8 @@ struct CreateAccount: View {
 
 struct CreateAccount_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccount(database: .constant(Database(name: "main")))
+        ScrollView(.vertical) {
+            CreateAccount(database: .constant(Database(name: "main")))
+        }
     }
 }

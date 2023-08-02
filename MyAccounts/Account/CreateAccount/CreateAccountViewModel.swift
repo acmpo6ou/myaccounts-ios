@@ -21,6 +21,7 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
     @Published var email = ""
     @Published var birthDate = // 01-01-2000
         Date(timeIntervalSince1970: (30 * 365 + 7) * 24 * 60 * 60)
+    @Published var notes = ""
 
     @Published var showGenPass = false
 
