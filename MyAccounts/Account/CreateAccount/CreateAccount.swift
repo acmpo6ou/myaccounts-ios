@@ -78,7 +78,7 @@ struct CreateAccount: View {
             }
             .buttonStyle(.borderedProminent)
             AttachedFiles()
-                .frame(width: .infinity, height: 300, alignment: .leading)
+                .frame(height: 300, alignment: .leading)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -129,6 +129,7 @@ struct CreateAccount: View {
     }
 
     func validate() {
+        viewModel.applyEnabled(takenNames: database.accounts.keys.map {$0})
     }
 }
 
