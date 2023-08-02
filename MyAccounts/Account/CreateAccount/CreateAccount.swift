@@ -17,7 +17,7 @@
 import SwiftUI
 
 struct CreateAccount: View {
-    @StateObject var viewModel = CreateAccountViewModel()
+    @EnvironmentObject var viewModel: CreateAccountViewModel
     @Binding var database: Database
     var applyButtonText = "Create".l
 
@@ -78,7 +78,7 @@ struct CreateAccount: View {
             }
             .buttonStyle(.borderedProminent)
             AttachedFiles()
-                .environmentObject(viewModel)
+                .frame(width: .infinity, height: 300, alignment: .leading)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -108,11 +108,26 @@ struct CreateAccount: View {
 }
 
 struct CreateAccount_Previews: PreviewProvider {
+    static func getModel() -> CreateAccountViewModel {
+        let viewModel = CreateAccountViewModel()
+        viewModel.attachedFiles = [
+            "file1": "", "file2": "",
+            "file3": "", "file9": "",
+            "file4": "", "file0": "",
+            "file5": "", "file10": "",
+            "file6": "", "file11": "",
+            "file7": "", "file12": "",
+            "file8": "", "file13": ""
+        ]
+        return viewModel
+    }
+
     static var previews: some View {
         VStack {}.sheet(isPresented: .constant(true)) {
             NavigationStack {
                 ScrollView(.vertical) {
                     CreateAccount(database: .constant(Database(name: "main")))
+                        .environmentObject(getModel())
                 }
             }
             .presentationDragIndicator(.visible)

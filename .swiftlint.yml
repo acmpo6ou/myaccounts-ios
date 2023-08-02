@@ -2,6 +2,7 @@ disabled_rules:
   - todo
   - force_cast
   - unused_setter_value
+  - function_body_length
 
 identifier_name:
   min_length: 1

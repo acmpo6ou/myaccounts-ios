@@ -29,6 +29,7 @@ struct AccountsList: View {
                 AnyView(
                     ScrollView(.vertical) {
                         CreateAccount(database: $database)
+                            .environmentObject(CreateAccountViewModel())
                     }
                 )
             },
