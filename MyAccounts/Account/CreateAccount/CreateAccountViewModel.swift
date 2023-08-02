@@ -45,8 +45,7 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
                 showAttachConfirm = true
             }
         case .failure(let error):
-            // TODO: handle
-            break
+            showError(error, title: "Error.Attach".l)
         }
     }
 

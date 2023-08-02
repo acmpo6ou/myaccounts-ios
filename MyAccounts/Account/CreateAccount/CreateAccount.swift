@@ -118,6 +118,12 @@ struct CreateAccount: View {
                 pass2: $viewModel.repeatPassword
             )
         )
+        .alert(
+            Text(viewModel.errorTitle),
+            isPresented: $viewModel.showErrorAlert,
+            actions: {},
+            message: { Text(viewModel.errorMessage) }
+        )
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
