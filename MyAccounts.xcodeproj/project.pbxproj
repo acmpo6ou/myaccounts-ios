@@ -42,6 +42,7 @@
 		D2AB93562A4BF465004334BB /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB93552A4BF465004334BB /* DatabaseTests.swift */; };
 		D2AB93602A4BF465004334BB /* DatabasesListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */; };
 		D2B171472A7A4B07009EF12F /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B171462A7A4B07009EF12F /* CreateAccountViewModel.swift */; };
+		D2B171492A7A7143009EF12F /* AttachedFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B171482A7A7143009EF12F /* AttachedFiles.swift */; };
 		D2B365FA2A6B17D20043C659 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365F92A6B17D20043C659 /* ListItem.swift */; };
 		D2B365FD2A6B1A310043C659 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FC2A6B1A310043C659 /* ListViewModel.swift */; };
 		D2B365FF2A6C155B0043C659 /* ItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B365FE2A6C155B0043C659 /* ItemsList.swift */; };
@@ -154,6 +155,7 @@
 		D2AB935B2A4BF465004334BB /* MyAccountsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAccountsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB935F2A4BF465004334BB /* DatabasesListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasesListUITests.swift; sourceTree = "<group>"; };
 		D2B171462A7A4B07009EF12F /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		D2B171482A7A7143009EF12F /* AttachedFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachedFiles.swift; sourceTree = "<group>"; };
 		D2B365F92A6B17D20043C659 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		D2B365FC2A6B1A310043C659 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		D2B365FE2A6C155B0043C659 /* ItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsList.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 			children = (
 				D2B366042A6C54C30043C659 /* CreateAccount.swift */,
 				D2B171462A7A4B07009EF12F /* CreateAccountViewModel.swift */,
+				D2B171482A7A7143009EF12F /* AttachedFiles.swift */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				D2586F1F2A6AB681004A2F90 /* AccountItem.swift in Sources */,
 				D2B366052A6C54C30043C659 /* CreateAccount.swift in Sources */,
 				D2B366022A6C54200043C659 /* DisplayAccount.swift in Sources */,
+				D2B171492A7A7143009EF12F /* AttachedFiles.swift in Sources */,
 				D2C16CA72A641A8A00C72086 /* Field.swift in Sources */,
 				D2586F212A6AB8E5004A2F90 /* AccountsListViewModel.swift in Sources */,
 				D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */,

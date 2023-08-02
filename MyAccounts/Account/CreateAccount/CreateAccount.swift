@@ -77,6 +77,8 @@ struct CreateAccount: View {
                 viewModel.showGenPass = true
             }
             .buttonStyle(.borderedProminent)
+            AttachedFiles()
+                .environmentObject(viewModel)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
