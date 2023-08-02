@@ -28,7 +28,10 @@ struct AccountsList: View {
             createItem: {
                 AnyView(
                     ScrollView(.vertical) {
-                        CreateAccount(database: $database)
+                        CreateAccount(
+                            database: $database,
+                            isPresented: $viewModel.showCreateItem
+                        )
                             .environmentObject(CreateAccountViewModel())
                     }
                 )

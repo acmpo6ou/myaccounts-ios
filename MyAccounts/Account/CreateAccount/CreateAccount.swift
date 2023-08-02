@@ -19,6 +19,7 @@ import SwiftUI
 struct CreateAccount: View {
     @EnvironmentObject var viewModel: CreateAccountViewModel
     @Binding var database: Database
+    @Binding var isPresented: Bool
     var applyButtonText = "Create".l
 
     var body: some View {
@@ -66,7 +67,7 @@ struct CreateAccount: View {
                 .font(.system(size: 28))
                 .frame(maxWidth: .infinity, alignment: .leading)
             TextEditor(text: $viewModel.notes)
-                .font(.system(size: 28))
+                .font(.system(size: 28, design: .monospaced))
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -126,6 +127,10 @@ struct CreateAccount: View {
         )
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .onAppear {
+            viewModel.database = $database
+            viewModel.isPresented = $isPresented
+        }
     }
 
     func validate() {
@@ -153,7 +158,10 @@ struct CreateAccount_Previews: PreviewProvider {
         VStack {}.sheet(isPresented: .constant(true)) {
             NavigationStack {
                 ScrollView(.vertical) {
-                    CreateAccount(database: .constant(Database(name: "main")))
+                    CreateAccount(
+                        database: .constant(Database(name: "main")),
+                        isPresented: .constant(true)
+                    )
                         .environmentObject(getModel())
                 }
             }

@@ -15,8 +15,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import SwiftUI
 
 class CreateAccountViewModel: CreateViewModel, ErrorModel {
+    var database: Binding<Database>!
+    var isPresented: Binding<Bool>!
+
     @Published var username = ""
     @Published var email = ""
     @Published var birthDate = // 01-01-2000
@@ -24,6 +28,7 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
     @Published var notes = ""
     @Published var attachedFiles: [String: URL] = [:]
 
+    var lastLoadedFile = ""
     @Published var fileToAttach: URL!
     @Published var showAttachFile = false
     @Published var showAttachConfirm = false
@@ -58,6 +63,37 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
         attachedFiles[fileName] = nil
     }
 
+    func loadFiles() throws -> [String: String] {
+        var loadedFiles: [String: String] = [:]
+        for (fileName, url) in attachedFiles {
+            lastLoadedFile = fileName
+            let data = try Data(contentsOf: url)
+            loadedFiles[url.lastPathComponent] = data.toBase64Url()
+        }
+        return loadedFiles
+    }
+
     func createAccount() {
+        let files: [String: String]
+        do {
+            files = try loadFiles()
+        } catch {
+            showError(error, title: "Error.FileLoad".l(lastLoadedFile))
+            return
+        }
+
+        let formater = DateFormatter()
+        formater.dateFormat = "dd.MM.yyyy"
+        let account = Account(
+            accountName: name,
+            username: username,
+            email: email,
+            password: password,
+            birthDate: formater.string(from: birthDate),
+            notes: notes,
+            attachedFiles: files
+        )
+        database.wrappedValue.accounts[name] = account
+        isPresented.wrappedValue = false
     }
 }
