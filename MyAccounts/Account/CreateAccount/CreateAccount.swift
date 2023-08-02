@@ -92,6 +92,25 @@ struct CreateAccount: View {
                 .disabled(!viewModel.applyEnabled)
             }
         }
+        .fileImporter(
+            isPresented: $viewModel.showAttachFile,
+            allowedContentTypes: [.data]
+        ) { result in
+            withAnimation {
+                viewModel.attachFile(result)
+            }
+        }
+        .confirmationDialog(
+            Text("ReplaceAttachMsg".l),
+            isPresented: $viewModel.showAttachConfirm,
+            titleVisibility: .visible
+        ) {
+            Button("Replace".l, role: .destructive) {
+                withAnimation {
+                    viewModel.replace()
+                }
+            }
+        }
         .modifier(
             GenPass(
                 isPresented: $viewModel.showGenPass,

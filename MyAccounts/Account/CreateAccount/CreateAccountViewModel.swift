@@ -24,13 +24,38 @@ class CreateAccountViewModel: CreateViewModel, ErrorModel {
     @Published var notes = ""
     @Published var attachedFiles: [String: String] = [:]
 
+    @Published var fileToAttach: URL!
+    @Published var showAttachFile = false
+    @Published var showAttachConfirm = false
     @Published var showGenPass = false
+
     @Published var showErrorAlert = false
     @Published var errorTitle = ""
     @Published var errorMessage = ""
     var logCategory = "create_account_model"
 
-    func createAccount() {
+    func attachFile(_ result: Result<URL, Error>) {
+        switch result {
+        case .success(let url):
+            let fileName = url.lastPathComponent
+            if attachedFiles[fileName] == nil {
+                // TODO: set actual content
+                attachedFiles[url.lastPathComponent] = ""
+            } else {
+                fileToAttach = url
+                showAttachConfirm = true
+            }
+        case .failure(let error):
+            // TODO: handle
+            break
+        }
+    }
 
+    func replace() {
+        // TODO: set actual content
+        attachedFiles[fileToAttach.lastPathComponent] = ""
+    }
+
+    func createAccount() {
     }
 }

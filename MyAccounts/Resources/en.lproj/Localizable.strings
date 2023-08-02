@@ -10,6 +10,7 @@
 "Yes" = "Yes";
 "No" = "No";
 "Delete" = "Delete";
+"Replace" = "Replace";
 "Warning" = "Warning";
 "Close" = "Close";
 "NoItems" = "No items.";
@@ -87,3 +88,4 @@
 
 // CreateAccount
 "AccName" = "Account name";
+"ReplaceAttachMsg" = "File with the same name already exists, replace?";

@@ -33,7 +33,7 @@ struct AttachedFiles: View {
                     Text("AttachedFiles".l)
                     Spacer()
                     Button(
-                        action: {},
+                        action: { viewModel.showAttachFile = true },
                         label: { Image(systemName: "plus") }
                     )
                 }
