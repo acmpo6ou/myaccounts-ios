@@ -55,6 +55,7 @@
 		D2DAE0802A697EDE0044964A /* OpenDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DAE07F2A697EDE0044964A /* OpenDatabaseViewModel.swift */; };
 		D2DAE0822A69BDD40044964A /* OpenDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DAE0812A69BDD40044964A /* OpenDatabaseUITests.swift */; };
 		D2DAE0842A69C2EB0044964A /* EditDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DAE0832A69C2EB0044964A /* EditDatabaseViewModel.swift */; };
+		D2E0D55C2A7BAFB300CB9280 /* CreateAccountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E0D55B2A7BAFB300CB9280 /* CreateAccountUITests.swift */; };
 		D2E8DDEB2A6E944000019159 /* DisplayAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E8DDEA2A6E944000019159 /* DisplayAccountViewModel.swift */; };
 		D2E8DDED2A6EA76A00019159 /* BinaryDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E8DDEC2A6EA76A00019159 /* BinaryDocument.swift */; };
 		D2EF561D2A66FA0200D33CD4 /* GenPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF561C2A66FA0200D33CD4 /* GenPass.swift */; };
@@ -168,6 +169,7 @@
 		D2DAE07F2A697EDE0044964A /* OpenDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabaseViewModel.swift; sourceTree = "<group>"; };
 		D2DAE0812A69BDD40044964A /* OpenDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDatabaseUITests.swift; sourceTree = "<group>"; };
 		D2DAE0832A69C2EB0044964A /* EditDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDatabaseViewModel.swift; sourceTree = "<group>"; };
+		D2E0D55B2A7BAFB300CB9280 /* CreateAccountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountUITests.swift; sourceTree = "<group>"; };
 		D2E8DDEA2A6E944000019159 /* DisplayAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAccountViewModel.swift; sourceTree = "<group>"; };
 		D2E8DDEC2A6EA76A00019159 /* BinaryDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryDocument.swift; sourceTree = "<group>"; };
 		D2EF561C2A66FA0200D33CD4 /* GenPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenPass.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				D28E273F2A6D25C8009F57CE /* AccountsListUITests.swift */,
 				D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */,
+				D2E0D55B2A7BAFB300CB9280 /* CreateAccountUITests.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				D2586F1D2A6A9E8D004A2F90 /* EditDatabaseUITests.swift in Sources */,
 				D28E27402A6D25C8009F57CE /* AccountsListUITests.swift in Sources */,
 				D2A940082A6695CF00BA9D0E /* BaseTest.swift in Sources */,
+				D2E0D55C2A7BAFB300CB9280 /* CreateAccountUITests.swift in Sources */,
 				D2A940052A66958800BA9D0E /* CreateDatabaseUITests.swift in Sources */,
 				D2DAE0822A69BDD40044964A /* OpenDatabaseUITests.swift in Sources */,
 				D2774D732A6FC61000F72945 /* DisplayAccountUITests.swift in Sources */,

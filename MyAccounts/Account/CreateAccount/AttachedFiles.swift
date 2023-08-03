@@ -39,6 +39,7 @@ struct AttachedFiles: View {
                         action: { viewModel.showAttachFile = true },
                         label: { Image(systemName: "plus") }
                     )
+                    .accessibilityLabel("AttachFile".l)
                 }
             }
         }
