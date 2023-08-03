@@ -17,7 +17,7 @@
 import Foundation
 import SwiftUI
 
-class CreateAccountViewModel: CreateViewModel, ErrorModel {
+open class CreateAccountViewModel: CreateViewModel, ErrorModel {
     var database: Binding<Database>!
     var isPresented: Binding<Bool>!
 

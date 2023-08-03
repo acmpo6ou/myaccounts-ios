@@ -36,7 +36,17 @@ struct AccountsList: View {
                     }
                 )
             },
-            editItem: { AnyView(EditAccount(account: $0)) }
+            editItem: { account in
+                AnyView(
+                    ScrollView(.vertical) {
+                        EditAccount(
+                            database: $database,
+                            account: account,
+                            isPresented: $viewModel.showEditItem
+                        )
+                    }
+                )
+            }
         )
         .navigationTitle(database.name)
     }

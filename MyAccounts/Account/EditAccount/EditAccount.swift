@@ -17,14 +17,40 @@
 import SwiftUI
 
 struct EditAccount: View {
+    @StateObject var viewModel = EditAccountViewModel()
+    @Binding var database: Database
     @Binding var account: Account
+    @Binding var isPresented: Bool
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        CreateAccount(
+            database: $database,
+            isPresented: $isPresented,
+            applyButtonText: "Save".l
+        )
+        .environmentObject(viewModel as CreateAccountViewModel)
+        .onAppear {
+            viewModel.initialize(
+                account: account,
+                database: $database
+            )
+        }
     }
 }
 
 struct EditAccount_Previews: PreviewProvider {
     static var previews: some View {
-        EditAccount(account: .constant(testAccount))
+        VStack {}.sheet(isPresented: .constant(true)) {
+            NavigationStack {
+                ScrollView(.vertical) {
+                    EditAccount(
+                        database: .constant(Database(name: "main")),
+                        account: .constant(testAccount),
+                        isPresented: .constant(true)
+                    )
+                }
+            }
+            .presentationDragIndicator(.visible)
+        }
     }
 }
