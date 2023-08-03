@@ -39,7 +39,6 @@ extension Data {
         let base64url = self.base64EncodedString()
             .replacingOccurrences(of: "+", with: "-")
             .replacingOccurrences(of: "/", with: "_")
-            .replacingOccurrences(of: "=", with: "")
         return base64url
     }
 
