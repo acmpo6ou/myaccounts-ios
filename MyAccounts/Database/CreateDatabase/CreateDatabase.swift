@@ -45,10 +45,6 @@ struct CreateDatabase: View {
                 password: $viewModel.repeatPassword,
                 validate: validate
             )
-            Button("GenPass".l) {
-                viewModel.showGenPass = true
-            }
-            .buttonStyle(.borderedProminent)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -60,6 +56,11 @@ struct CreateDatabase: View {
                         .padding()
                 }
                 .disabled(!viewModel.applyEnabled)
+            }
+            ToolbarItem(placement: .secondaryAction) {
+                Button("GenPass".l) {
+                    viewModel.showGenPass = true
+                }
             }
         }
         .modifier(

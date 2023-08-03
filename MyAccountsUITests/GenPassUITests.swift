@@ -22,6 +22,8 @@ final class GenPassUITests: BaseTest {
     override func setUpWithError() throws {
         try super.setUpWithError()
         app.buttons["CreateDB".l].tap()
+
+        app.buttons["more"].tap()
         app.buttons["GenPass".l].tap()
 
         length = Int.random(in: 8...128)

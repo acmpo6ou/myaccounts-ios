@@ -74,10 +74,6 @@ struct CreateAccount: View {
                             .stroke(.gray, lineWidth: 1)
                 )
                 .frame(minHeight: 200)
-            Button("GenPass".l) {
-                viewModel.showGenPass = true
-            }
-            .buttonStyle(.borderedProminent)
             AttachedFiles()
                 .frame(height: 300, alignment: .leading)
         }
@@ -91,6 +87,11 @@ struct CreateAccount: View {
                         .padding()
                 }
                 .disabled(!viewModel.applyEnabled)
+            }
+            ToolbarItem(placement: .secondaryAction) {
+                Button("GenPass".l) {
+                    viewModel.showGenPass = true
+                }
             }
         }
         .fileImporter(
