@@ -26,10 +26,17 @@ open class BaseTest: XCTestCase {
         print("SRC_DIR: \(Database.srcDir)")
     }
 
-    func copyDatabase(as name: String = "main") throws {
+    func copyFile(_ name: String, as newName: String = "") throws {
+        var newName = newName
+        if newName.isEmpty { newName = name }
         let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: "main", ofType: "dba")!
-        try FileManager.default.copyItem(atPath: path, toPath: Database.srcDir + "/\(name).dba")
+        let comps = name.components(separatedBy: ".")
+        let path = bundle.path(forResource: comps[0], ofType: comps[1])!
+        try FileManager.default.copyItem(atPath: path, toPath: Database.srcDir + "/\(newName)")
+    }
+
+    func copyDatabase(as name: String = "main") throws {
+        try copyFile("main.dba", as: "\(name).dba")
     }
 
     open override func setUpWithError() throws {
