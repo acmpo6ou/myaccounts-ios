@@ -50,6 +50,8 @@
 		D2B366052A6C54C30043C659 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B366042A6C54C30043C659 /* CreateAccount.swift */; };
 		D2B366082A6C54D70043C659 /* EditAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B366072A6C54D70043C659 /* EditAccount.swift */; };
 		D2BD69C42A7D0EC000A86B53 /* EditAccountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD69C32A7D0EC000A86B53 /* EditAccountUITests.swift */; };
+		D2BD69C72A7D57B200A86B53 /* EditAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD69C62A7D57B200A86B53 /* EditAccountViewModelTests.swift */; };
+		D2BD69C92A7D5F1100A86B53 /* testfile.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2BD69C82A7D5F1100A86B53 /* testfile.txt */; };
 		D2C16CA72A641A8A00C72086 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C16CA62A641A8A00C72086 /* Field.swift */; };
 		D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */ = {isa = PBXBuildFile; fileRef = D2CE7EF12A5AFF8400945A0D /* main.dba */; };
 		D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */; };
@@ -166,6 +168,8 @@
 		D2B366042A6C54C30043C659 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		D2B366072A6C54D70043C659 /* EditAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccount.swift; sourceTree = "<group>"; };
 		D2BD69C32A7D0EC000A86B53 /* EditAccountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountUITests.swift; sourceTree = "<group>"; };
+		D2BD69C62A7D57B200A86B53 /* EditAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewModelTests.swift; sourceTree = "<group>"; };
+		D2BD69C82A7D5F1100A86B53 /* testfile.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = testfile.txt; sourceTree = "<group>"; };
 		D2C16CA62A641A8A00C72086 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		D2CE7EF12A5AFF8400945A0D /* main.dba */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.dba; sourceTree = "<group>"; };
 		D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseData.swift; sourceTree = "<group>"; };
@@ -431,6 +435,7 @@
 		D2AB93542A4BF465004334BB /* MyAccountsTests */ = {
 			isa = PBXGroup;
 			children = (
+				D2BD69C52A7D579A00A86B53 /* Account */,
 				D2CE7EF32A5B2F3100945A0D /* sampledata */,
 				D296FD5B2A62FD21006BFEE5 /* DatabaseList */,
 				D296FD592A62FD14006BFEE5 /* BaseTest.swift */,
@@ -490,11 +495,20 @@
 			path = EditAccount;
 			sourceTree = "<group>";
 		};
+		D2BD69C52A7D579A00A86B53 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D2BD69C62A7D57B200A86B53 /* EditAccountViewModelTests.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		D2CE7EF32A5B2F3100945A0D /* sampledata */ = {
 			isa = PBXGroup;
 			children = (
 				D2CE7EF12A5AFF8400945A0D /* main.dba */,
 				D2CE7EF42A5B306C00945A0D /* DatabaseData.swift */,
+				D2BD69C82A7D5F1100A86B53 /* testfile.txt */,
 			);
 			path = sampledata;
 			sourceTree = "<group>";
@@ -670,6 +684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BD69C92A7D5F1100A86B53 /* testfile.txt in Resources */,
 				D2CE7EF22A5AFF8400945A0D /* main.dba in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -882,6 +897,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BD69C72A7D57B200A86B53 /* EditAccountViewModelTests.swift in Sources */,
 				D296FD5A2A62FD14006BFEE5 /* BaseTest.swift in Sources */,
 				D2CE7EF52A5B306C00945A0D /* DatabaseData.swift in Sources */,
 				D296FD582A62FC83006BFEE5 /* DatabasesListViewModelTests.swift in Sources */,
