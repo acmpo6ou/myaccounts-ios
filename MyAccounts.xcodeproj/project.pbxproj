@@ -330,13 +330,13 @@
 			path = MyAccountsBoard;
 			sourceTree = "<group>";
 		};
-		D296FD5B2A62FD21006BFEE5 /* DatabaseList */ = {
+		D296FD5B2A62FD21006BFEE5 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				D2AB93552A4BF465004334BB /* DatabaseTests.swift */,
 				D296FD572A62FC83006BFEE5 /* DatabasesListViewModelTests.swift */,
 			);
-			path = DatabaseList;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		D2A6024C2A581F2A00BAFB54 /* Resources */ = {
@@ -435,9 +435,9 @@
 		D2AB93542A4BF465004334BB /* MyAccountsTests */ = {
 			isa = PBXGroup;
 			children = (
-				D2BD69C52A7D579A00A86B53 /* Account */,
 				D2CE7EF32A5B2F3100945A0D /* sampledata */,
-				D296FD5B2A62FD21006BFEE5 /* DatabaseList */,
+				D2BD69C52A7D579A00A86B53 /* Account */,
+				D296FD5B2A62FD21006BFEE5 /* Database */,
 				D296FD592A62FD14006BFEE5 /* BaseTest.swift */,
 			);
 			path = MyAccountsTests;
