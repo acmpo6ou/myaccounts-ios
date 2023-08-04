@@ -35,17 +35,16 @@ final class EditAccountViewModelTests: BaseTest {
     }
 
     func testAttachFiles() throws {
-        let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: "testfile", ofType: "txt")!
-        try FileManager.default.copyItem(atPath: path, toPath: Database.srcDir + "/testfile.txt")
-        // TODO: test replacing file1 with testfile.txt
-        // TODO: write func to copy from bundle to a path
+        try copyFile("testfile.txt")
+        try copyFile("testfile.txt", as: "file1")
 
         model.attachFile(Result {
             URL(filePath: "\(Database.srcDir)/testfile.txt")
         })
-        model.willDetachFile("file1")
-        model.detachFile()
+        model.attachFile(Result {
+            URL(filePath: "\(Database.srcDir)/file1")
+        })
+        model.replace()
         model.createAccount()
 
         XCTAssertEqual(
@@ -54,7 +53,9 @@ final class EditAccountViewModelTests: BaseTest {
                 // the new file should be loaded
                 "testfile.txt": "SGVsbG8sIHdvcmxkIQo=",
                 // the already attached file should be retained
-                "file2": account.attachedFiles["file2"]!
+                "file2": account.attachedFiles["file2"]!,
+                // file1 should be replaced
+                "file1": "SGVsbG8sIHdvcmxkIQo="
             ]
         )
     }
