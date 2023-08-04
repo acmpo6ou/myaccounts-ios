@@ -46,7 +46,7 @@ open class CreateAccountViewModel: CreateViewModel, ErrorModel {
         case .success(let url):
             let fileName = url.lastPathComponent
             if attachedFiles[fileName] == nil {
-                attachedFiles[url.lastPathComponent] = url
+                attachedFiles[fileName] = url
             } else {
                 fileToAttach = url
                 showAttachConfirm = true
