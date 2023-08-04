@@ -281,10 +281,10 @@
 		D26E0EFB2A51DC6F00F47D72 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				D2B366062A6C54C90043C659 /* EditAccount */,
-				D2B366032A6C54B50043C659 /* CreateAccount */,
-				D2B366002A6C54060043C659 /* DisplayAccount */,
 				D2FD5A392A600E7E003EA40F /* AccountsList */,
+				D2B366002A6C54060043C659 /* DisplayAccount */,
+				D2B366032A6C54B50043C659 /* CreateAccount */,
+				D2B366062A6C54C90043C659 /* EditAccount */,
 				D27CEDBB2A52D1420091B634 /* Account.swift */,
 			);
 			path = Account;
