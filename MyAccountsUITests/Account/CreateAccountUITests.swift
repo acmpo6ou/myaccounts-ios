@@ -52,7 +52,7 @@ final class CreateAccountUITests: BaseTest {
         XCTAssert(!app.staticTexts["Error.EmptyName".l].exists)
         XCTAssert(!app.buttons["Create".l].isEnabled)
 
-        // - MARK: Password fields
+        // MARK: Password fields
 
         // since password field is empty, there should be an error
         XCTAssert(app.staticTexts["Error.EmptyPass".l].exists)
@@ -68,7 +68,7 @@ final class CreateAccountUITests: BaseTest {
         XCTAssert(!app.buttons["Create".l].isEnabled)
 
         // type in the same password into `Repeat password` field
-        app.secureTextFields["RepeatPassword".l].writeText("123")
+        app.secureTextFields["RepeatPass".l].writeText("123")
 
         // there should be no password errors
         XCTAssert(!app.staticTexts["Error.PassDiff".l].exists)
@@ -80,8 +80,7 @@ final class CreateAccountUITests: BaseTest {
         app.textFields["Email".l].writeText("guthib@gmail.com")
         app.datePickers.firstMatch.tap()
         app.staticTexts["25"].tap()
-        app.staticTexts["BirthDate".l]
-            .coordinate(withNormalizedOffset: CGVector(dx: 0.0, dy: 0.0)).tap()
+        app.buttons["PopoverDismissRegion"].tap()
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.writeText("My GitHub account!")
 

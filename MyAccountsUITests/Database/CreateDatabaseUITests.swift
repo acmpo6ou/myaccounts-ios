@@ -44,7 +44,7 @@ final class CreateDatabaseUITests: BaseTest {
         XCTAssert(!app.staticTexts["Error.NameTaken".l].exists)
         XCTAssert(!app.staticTexts["Error.EmptyName".l].exists)
 
-        // - MARK: Password fields
+        // MARK: Password fields
 
         // since password field is empty, there should be an error
         XCTAssert(app.staticTexts["Error.EmptyPass".l].exists)
@@ -58,7 +58,7 @@ final class CreateDatabaseUITests: BaseTest {
         XCTAssert(!app.staticTexts["Error.EmptyPass".l].exists)
 
         // type in the same password into `Repeat password` field
-        app.secureTextFields["RepeatPassword".l].writeText("123")
+        app.secureTextFields["RepeatPass".l].writeText("123")
 
         // there should be no password errors
         XCTAssert(!app.staticTexts["Error.PassDiff".l].exists)
@@ -81,7 +81,7 @@ final class CreateDatabaseUITests: BaseTest {
         // when all data is correct, the button should be enabled
         app.textFields["DBName".l].writeText("data")
         app.secureTextFields["Password".l].writeText("123")
-        app.secureTextFields["RepeatPassword".l].writeText("123")
+        app.secureTextFields["RepeatPass".l].writeText("123")
         XCTAssert(app.buttons["Create".l].isEnabled)
 
         // it should be disabled when there is a name error

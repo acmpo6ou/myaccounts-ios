@@ -41,7 +41,7 @@ struct CreateDatabase: View {
                 validate: validate
             )
             PasswordField(
-                label: "RepeatPassword".l,
+                label: "RepeatPass".l,
                 password: $viewModel.repeatPassword,
                 validate: validate
             )

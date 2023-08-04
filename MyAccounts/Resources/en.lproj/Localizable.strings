@@ -17,6 +17,7 @@
 "GenPass" = "Generate password";
 "Save" = "Save";
 "Success" = "Success!";
+"TogglePass" = "Toggle %@ visibility";
 
 // List
 "DeleteItemAlert.Message" = "Are you sure you want to delete %@?";
@@ -42,7 +43,7 @@
 // CreateViewModel
 "Create" = "Create";
 "Password" = "Password";
-"RepeatPassword" = "Repeat password";
+"RepeatPass" = "Repeat password";
 
 "Error.EmptyName" = "Please provide a name.";
 "Error.NameTaken" = "This name is already taken.";
@@ -66,7 +67,7 @@
 "Punct" = "Punctuation";
 "Generate" = "Generate";
 
-// - MARK: Accounts
+// MARK: Accounts
 
 // AccountsList
 "CreateAcc" = "Create account";

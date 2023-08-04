@@ -55,6 +55,7 @@ struct PasswordField: View {
                         .tint(.gray)
                         .padding()
                 }
+                .accessibilityLabel("TogglePass".l(label))
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
@@ -82,7 +83,7 @@ struct PasswordField_Previews: PreviewProvider {
                 errorMessage: ""
             ) {}
             PasswordField(
-                label: "RepeatPassword".l,
+                label: "RepeatPass".l,
                 password: $password2,
                 tip: "Helpful tip.",
                 errorMessage: "Incorrect password!"

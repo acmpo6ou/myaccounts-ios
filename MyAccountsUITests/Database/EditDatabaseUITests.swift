@@ -27,7 +27,7 @@ final class EditDatabaseUITests: BaseTest {
         // all fields should be prefilled
         let name = app.textFields["DBName".l].value as? String
         let password = app.textFields["Password".l].value as? String
-        let repeatPassword = app.textFields["RepeatPassword".l].value as? String
+        let repeatPassword = app.textFields["RepeatPass".l].value as? String
         XCTAssertEqual(name, "test")
         XCTAssertEqual(password, "123")
         XCTAssertEqual(repeatPassword, "123")
@@ -44,7 +44,7 @@ final class EditDatabaseUITests: BaseTest {
         // edit the database and save it
         app.textFields["DBName".l].replaceText(with: "test2")
         app.secureTextFields["Password".l].replaceText(with: "abc")
-        app.secureTextFields["RepeatPassword".l].replaceText(with: "abc")
+        app.secureTextFields["RepeatPass".l].replaceText(with: "abc")
         app.buttons["Save".l].tap()
 
         // `test2` should appear in the list instead of `test`
@@ -75,7 +75,7 @@ final class EditDatabaseUITests: BaseTest {
         app.staticTexts["test2"].swipeLeft()
         app.buttons["EditDB".l("test2")].tap()
         app.secureTextFields["Password".l].replaceText(with: "321")
-        app.secureTextFields["RepeatPassword".l].replaceText(with: "321")
+        app.secureTextFields["RepeatPass".l].replaceText(with: "321")
         app.buttons["Save".l].tap()
 
         // `test2` should still be in the list

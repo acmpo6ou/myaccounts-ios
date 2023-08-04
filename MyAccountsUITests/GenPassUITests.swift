@@ -33,7 +33,7 @@ final class GenPassUITests: BaseTest {
     func testGeneratePasswordAllChars() throws {
         app.buttons["Generate".l].tap()
         let pass1 = app.textFields["Password".l].value as! String
-        let pass2 = app.textFields["RepeatPassword".l].value as! String
+        let pass2 = app.textFields["RepeatPass".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
         XCTAssertEqual(pass1.count, length)
@@ -49,7 +49,7 @@ final class GenPassUITests: BaseTest {
         app.switches["Punct".l].toggle()
         app.buttons["Generate".l].tap()
         let pass1 = app.textFields["Password".l].value as! String
-        let pass2 = app.textFields["RepeatPassword".l].value as! String
+        let pass2 = app.textFields["RepeatPass".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
         XCTAssertEqual(pass1.count, length)
@@ -65,7 +65,7 @@ final class GenPassUITests: BaseTest {
         app.switches["Punct".l].toggle()
         app.buttons["Generate".l].tap()
         let pass1 = app.textFields["Password".l].value as! String
-        let pass2 = app.textFields["RepeatPassword".l].value as! String
+        let pass2 = app.textFields["RepeatPass".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
         XCTAssertEqual(pass1.count, length)
@@ -81,7 +81,7 @@ final class GenPassUITests: BaseTest {
         app.switches["Punct".l].toggle()
         app.buttons["Generate".l].tap()
         let pass1 = app.textFields["Password".l].value as! String
-        let pass2 = app.textFields["RepeatPassword".l].value as! String
+        let pass2 = app.textFields["RepeatPass".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
         XCTAssertEqual(pass1.count, length)
@@ -97,7 +97,7 @@ final class GenPassUITests: BaseTest {
         app.switches["Upper".l].toggle()
         app.buttons["Generate".l].tap()
         let pass1 = app.textFields["Password".l].value as! String
-        let pass2 = app.textFields["RepeatPassword".l].value as! String
+        let pass2 = app.textFields["RepeatPass".l].value as! String
 
         XCTAssertEqual(pass1, pass2)
         XCTAssertEqual(pass1.count, length)
