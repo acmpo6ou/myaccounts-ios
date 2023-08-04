@@ -58,4 +58,9 @@ class EditAccountViewModel: CreateAccountViewModel {
             takenNames: takenNames.filter { $0 != account.accountName }
         )
     }
+
+    override func createAccount() {
+        database.wrappedValue.accounts[account.accountName] = nil
+        super.createAccount()
+    }
 }
