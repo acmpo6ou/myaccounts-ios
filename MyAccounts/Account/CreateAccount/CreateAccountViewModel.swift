@@ -18,6 +18,7 @@ import Foundation
 import SwiftUI
 
 open class CreateAccountViewModel: CreateViewModel, ErrorModel {
+    var account: Account!
     var database: Binding<Database>!
     var isPresented: Binding<Bool>!
 
@@ -73,9 +74,15 @@ open class CreateAccountViewModel: CreateViewModel, ErrorModel {
     func loadFiles() throws -> [String: String] {
         var loadedFiles: [String: String] = [:]
         for (fileName, url) in attachedFiles {
+            // this check is needed for EditAccount
+            // it's needed to retain the already attached files
+            if url.absoluteString == "https://" {
+                loadedFiles[fileName] = account.attachedFiles[fileName]
+                continue
+            }
             lastLoadedFile = fileName
             let data = try Data(contentsOf: url)
-            loadedFiles[url.lastPathComponent] = data.toBase64Url()
+            loadedFiles[fileName] = data.toBase64Url()
         }
         return loadedFiles
     }

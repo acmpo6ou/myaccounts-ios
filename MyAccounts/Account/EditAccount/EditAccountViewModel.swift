@@ -18,7 +18,6 @@ import Foundation
 import SwiftUI
 
 class EditAccountViewModel: CreateAccountViewModel {
-    var account: Account!
     @Published var showDetachConfirm = false
 
     func initialize(account: Account, database: Binding<Database>) {
