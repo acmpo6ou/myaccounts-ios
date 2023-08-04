@@ -29,6 +29,7 @@ open class CreateAccountViewModel: CreateViewModel, ErrorModel {
     @Published var attachedFiles: [String: URL] = [:]
 
     var lastLoadedFile = ""
+    var fileToDetach = ""
     @Published var fileToAttach: URL!
     @Published var showAttachFile = false
     @Published var showAttachConfirm = false
@@ -58,9 +59,15 @@ open class CreateAccountViewModel: CreateViewModel, ErrorModel {
         attachedFiles[fileToAttach.lastPathComponent] = fileToAttach
     }
 
-    func detachFile(_ index: IndexSet) {
-        let fileName = attachedFiles.keys.sorted()[index.first!]
-        attachedFiles[fileName] = nil
+    func willDetachFile(_ fileName: String) {
+        fileToDetach = fileName
+        withAnimation {
+            detachFile()
+        }
+    }
+
+    func detachFile() {
+        attachedFiles[fileToDetach] = nil
     }
 
     func loadFiles() throws -> [String: String] {

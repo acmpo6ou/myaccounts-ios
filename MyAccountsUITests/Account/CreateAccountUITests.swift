@@ -99,7 +99,7 @@ final class CreateAccountUITests: BaseTest {
         // delete it
         app.textViews.firstMatch.swipeUp()
         app.staticTexts["main.dba"].swipeLeft()
-        app.buttons["Delete"].tap()
+        app.buttons["DetachFile".l("main.dba")].tap()
 
         // it should be gone from the list
         XCTAssert(!app.staticTexts["main.dba".l].exists)

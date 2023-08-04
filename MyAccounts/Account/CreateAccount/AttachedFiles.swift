@@ -23,10 +23,15 @@ struct AttachedFiles: View {
         List {
             Section {
                 ForEach(viewModel.attachedFiles.keys.sorted(), id: \.self) { fileName in
-                    Text(fileName)
-                }
-                .onDelete { index in
-                    viewModel.detachFile(index)
+                    Text(fileName).swipeActions {
+                        Button {
+                            viewModel.willDetachFile(fileName)
+                        } label: {
+                            Image(systemName: "trash.fill")
+                        }
+                        .accessibilityLabel("DetachFile".l(fileName))
+                        .tint(.red)
+                    }
                 }
                 if viewModel.attachedFiles.keys.sorted().isEmpty {
                     Text("FileListEmpty".l)

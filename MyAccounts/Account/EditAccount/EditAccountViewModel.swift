@@ -40,7 +40,7 @@ class EditAccountViewModel: CreateAccountViewModel {
         if let date = formater.date(from: account.birthDate) {
             birthDate = date
         }
-        
+
         for file in account.attachedFiles.keys {
             // URLs that have "https://" as path mean the file they represent is already attached
             attachedFiles[file] = URL(string: "https://")
