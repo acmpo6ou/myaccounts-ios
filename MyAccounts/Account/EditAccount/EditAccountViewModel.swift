@@ -52,4 +52,11 @@ class EditAccountViewModel: CreateAccountViewModel {
         fileToDetach = fileName
         showDetachConfirm = true
     }
+
+    override func validateName(takenNames: [String]) -> Bool {
+        // it's OK if account name didn't change when editing
+        super.validateName(
+            takenNames: takenNames.filter { $0 != account.accountName }
+        )
+    }
 }
