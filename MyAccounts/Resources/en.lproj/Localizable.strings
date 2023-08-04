@@ -94,3 +94,5 @@
 "Error.FileLoad" = "Failed to load %@";
 "AttachFile" = "Attach file";
 "DetachFile" = "Detach file %@";
+"DetachFileMsg" = "Detach file?";
+"Detach" = "Detach";

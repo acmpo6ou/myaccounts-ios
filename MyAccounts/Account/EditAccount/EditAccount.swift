@@ -29,6 +29,17 @@ struct EditAccount: View {
             applyButtonText: "Save".l
         )
         .environmentObject(viewModel as CreateAccountViewModel)
+        .confirmationDialog(
+            Text("DetachFileMsg".l),
+            isPresented: $viewModel.showDetachConfirm,
+            titleVisibility: .visible
+        ) {
+            Button("Detach".l, role: .destructive) {
+                withAnimation {
+                    viewModel.detachFile()
+                }
+            }
+        }
         .onAppear {
             viewModel.initialize(
                 account: account,

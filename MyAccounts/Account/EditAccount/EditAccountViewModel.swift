@@ -19,6 +19,7 @@ import SwiftUI
 
 class EditAccountViewModel: CreateAccountViewModel {
     var account: Account!
+    @Published var showDetachConfirm = false
 
     func initialize(account: Account, database: Binding<Database>) {
         logCategory = "edit_account_model"
@@ -45,5 +46,10 @@ class EditAccountViewModel: CreateAccountViewModel {
             // URLs that have "https://" as path mean the file they represent is already attached
             attachedFiles[file] = URL(string: "https://")
         }
+    }
+
+    override func willDetachFile(_ fileName: String) {
+        fileToDetach = fileName
+        showDetachConfirm = true
     }
 }
