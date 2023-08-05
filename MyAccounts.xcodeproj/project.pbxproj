@@ -307,10 +307,18 @@
 		D277C2502A7E429C0053C708 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				D277C2552A7E8B390053C708 /* Settings */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		D277C2552A7E8B390053C708 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
 				D277C2512A7E42C90053C708 /* Settings.swift */,
 				D277C2532A7E433E0053C708 /* SettingsViewModel.swift */,
 			);
-			path = Other;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		D27CFF422A5ED485004DA27E /* CreateDatabase */ = {
