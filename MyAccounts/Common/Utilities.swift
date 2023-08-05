@@ -18,10 +18,6 @@ import Foundation
 import os
 import UIKit
 
-func haptic(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
-    UIImpactFeedbackGenerator(style: style).impactOccurred()
-}
-
 extension String {
     var length: Int { count }
     var l: String {

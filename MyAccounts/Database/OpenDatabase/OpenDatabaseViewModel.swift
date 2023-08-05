@@ -31,8 +31,10 @@ class OpenDatabaseViewModel: ObservableObject, ErrorModel {
     func openDatabase(_ database: Binding<Database>) {
         do {
             try database.wrappedValue.open(with: password)
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
         } catch DecodingError.dataCorrupted {
             passwordError = "BadPass".l
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
         } catch {
             showError(error, title: "Error.OpenDB".l)
         }

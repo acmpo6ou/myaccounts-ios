@@ -79,6 +79,7 @@ class DatabasesListViewModel: ListViewModel<Database> {
 
     func closeDatabase() {
         dbToClose?.wrappedValue.close()
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
 
     func saveDatabase() {

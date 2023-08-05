@@ -45,6 +45,7 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
         switch result {
         case .success:
             showSuccess = true
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
         case .failure(let error):
             showError(error, title: "Error.Export".l)
         }
@@ -58,7 +59,7 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
         )
         keychain["clipboard"] = account.password
         showSuccess = true
-        haptic(.medium)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
         // TODO: clear password after 1 minute!!!
     }
 
