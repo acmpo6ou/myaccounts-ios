@@ -25,6 +25,7 @@ struct DatabasesList: View {
                 if database.wrappedValue.isOpen {
                     var accsViewModel = AccountsListViewModel(database)
                     AccountsList(database: database)
+                        .transition(.opacity.animation(.easeInOut))
                         .environmentObject(accsViewModel)
                         .environmentObject(accsViewModel as ListViewModel<Account>)
                 } else {

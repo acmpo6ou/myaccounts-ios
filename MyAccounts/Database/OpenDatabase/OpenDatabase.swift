@@ -34,7 +34,9 @@ struct OpenDatabase: View {
                 }
             )
             Button {
-                viewModel.openDatabase($database)
+                withAnimation {
+                    viewModel.openDatabase($database)
+                }
             } label: {
                 Text("OpenDBButton".l)
                     .padding(.vertical, 8)
