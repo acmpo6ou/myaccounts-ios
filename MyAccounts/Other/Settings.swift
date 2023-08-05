@@ -22,16 +22,25 @@ struct Settings: View {
         Form {
             VStack {
                 Toggle("BlockScreen".l, isOn: $viewModel.blockScreen)
+                    .onChange(of: viewModel.blockScreen) { _ in
+                        viewModel.save()
+                    }
                 Text("BlockScreenTip".l)
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             VStack {
                 Toggle("LockApp".l, isOn: $viewModel.lockApp)
+                    .onChange(of: viewModel.lockApp) { _ in
+                        viewModel.save()
+                    }
                 Text("LockAppTip".l)
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
+        }
+        .onAppear {
+            viewModel.initialize()
         }
     }
 }
