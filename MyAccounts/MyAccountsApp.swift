@@ -10,6 +10,9 @@ import SwiftUI
 @main
 struct MyAccountsApp: App {
     let viewModel = DatabasesListViewModel()
+    @StateObject var lockViewModel = LockViewModel()
+    @StateObject var settingsViewModel = SettingsViewModel()
+    @Environment(\.scenePhase) var scenePhase
     @State var preparedData = false
 
     var body: some Scene {
@@ -24,6 +27,16 @@ struct MyAccountsApp: App {
             }
             .environmentObject(viewModel)
             .environmentObject(viewModel as ListViewModel<Database>)
+            .fullScreenCover(isPresented: $lockViewModel.isLocked) {
+                LockView()
+                    .environmentObject(lockViewModel)
+                    .interactiveDismissDisabled()
+            }
+            .onChange(of: scenePhase) { value in
+                if value != .active && settingsViewModel.lockApp {
+                    lockViewModel.isLocked = true
+                }
+            }
         }
     }
 

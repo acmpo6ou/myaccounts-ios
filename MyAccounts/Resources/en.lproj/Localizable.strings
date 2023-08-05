@@ -103,3 +103,9 @@
 "BlockScreenTip" = "to avoid leaking sensitive data.";
 "LockApp" = "Lock app";
 "LockAppTip" = "Lock app when minimized and there are open databases.";
+
+// LockView
+"LockTitle" = "App is locked";
+"LockTip" = "For security, app is locked when there are opened databases. Use your password to unlock.";
+"LockDesc" = "Authenticate yourself to unlock MyAccounts.";
+"Auth" = "Authenticate";

@@ -22,6 +22,8 @@
 		D2774D732A6FC61000F72945 /* DisplayAccountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */; };
 		D277C2522A7E42C90053C708 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D277C2512A7E42C90053C708 /* Settings.swift */; };
 		D277C2542A7E433E0053C708 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D277C2532A7E433E0053C708 /* SettingsViewModel.swift */; };
+		D277C2572A7E8B620053C708 /* LockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D277C2562A7E8B620053C708 /* LockViewModel.swift */; };
+		D277C2592A7E8D190053C708 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D277C2582A7E8D190053C708 /* LockView.swift */; };
 		D27CEDBA2A52D0580091B634 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDB92A52D0580091B634 /* Database.swift */; };
 		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
@@ -135,6 +137,8 @@
 		D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAccountUITests.swift; sourceTree = "<group>"; };
 		D277C2512A7E42C90053C708 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D277C2532A7E433E0053C708 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D277C2562A7E8B620053C708 /* LockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewModel.swift; sourceTree = "<group>"; };
+		D277C2582A7E8D190053C708 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		D27CEDB92A52D0580091B634 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		D27CEDBB2A52D1420091B634 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D27CEDBE2A5311F60091B634 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -307,6 +311,7 @@
 		D277C2502A7E429C0053C708 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				D277C25A2A7E94830053C708 /* LockView */,
 				D277C2552A7E8B390053C708 /* Settings */,
 			);
 			path = Other;
@@ -319,6 +324,15 @@
 				D277C2532A7E433E0053C708 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		D277C25A2A7E94830053C708 /* LockView */ = {
+			isa = PBXGroup;
+			children = (
+				D277C2562A7E8B620053C708 /* LockViewModel.swift */,
+				D277C2582A7E8D190053C708 /* LockView.swift */,
+			);
+			path = LockView;
 			sourceTree = "<group>";
 		};
 		D27CFF422A5ED485004DA27E /* CreateDatabase */ = {
@@ -900,6 +914,7 @@
 				D2586F212A6AB8E5004A2F90 /* AccountsListViewModel.swift in Sources */,
 				D2F7B78D2A63E335002CEDF8 /* CreateDatabaseViewModel.swift in Sources */,
 				D2B366082A6C54D70043C659 /* EditAccount.swift in Sources */,
+				D277C2592A7E8D190053C708 /* LockView.swift in Sources */,
 				D2DAE0802A697EDE0044964A /* OpenDatabaseViewModel.swift in Sources */,
 				D2E8DDED2A6EA76A00019159 /* BinaryDocument.swift in Sources */,
 				D2EF561D2A66FA0200D33CD4 /* GenPass.swift in Sources */,
@@ -910,6 +925,7 @@
 				D26E0EFE2A51DD4400F47D72 /* DatabasesList.swift in Sources */,
 				D2A602572A5843DC00BAFB54 /* DatabasesListViewModel.swift in Sources */,
 				D2B365FA2A6B17D20043C659 /* ListItem.swift in Sources */,
+				D277C2572A7E8B620053C708 /* LockViewModel.swift in Sources */,
 				D27CFF442A5ED4A9004DA27E /* CreateDatabase.swift in Sources */,
 				D2F7B78F2A64033C002CEDF8 /* PasswordField.swift in Sources */,
 				D2FD5A362A5FF81D003EA40F /* OpenDatabase.swift in Sources */,
