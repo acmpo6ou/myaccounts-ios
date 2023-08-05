@@ -20,6 +20,8 @@
 		D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */; };
 		D26F7B632A65BBC4000BB5CD /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F7B622A65BBC4000BB5CD /* ErrorModel.swift */; };
 		D2774D732A6FC61000F72945 /* DisplayAccountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */; };
+		D277C2522A7E42C90053C708 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D277C2512A7E42C90053C708 /* Settings.swift */; };
+		D277C2542A7E433E0053C708 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D277C2532A7E433E0053C708 /* SettingsViewModel.swift */; };
 		D27CEDBA2A52D0580091B634 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDB92A52D0580091B634 /* Database.swift */; };
 		D27CEDBC2A52D1420091B634 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBB2A52D1420091B634 /* Account.swift */; };
 		D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27CEDBF2A5324D10091B634 /* Fernet.swift */; };
@@ -131,6 +133,8 @@
 		D26F7B602A6578BE000BB5CD /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		D26F7B622A65BBC4000BB5CD /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		D2774D722A6FC61000F72945 /* DisplayAccountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAccountUITests.swift; sourceTree = "<group>"; };
+		D277C2512A7E42C90053C708 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		D277C2532A7E433E0053C708 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D27CEDB92A52D0580091B634 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		D27CEDBB2A52D1420091B634 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D27CEDBE2A5311F60091B634 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -300,6 +304,15 @@
 			path = DatabasesList;
 			sourceTree = "<group>";
 		};
+		D277C2502A7E429C0053C708 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D277C2512A7E42C90053C708 /* Settings.swift */,
+				D277C2532A7E433E0053C708 /* SettingsViewModel.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		D27CFF422A5ED485004DA27E /* CreateDatabase */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +431,7 @@
 				D2A6024C2A581F2A00BAFB54 /* Resources */,
 				D26E0EFA2A51DC3700F47D72 /* Database */,
 				D26E0EFB2A51DC6F00F47D72 /* Account */,
+				D277C2502A7E429C0053C708 /* Other */,
 				D2AB93442A4BF464004334BB /* MyAccountsApp.swift */,
 				D2AB934A2A4BF465004334BB /* Preview Content */,
 			);
@@ -861,12 +875,14 @@
 				D27CEDBC2A52D1420091B634 /* Account.swift in Sources */,
 				D2A602552A58207E00BAFB54 /* Utilities.swift in Sources */,
 				D26F7B612A6578BE000BB5CD /* CreateViewModel.swift in Sources */,
+				D277C2522A7E42C90053C708 /* Settings.swift in Sources */,
 				D2610EF72A5EEFEC00BB100C /* EditDatabase.swift in Sources */,
 				D2B171472A7A4B07009EF12F /* CreateAccountViewModel.swift in Sources */,
 				D2DAE0842A69C2EB0044964A /* EditDatabaseViewModel.swift in Sources */,
 				D2AB93452A4BF464004334BB /* MyAccountsApp.swift in Sources */,
 				D2B365FF2A6C155B0043C659 /* ItemsList.swift in Sources */,
 				D27CEDC02A5324D10091B634 /* Fernet.swift in Sources */,
+				D277C2542A7E433E0053C708 /* SettingsViewModel.swift in Sources */,
 				D2586F1F2A6AB681004A2F90 /* AccountItem.swift in Sources */,
 				D2B366052A6C54C30043C659 /* CreateAccount.swift in Sources */,
 				D2B366022A6C54200043C659 /* DisplayAccount.swift in Sources */,

@@ -97,3 +97,9 @@
 "DetachFile" = "Detach file %@";
 "DetachFileMsg" = "Detach file?";
 "Detach" = "Detach";
+
+// Settings
+"BlockScreen" = "Block screen capture";
+"BlockScreenTip" = "to avoid leaking sensitive data.";
+"LockApp" = "Lock app";
+"LockAppTip" = "Lock app when minimized and there are open databases.";
