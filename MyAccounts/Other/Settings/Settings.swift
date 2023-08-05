@@ -21,19 +21,13 @@ struct Settings: View {
     var body: some View {
         Form {
             VStack {
-                Toggle("BlockScreen".l, isOn: $viewModel.blockScreen)
-                    .onChange(of: viewModel.blockScreen) { _ in
-                        viewModel.save()
-                    }
-                Text("BlockScreenTip".l)
-                    .font(.footnote)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            VStack {
-                Toggle("LockApp".l, isOn: $viewModel.lockApp)
-                    .onChange(of: viewModel.lockApp) { _ in
-                        viewModel.save()
-                    }
+                HStack {
+                    Image(systemName: "lock.fill")
+                    Toggle("LockApp".l, isOn: $viewModel.lockApp)
+                        .onChange(of: viewModel.lockApp) { _ in
+                            viewModel.save()
+                        }
+                }
                 Text("LockAppTip".l)
                     .font(.footnote)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -48,5 +42,6 @@ struct Settings: View {
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
         Settings()
+            .environmentObject(SettingsViewModel())
     }
 }

@@ -18,16 +18,13 @@ import Foundation
 
 class SettingsViewModel: ObservableObject {
     let settings = UserDefaults.standard
-    @Published var blockScreen = true
     @Published var lockApp = true
 
     func initialize() {
-        blockScreen = settings.object(forKey: "block_screen") as? Bool ?? true
         lockApp = settings.object(forKey: "lock_app") as? Bool ?? true
     }
 
     func save() {
-        settings.set(blockScreen, forKey: "block_screen")
         settings.set(lockApp, forKey: "lock_app")
     }
 }
