@@ -12,13 +12,22 @@ struct MyAccountsApp: App {
     let viewModel = DatabasesListViewModel()
     @StateObject var lockViewModel = LockViewModel()
     @StateObject var settingsViewModel = SettingsViewModel()
+
     @Environment(\.scenePhase) var scenePhase
     @State var preparedData = false
+    @State var showSettings = false
 
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 DatabasesList()
+                    .toolbar {
+                        ToolbarItem(placement: .secondaryAction) {
+                            Button("Settings".l) {
+                                showSettings = true
+                            }
+                        }
+                    }
                     .onAppear {
                         viewModel.fixSrcFolder()
                         viewModel.loadDatabases()
@@ -27,6 +36,10 @@ struct MyAccountsApp: App {
             }
             .environmentObject(viewModel)
             .environmentObject(viewModel as ListViewModel<Database>)
+            .sheet(isPresented: $showSettings) {
+                Settings()
+                    .environmentObject(settingsViewModel)
+            }
             .fullScreenCover(isPresented: $lockViewModel.isLocked) {
                 LockView()
                     .environmentObject(lockViewModel)

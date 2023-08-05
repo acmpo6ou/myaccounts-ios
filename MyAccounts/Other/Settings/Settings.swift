@@ -17,7 +17,7 @@
 import SwiftUI
 
 struct Settings: View {
-    @StateObject var viewModel = SettingsViewModel()
+    @EnvironmentObject var viewModel: SettingsViewModel
     var body: some View {
         Form {
             VStack {
