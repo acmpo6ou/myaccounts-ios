@@ -27,6 +27,7 @@ struct ListItemView<T: ListItem>: View {
             Image(systemName: image)
                 .frame(width: 32, height: 32)
             Text(item.itemName)
+                .padding(.leading)
             Spacer()
         }
         .padding(.vertical)
