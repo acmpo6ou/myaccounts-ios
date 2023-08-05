@@ -71,6 +71,13 @@ struct DisplayAccount: View {
         ) {
             viewModel.handleExportResult($0)
         }
+        .toolbar {
+            ToolbarItem(placement: .secondaryAction) {
+                Button("CopyNotes".l) {
+                    viewModel.copyNotes()
+                }
+            }
+        }
         .toast(isPresenting: $viewModel.showSuccess) {
             AlertToast(
                 type: .complete(.green),

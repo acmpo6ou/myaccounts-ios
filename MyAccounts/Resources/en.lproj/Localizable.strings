@@ -86,6 +86,7 @@
 "AttachedFiles" = "Attached files";
 "Error.Export" = "Failed to export file.";
 "CopyPass" = "Copy password";
+"CopyNotes" = "Copy notes";
 
 // CreateAccount
 "AccName" = "Account name";

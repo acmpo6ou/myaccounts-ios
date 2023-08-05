@@ -61,4 +61,8 @@ class DisplayAccountViewModel: ObservableObject, ErrorModel {
         haptic(.medium)
         // TODO: clear password after 1 minute!!!
     }
+
+    func copyNotes() {
+        // TODO: implement
+    }
 }
