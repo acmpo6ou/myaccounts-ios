@@ -38,7 +38,24 @@ struct Account: ListItem, Codable, Equatable {
     }
 
     func getIcon() -> AnyView {
-        if let path = Bundle.main.url(forResource: accountName, withExtension: "txt") {
+        let docsPath = Bundle.main.resourcePath!
+        let fileManager = FileManager.default
+        var icon = "default-icon"
+        do {
+            let icons = try fileManager
+                .contentsOfDirectory(atPath: docsPath)
+                .filter { $0.hasSuffix(".txt") }
+                .map { String($0.dropLast(".txt".count)) }
+                .sorted { $0.count > $1.count }
+            for name in icons where accountName.contains(name) {
+                icon = name
+                break
+            }
+        } catch {
+            print(error)
+        }
+
+        if let path = Bundle.main.url(forResource: icon, withExtension: "txt") {
             return AnyView(SVGView(contentsOf: path))
         } else {
             return AnyView(Image(systemName: "person.crop.circle"))
