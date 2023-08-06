@@ -19,13 +19,12 @@ import SwiftUI
 struct ListItemView<T: ListItem>: View {
     @EnvironmentObject var viewModel: ListViewModel<T>
     @Binding var item: T
-    var image: String
     var deleteLabel: String
+    var image: AnyView
 
     var body: some View {
         HStack {
-            Image(systemName: image)
-                .frame(width: 32, height: 32)
+            image.frame(width: 32, height: 32)
             Text(item.itemName)
                 .padding(.leading)
             Spacer()
@@ -53,8 +52,8 @@ struct ListItem_Previews: PreviewProvider {
         List {
             ListItemView(
                 item: .constant(TestItem()),
-                image: "photo",
-                deleteLabel: "Delete %@"
+                deleteLabel: "Delete %@",
+                image: AnyView(Image(systemName: "photo"))
             )
         }
     }

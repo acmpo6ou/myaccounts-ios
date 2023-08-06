@@ -1753,7 +1753,6 @@
 		D241789F2A7FC27000027ABE /* castbox.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24170A42A7FC24F00027ABE /* castbox.txt */; };
 		D24178A02A7FC27000027ABE /* paloaltosoftware.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24170A52A7FC24F00027ABE /* paloaltosoftware.txt */; };
 		D24178A12A7FC27000027ABE /* bootstrap.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24170A62A7FC25000027ABE /* bootstrap.txt */; };
-		D24178A22A7FC27000027ABE /* gmail.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24170A72A7FC25000027ABE /* gmail.txt */; };
 		D24178A32A7FC27000027ABE /* gocd.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24170A82A7FC25000027ABE /* gocd.txt */; };
 		D24178A42A7FC27000027ABE /* pihole.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24170A92A7FC25000027ABE /* pihole.txt */; };
 		D24178A52A7FC27000027ABE /* qiita.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24170AA2A7FC25000027ABE /* qiita.txt */; };
@@ -1864,7 +1863,6 @@
 		D241790E2A7FC27000027ABE /* knowledgebase.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24171132A7FC25A00027ABE /* knowledgebase.txt */; };
 		D241790F2A7FC27000027ABE /* pocket.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24171142A7FC25A00027ABE /* pocket.txt */; };
 		D24179102A7FC27000027ABE /* protractor.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24171152A7FC25A00027ABE /* protractor.txt */; };
-		D24179112A7FC27000027ABE /* mega.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24171162A7FC25A00027ABE /* mega.txt */; };
 		D24179122A7FC27000027ABE /* justgiving.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24171172A7FC25A00027ABE /* justgiving.txt */; };
 		D24179132A7FC27000027ABE /* rtlzwei.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24171182A7FC25A00027ABE /* rtlzwei.txt */; };
 		D24179142A7FC27000027ABE /* jordan.txt in Resources */ = {isa = PBXBuildFile; fileRef = D24171192A7FC25A00027ABE /* jordan.txt */; };
@@ -7833,7 +7831,6 @@
 				D241722D2A7FC26E00027ABE /* storybook.txt in Resources */,
 				D24174302A7FC26F00027ABE /* tokyometro.txt in Resources */,
 				D241725C2A7FC26E00027ABE /* lastdotfm.txt in Resources */,
-				D24178A22A7FC27000027ABE /* gmail.txt in Resources */,
 				D24174412A7FC26F00027ABE /* samsungpay.txt in Resources */,
 				D24175462A7FC26F00027ABE /* playstationvita.txt in Resources */,
 				D24176F32A7FC26F00027ABE /* gradle.txt in Resources */,
@@ -8567,7 +8564,6 @@
 				D24173302A7FC26E00027ABE /* slides.txt in Resources */,
 				D24177952A7FC26F00027ABE /* apacherocketmq.txt in Resources */,
 				D24175372A7FC26F00027ABE /* opel.txt in Resources */,
-				D24179112A7FC27000027ABE /* mega.txt in Resources */,
 				D24178732A7FC27000027ABE /* vivaldi.txt in Resources */,
 				D241798A2A7FC27000027ABE /* accusoft.txt in Resources */,
 				D241780C2A7FC27000027ABE /* robotframework.txt in Resources */,

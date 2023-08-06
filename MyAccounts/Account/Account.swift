@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import SwiftUI
+import SVGView
+
 struct Account: ListItem, Codable, Equatable {
     let accountName: String
     let username: String
@@ -32,6 +35,14 @@ struct Account: ListItem, Codable, Equatable {
         case birthDate = "date"
         case notes = "comment"
         case attachedFiles = "attach_files"
+    }
+
+    func getIcon() -> AnyView {
+        if let path = Bundle.main.url(forResource: accountName, withExtension: "txt") {
+            return AnyView(SVGView(contentsOf: path))
+        } else {
+            return AnyView(Image(systemName: "person.crop.circle"))
+        }
     }
 }
 

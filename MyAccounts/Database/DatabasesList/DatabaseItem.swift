@@ -23,8 +23,10 @@ struct DatabaseItem: View {
     var body: some View {
         ListItemView<Database>(
             item: $database,
-            image: database.isOpen ? "lock.open.fill" : "lock.fill",
-            deleteLabel: "DeleteDB"
+            deleteLabel: "DeleteDB",
+            image: AnyView(
+                Image(systemName: database.isOpen ? "lock.open.fill" : "lock.fill")
+            )
         )
         .swipeActions {
             if database.isOpen {

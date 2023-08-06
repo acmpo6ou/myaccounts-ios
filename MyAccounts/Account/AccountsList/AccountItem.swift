@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import SwiftUI
+import SVGView
 
 struct AccountItem: View {
     @EnvironmentObject var viewModel: AccountsListViewModel
@@ -23,8 +24,8 @@ struct AccountItem: View {
     var body: some View {
         ListItemView<Account>(
             item: $account,
-            image: "person.crop.circle",
-            deleteLabel: "DeleteAcc"
+            deleteLabel: "DeleteAcc",
+            image: account.getIcon()
         )
         .swipeActions {
             Button(
