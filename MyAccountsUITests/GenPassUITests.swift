@@ -23,11 +23,15 @@ final class GenPassUITests: BaseTest {
         try super.setUpWithError()
         app.buttons["CreateDB".l].tap()
 
-        app.buttons["more"].tap()
+        app.buttons.matching(identifier: "more").element(boundBy: 1).tap()
         app.buttons["GenPass".l].tap()
 
-        length = Int.random(in: 8...128)
-        app.pickerWheels.element.adjust(toPickerWheelValue: "\(length)")
+        length = Int.random(in: 4...128)
+        let field = app.textFields["PassLen".l]
+        field.tap()
+        app.keys["Delete"].tap()
+        app.keys["Delete"].tap()
+        field.writeText("\(length)")
     }
 
     func testGeneratePasswordAllChars() throws {

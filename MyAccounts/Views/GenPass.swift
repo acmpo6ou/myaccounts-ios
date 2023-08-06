@@ -49,6 +49,7 @@ struct GenPassView: View {
                 TextField("16", text: $length)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.numberPad)
+                    .accessibilityLabel("PassLen".l)
                     .frame(maxWidth: 100)
             }
 
