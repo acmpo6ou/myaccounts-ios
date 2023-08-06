@@ -46,7 +46,10 @@ struct MyAccountsApp: App {
                     .interactiveDismissDisabled()
             }
             .onChange(of: scenePhase) { value in
-                if value != .active && settingsViewModel.lockApp {
+                let anyDbOpen = viewModel.items.map { $0.isOpen }.contains(true)
+                if value != .active
+                    && settingsViewModel.lockApp
+                    && anyDbOpen {
                     lockViewModel.isLocked = true
                 }
             }
