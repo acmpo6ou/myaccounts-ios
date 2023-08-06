@@ -35,7 +35,7 @@ struct GenPassView: View {
     @Binding var pass1: String
     @Binding var pass2: String
 
-    @State private var length = 16
+    @State private var length = "16"
     @State private var numbersOn = true
     @State private var lowerOn = true
     @State private var upperOn = true
@@ -45,13 +45,11 @@ struct GenPassView: View {
         VStack {
             HStack {
                 Text("PassLen".l)
-                Picker("", selection: $length) {
-                    ForEach(8...128, id: \.self) {
-                        Text("\($0)")
-                    }
-                }
-                .pickerStyle(.wheel)
-                .frame(maxHeight: 100)
+                Spacer()
+                TextField("16", text: $length)
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.numberPad)
+                    .frame(maxWidth: 100)
             }
 
             Toggle("Numbers".l, isOn: $numbersOn)
@@ -81,7 +79,8 @@ struct GenPassView: View {
         if lowerOn { charsToInclude.append(Chars.lower) }
         if upperOn { charsToInclude.append(Chars.upper) }
         if punctOn { charsToInclude.append(Chars.punct) }
-
+        var length = Int(length.filter { "0123456789".contains($0) }) ?? 16
+        if length < 4 { length = 4 }
         let password = genpass(length: length, chars: charsToInclude)
         pass1 = password
         pass2 = password
