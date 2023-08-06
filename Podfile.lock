@@ -1,20 +1,24 @@
 PODS:
   - AlertToast (1.3.9)
   - KeychainAccess (4.2.2)
+  - SVGView (1.0.4)
 
 DEPENDENCIES:
   - AlertToast
   - KeychainAccess
+  - SVGView
 
 SPEC REPOS:
   trunk:
     - AlertToast
     - KeychainAccess
+    - SVGView
 
 SPEC CHECKSUMS:
   AlertToast: e8db15da727beff75500bcf33a78cd617f408fa1
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  SVGView: 4813b73e85fcea6c7ff92720cf1e778c48d0f0db
 
-PODFILE CHECKSUM: a997c4b4030cc21106ef93b48e051c3f583fd8a9
+PODFILE CHECKSUM: 289fbb2e848f9f1adc72ae80bbf398dacc8aaad8
 
 COCOAPODS: 1.12.1

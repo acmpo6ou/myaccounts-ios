@@ -8,6 +8,7 @@ target 'MyAccounts' do
   # Pods for MyAccounts
   pod 'AlertToast'
   pod 'KeychainAccess'
+  pod 'SVGView'
 
   target 'MyAccountsBoard' do
     pod 'KeychainAccess'
