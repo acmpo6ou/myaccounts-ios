@@ -17,6 +17,13 @@
 import SwiftUI
 import SVGView
 
+let docsPath = Bundle.main.resourcePath!
+let icons = (try? FileManager.default
+    .contentsOfDirectory(atPath: docsPath)
+    .filter { $0.hasSuffix(".txt") }
+    .map { String($0.dropLast(".txt".count)) }
+    .sorted { $0.count > $1.count }) ?? []
+
 struct Account: ListItem, Codable, Equatable {
     let accountName: String
     let username: String
@@ -38,21 +45,10 @@ struct Account: ListItem, Codable, Equatable {
     }
 
     func getIcon() -> AnyView {
-        let docsPath = Bundle.main.resourcePath!
-        let fileManager = FileManager.default
         var icon = "default-icon"
-        do {
-            let icons = try fileManager
-                .contentsOfDirectory(atPath: docsPath)
-                .filter { $0.hasSuffix(".txt") }
-                .map { String($0.dropLast(".txt".count)) }
-                .sorted { $0.count > $1.count }
-            for name in icons where accountName.contains(name) {
-                icon = name
-                break
-            }
-        } catch {
-            print(error)
+        for name in icons where accountName.contains(name) {
+            icon = name
+            break
         }
 
         if let path = Bundle.main.url(forResource: icon, withExtension: "txt") {
