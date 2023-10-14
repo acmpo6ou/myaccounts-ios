@@ -82,6 +82,7 @@ struct DatabasesList_Previews: PreviewProvider {
             }
         }
         .environmentObject(viewModel)
+        .environmentObject(viewModel as ListViewModel)
         .previewLayout(.sizeThatFits)
     }
 }
