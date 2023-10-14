@@ -18,10 +18,6 @@ import XCTest
 
 final class DisplayAccountUITests: BaseTest {
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-    }
-
     func testAccountInfo() throws {
         // go to `gmail` info screen
         app.staticTexts["test"].tap()

@@ -29,8 +29,8 @@ struct ListItemView<T: ListItem>: View {
                 .padding(.leading)
             Spacer()
         }
-        .padding(.vertical)
         .font(.title)
+        .frame(maxWidth: .infinity)
         .transition(.slide)
         .swipeActions {
             Button(
