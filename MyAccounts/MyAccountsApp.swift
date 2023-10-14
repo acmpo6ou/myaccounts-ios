@@ -16,6 +16,7 @@ struct MyAccountsApp: App {
     @Environment(\.scenePhase) var scenePhase
     @State var preparedData = false
     @State var showSettings = false
+    @State var blurRadius: CGFloat = 0
 
     var body: some Scene {
         WindowGroup {
@@ -47,12 +48,22 @@ struct MyAccountsApp: App {
             }
             .onChange(of: scenePhase) { value in
                 let anyDbOpen = viewModel.items.map { $0.isOpen }.contains(true)
-                if value != .active
+                if value == .background
                     && settingsViewModel.lockApp
                     && anyDbOpen {
                     lockViewModel.isLocked = true
                 }
             }
+            .blur(radius: blurRadius)
+            .onChange(of: scenePhase, perform: { value in
+                switch value {
+                case .active: withAnimation { blurRadius = 0 }
+                case .inactive: withAnimation { blurRadius = 15 }
+                case .background:
+                    blurRadius = 20
+                @unknown default: print("Unknown scene phase.")
+                }
+            })
         }
     }
 
