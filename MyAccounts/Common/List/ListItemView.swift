@@ -27,10 +27,10 @@ struct ListItemView<T: ListItem>: View {
             image.frame(width: 32, height: 32)
             Text(item.itemName)
                 .padding(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
         }
         .font(.title)
-        .frame(maxWidth: .infinity)
         .transition(.slide)
         .swipeActions {
             Button(
